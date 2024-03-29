@@ -1,0 +1,19 @@
+<script lang="ts">
+	import { Separator } from "../ui/separator";
+  import { NavigationItemsConfiguration, MoreNavigationItems } from "./configuration";
+	import NavigationItem from "./navigation-item.svelte";
+  export let currentPath: string;
+
+</script>
+<nav class="border-r flex flex-col items-start gap-2 h-full p-2">
+  {#key currentPath}
+    {#each NavigationItemsConfiguration as navItem}
+      <NavigationItem navItem={navItem} active={navItem.link === currentPath}/>
+    {/each}
+    <div class="flex-grow"></div>
+    <Separator />
+    {#each MoreNavigationItems as navItem}
+      <NavigationItem navItem={navItem} active={navItem.link === currentPath}/>
+    {/each}
+  {/key}
+</nav>
