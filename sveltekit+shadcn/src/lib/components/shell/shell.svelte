@@ -42,11 +42,11 @@
         <slot />
       </div>
       <Footer />
-      <div class="fixed bottom-4 right-4 z-50" class:hidden={!scrolled} class:block={scrolled}>
+      <div class="fixed bottom-4 right-6 z-50" class:hidden={!scrolled} class:block={scrolled}>
         <Tooltip.Root>
           <Tooltip.Trigger>
-            <Button variant="outline" class="rounded-full" on:click={() => scrollable.scroll({ top: 0, behavior: 'smooth' })} >
-              <span class="text-xs"><ArrowUp /></span>
+            <Button variant="outline" class="rounded-full w-12 h-12" on:click={() => scrollable.scroll({ top: 0, behavior: 'smooth' })} >
+              <ArrowUp />
             </Button>
           </Tooltip.Trigger>
           <Tooltip.Content>
