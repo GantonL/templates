@@ -1,16 +1,11 @@
-import { type Icon, Home, Banana, Settings } from "lucide-svelte";
-import type { ComponentType } from 'svelte';
+import type { NavigationLink } from "$lib/models/navigation-link";
+import {Home, Banana, Settings } from "lucide-svelte";
 
-export interface NavigationItem {
-  label: string;
-  link: string;
-  icon?: ComponentType<Icon>;
-}
-export const NavigationItemsConfiguration: NavigationItem[] = [
+export const NavigationItemsConfiguration: NavigationLink[] = [
   { label: 'Home', icon: Home, link: '/' },
   { label: 'Example', icon: Banana, link: '/example' },
 ];
 
-export const MoreNavigationItems: NavigationItem[] = [
+export const MoreNavigationItems: NavigationLink[] = [
   { label: 'Settings', icon: Settings, link: '/settings' },
 ];

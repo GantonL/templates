@@ -1,12 +1,13 @@
 <script lang="ts">
-	import type { NavigationItem } from "./configuration";
-  export let navItem: NavigationItem;
+	import type { NavigationLink } from "$lib/models/navigation-link";
+
+  export let navLink: NavigationLink;
   export let active: boolean;
   export let expanded: boolean;
 </script>
-<a href={navItem.link} class="flex flex-row items-center gap-2 rounded-md px-2 py-1 w-full hover:bg-secondary" class:bg-primary-foreground={!active} class:bg-secondary={active}>
-  {#if navItem.icon}
-    <svelte:component this={navItem.icon} size=16/>
+<a href={navLink.link} class="flex flex-row items-center gap-2 rounded-md px-2 py-1 w-full hover:bg-secondary" class:bg-primary-foreground={!active} class:bg-secondary={active}>
+  {#if navLink.icon}
+    <svelte:component this={navLink.icon} size=16/>
   {/if}
-  <span class:hidden={!expanded}>{navItem.label}</span>
+  <span class:hidden={!expanded}>{navLink.label}</span>
 </a>

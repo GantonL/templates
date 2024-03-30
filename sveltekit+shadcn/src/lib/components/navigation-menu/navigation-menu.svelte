@@ -10,12 +10,12 @@
   {#key expanded}
     {#key currentPath}
       {#each NavigationItemsConfiguration as navItem}
-        <NavigationItem navItem={navItem} active={navItem.link === currentPath} {expanded}/>
+        <NavigationItem navLink={navItem} active={navItem.link === currentPath} {expanded}/>
       {/each}
       <div class="flex-grow"></div>
       <Separator />
       {#each MoreNavigationItems as navItem}
-        <NavigationItem navItem={navItem} active={navItem.link === currentPath} {expanded}/>
+        <NavigationItem navLink={navItem} active={navItem.link === currentPath} {expanded}/>
       {/each}
     {/key}
   {/key}

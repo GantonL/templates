@@ -4,6 +4,7 @@
 	import Button from "../ui/button/button.svelte";
 	import { createEventDispatcher, onMount } from "svelte";
 	import { CustomEvents } from "$lib/enums/custom-events";
+	import { AppName } from "$lib/consts";
   const dispath = createEventDispatcher();
   let open = true;
   function dispatchMenuToggled() {
@@ -23,7 +24,7 @@
         <Menu />
       {/if}
     </Button>
-    <a href="/" class="text-2xl font-extrabold self-center">My Brand</a>
+    <a href="/" class="text-2xl font-extrabold self-center">{AppName}</a>
   </div>
   <span class="flex flex-row gap-2">
     <ThemeSwitcher />

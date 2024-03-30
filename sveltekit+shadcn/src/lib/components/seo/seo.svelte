@@ -1,30 +1,29 @@
 <script lang="ts">
-  const mainTitle = 'My Brand';
-  const baseUrl = 'https://my-brand.com';
+	import { AppName, BaseUrl } from "$lib/consts";
 
-	export let title: string;
+  export let title: string;
   export let description: string;
   export let slug = '';
   export let image: {url?: string; alt?: string} = {};
   export let squareImage: {url?: string; alt?: string} = {
-    url: `${baseUrl}/images/logo.png`,
-    alt: mainTitle
+    url: `${BaseUrl}/images/logo.png`,
+    alt: AppName,
   };
 </script>
 
 <svelte:head>
-  <title>{title ? `${title} | `: ''}{mainTitle}</title>
-  <link rel="canonical" href={`${baseUrl}${slug}`} />
+  <title>{title ? `${title} | `: ''}{AppName}</title>
+  <link rel="canonical" href={`${BaseUrl}${slug}`} />
   
   {#if description}
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
   {/if}
   
-  <meta property="og:title" content={title ? `${title} | ${mainTitle}`: mainTitle} />
-  <meta property="og:site_name" content={mainTitle} />
+  <meta property="og:title" content={title ? `${title} | ${AppName}`: AppName} />
+  <meta property="og:site_name" content={AppName} />
   <meta property="og:locale" content={'en'} />
-  <meta property="og:url" content={`${baseUrl}${slug}`} />
+  <meta property="og:url" content={`${BaseUrl}${slug}`} />
   <meta property="og:type" content={'website'} />
 
   {#if image?.url}
