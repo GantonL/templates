@@ -11,7 +11,6 @@
   export let navigationPath: string = '';
   let scrollable: HTMLElement;
   let scrolled: boolean = false;
-  let navigationMenuToggled: boolean;
 
   onNavigate((navigation) => {
     //@ts-ignore
@@ -31,15 +30,12 @@
     scrolled = scrollable?.scrollTop > 100;
   }
 
-  function onNavigationMenuToggled(customEvent: CustomEvent<boolean>) {
-    navigationMenuToggled = customEvent.detail;
-  }
 </script>
 <div class="h-[calc(100vh-0.75rem)] overflow-hidden">
-  <Header on:menuToggled={onNavigationMenuToggled}/>
+  <Header />
   <div class="flex flex-row h-[calc(100%-3.55rem)] overflow-hidden">
     <aside>
-      <NavigationMenu currentPath={navigationPath} expanded={navigationMenuToggled}/>
+      <NavigationMenu currentPath={navigationPath} />
     </aside>
     <main class="flex flex-col flex-grow relative overflow-y-auto overflow-x-hidden" bind:this={scrollable} on:scroll={(e) => onMainContentScrolled(e)}>
       <div class="flex flex-col items-center m-auto gap-8 p-4 flex-auto">
