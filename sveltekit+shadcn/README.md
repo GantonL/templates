@@ -1,22 +1,29 @@
-# create-svelte
+# Overview
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+This is a free to use template of a generic, flexible web app powered by:
+- Sveltekit.
+- Shadcn-svelte.
+- Tailwind.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+This template provides:
+- Basic layouts that you can choose from: (configurable for inspection through the settings page)
+  - Collapsible left side navigation.
+  - Top bar navigation menu.
+  - Bottom navigation menu (mobile style).
+- Theme toggle.
+- Pages:
+  - Home
+  - Example (To inspect the behavior of standard page with scrollable content)
+  - Error (To inspect the behavior of an error boundry)
+  - Settings
+  - Policies:
+    - Terms & Conditions.
+    - Privacy.
+    - Cookie management (with actual support for managing your cookies).
+- SEO:
+  Each page has an example of it's minimal seo object that should be defined for basic seo.
 
 ## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
