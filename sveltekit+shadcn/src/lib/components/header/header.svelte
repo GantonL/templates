@@ -1,6 +1,7 @@
 <script lang="ts">
   import ThemeSwitcher from "../ui/theme-switcher/theme-switcher.svelte";
 	import { AppName } from "$lib/consts";
+	import UserMenu from "../user-menu/user-menu.svelte";
 </script>
 <header class="flex flex-row items-center justify-between p-2 border-b">
   <div class="flex flex-row items-center gap-4">
@@ -9,5 +10,6 @@
   </div>
   <span class="flex flex-row gap-2">
     <ThemeSwitcher />
+    <UserMenu />
   </span>
 </header>
