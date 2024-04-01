@@ -19,6 +19,7 @@ This template provides:
   - Policies:
     - Terms & Conditions.
     - Privacy.
+  - View Transition.
 - Cookie management (with actual support for managing your cookies).
 - SEO:
   Each page has an example of it's minimal seo object that should be defined for basic seo.

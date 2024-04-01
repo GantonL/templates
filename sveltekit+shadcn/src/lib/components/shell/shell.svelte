@@ -2,7 +2,7 @@
   import Header from '../header/header.svelte';
 	import Footer from '../footer/footer.svelte';
   import { onNavigate } from '$app/navigation';
-	import { mainContentScrollEvent } from '$lib/client/stores';
+	import { LayoutMode, mainContentScrollEvent } from '$lib/client/stores';
   import * as Tooltip from "../ui/tooltip";
 	import { Button } from '../ui/button';
 	import { ArrowUp } from 'lucide-svelte';
@@ -32,17 +32,19 @@
 
 </script>
 <div class="h-[calc(100vh-0.75rem)] overflow-hidden">
-  <Header />
+  <Header currentPath={navigationPath} layout={$LayoutMode}/>
   <div class="flex flex-row h-[calc(100%-3.55rem)] overflow-hidden">
-    <aside>
-      <NavigationMenu currentPath={navigationPath} />
-    </aside>
+    {#if $LayoutMode === 'vertical-left'}
+      <aside>
+        <NavigationMenu currentPath={navigationPath} />
+      </aside>
+    {/if}
     <main class="flex flex-col flex-grow relative overflow-y-auto overflow-x-hidden" bind:this={scrollable} on:scroll={(e) => onMainContentScrolled(e)}>
       <div class="flex flex-col items-center m-auto gap-8 p-4 flex-auto">
         <slot />
       </div>
       <Footer />
-      <div class="fixed bottom-4 right-6 z-50" class:hidden={!scrolled} class:block={scrolled}>
+      <div class="bottom-4 right-6 z-50" class:hidden={!scrolled} class:fixed={scrolled}>
         <Tooltip.Root>
           <Tooltip.Trigger>
             <Button variant="outline" class="rounded-full w-12 h-12" on:click={() => scrollable.scroll({ top: 0, behavior: 'smooth' })} >
@@ -55,5 +57,12 @@
         </Tooltip.Root>
       </div>
     </main>
+    {#if $LayoutMode === 'horizontal-bottom'}
+      <div class="fixed bottom-0 w-full pb-4 z-40">
+        <div class="flex flex-row justify-center">
+          <NavigationMenu currentPath={navigationPath} layout='horizontal-bottom'/>
+        </div>
+      </div>
+    {/if}  
   </div>
 </div>
