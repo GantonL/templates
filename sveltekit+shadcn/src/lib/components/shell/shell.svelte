@@ -44,7 +44,7 @@
         <slot />
       </div>
       <Footer />
-      <div class="bottom-4 right-6 z-50" class:hidden={!scrolled} class:fixed={scrolled}>
+      <div class="bottom-16 right-6 z-50" class:hidden={!scrolled} class:fixed={scrolled}>
         <Tooltip.Root>
           <Tooltip.Trigger>
             <Button variant="outline" class="rounded-full w-12 h-12" on:click={() => scrollable.scroll({ top: 0, behavior: 'smooth' })} >
