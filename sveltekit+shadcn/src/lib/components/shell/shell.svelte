@@ -2,11 +2,13 @@
   import Header from '../header/header.svelte';
 	import Footer from '../footer/footer.svelte';
   import { onNavigate } from '$app/navigation';
-	import { LayoutMode, mainContentScrollEvent } from '$lib/client/stores';
+	import { LayoutMode } from '$lib/client/stores';
   import * as Tooltip from "../ui/tooltip";
 	import { Button } from '../ui/button';
 	import { ArrowUp } from 'lucide-svelte';
 	import NavigationMenu from '../navigation-menu/navigation-menu.svelte';
+	import { writable } from 'svelte/store';
+  const mainContentScrollEvent = writable<Event>();
 
   export let navigationPath: string = '';
   let scrollable: HTMLElement;
