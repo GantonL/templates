@@ -1,5 +1,5 @@
 <h1 class="text-2xl">Example</h1>
-<article class="prose text-justify">
+<article class="prose prose-xl text-primary text-justify">
   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum vitae eum ea at aperiam enim recusandae cumque quis. Rem architecto perspiciatis enim eum et quod aliquam dignissimos quas officiis consequatur.
   Rem illum dignissimos deleniti alias! Repellat, tempore quidem praesentium sint hic recusandae excepturi nobis, eveniet ullam fuga exercitationem harum voluptatem porro corrupti! Laudantium ipsum sit mollitia. Amet fugiat atque soluta.
   Atque officia aliquid aspernatur eligendi. At numquam atque dolores aperiam perspiciatis veritatis. Laudantium quo perferendis corporis eum ullam nemo perspiciatis ducimus veritatis, veniam aspernatur, voluptates quasi commodi dolores ab corrupti.
