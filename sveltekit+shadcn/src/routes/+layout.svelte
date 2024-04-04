@@ -4,10 +4,12 @@
 	import { ModeWatcher } from 'mode-watcher';
 	import '../app.pcss';
 	import SEO from '$lib/components/seo/seo.svelte';
+	import CookiePreferencesBanner from '$lib/components/cookie-prefences-banner/cookie-preferences-banner.svelte';
 
 	$: pageTitle = $page?.data?.seo?.title;
   $: pageDescription = $page?.data?.seo?.description;
 	$: path = $page.url.pathname;
+	$: cookieBannerOpen = $page?.data?.cookieBannerOpen;
 </script>
 
 <ModeWatcher defaultMode='dark'/>
@@ -19,3 +21,4 @@
 		</Shell>
 	</div>
 </div>
+<CookiePreferencesBanner open={cookieBannerOpen}/>
