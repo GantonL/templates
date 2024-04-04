@@ -6,15 +6,23 @@
 	import { page } from "$app/stores";
 
   function saveChanges() {
+    const body = new FormData();
+    body.append(CookieManagerConfiguration['user-preference-cookie-name'], JSON.stringify(preferences));
     fetch('/manage-cookies', {
       method: 'POST',
-      body: preferences,
+      body,
     });
   }
 
   function rejectAll() {
+    const body = new FormData();
+    Object.keys(preferences).forEach(key => {
+      preferences[key] = false;
+    });
+    body.append(CookieManagerConfiguration['user-preference-cookie-name'], JSON.stringify(preferences));
     fetch('/manage-cookies', {
-      method: 'DELETE',
+      method: 'POST',
+      body
     });
   }
 

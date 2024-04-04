@@ -1,3 +1,4 @@
+import { CookieManagerConfiguration } from "$lib/manage-cookies/configuration";
 import { json, type RequestEvent } from "@sveltejs/kit";
 
 export async function POST(event: RequestEvent) {
@@ -9,5 +10,18 @@ export async function POST(event: RequestEvent) {
       event.cookies.set(key, value.toString(), { path: '/' });
     }
   });
+  return json({ success: true });
+}
+
+export async function DELETE(event: RequestEvent) {
+  CookieManagerConfiguration['cookies-categories'].forEach(category => {
+    category?.cookies?.forEach(cookie => {
+      if (category.optional) {
+        event.cookies.delete(cookie, { path: '/' });
+      }
+    });
+  });
+  const preferencesCookieName = CookieManagerConfiguration['user-preference-cookie-name'];
+  event.cookies.delete(preferencesCookieName, { path: '/' });
   return json({ success: true });
 }
