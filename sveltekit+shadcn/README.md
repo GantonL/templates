@@ -24,6 +24,10 @@ This template provides:
 - SEO:
   Each page has an example of it's minimal seo object that should be defined for basic seo.
 
+## Roadmap
+- A11y preferences management support.
+- Layouts Mobile support bug fixing.
+
 ## Developing
 
 ```bash
