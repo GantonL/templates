@@ -4,26 +4,20 @@
 	import { Label } from "$lib/components/ui/label";
 	import { Switch } from "$lib/components/ui/switch";
 	import { page } from "$app/stores";
+	import { cookieSetRequest } from "$lib/manage-cookies/manager";
+  import { toast } from "svelte-sonner";
 
   function saveChanges() {
-    const body = new FormData();
-    body.append(CookieManagerConfiguration['user-preference-cookie-name'], JSON.stringify(preferences));
-    fetch('/manage-cookies', {
-      method: 'POST',
-      body,
-    });
+    cookieSetRequest({[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)})
+    toast.success('Preferences changes saved');
   }
 
   function rejectAll() {
-    const body = new FormData();
     Object.keys(preferences).forEach(key => {
       preferences[key] = false;
     });
-    body.append(CookieManagerConfiguration['user-preference-cookie-name'], JSON.stringify(preferences));
-    fetch('/manage-cookies', {
-      method: 'POST',
-      body
-    });
+    cookieSetRequest({[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)})
+    toast.success('Optional cookies rejected');
   }
 
   $: preferences = $page.data.preferences;

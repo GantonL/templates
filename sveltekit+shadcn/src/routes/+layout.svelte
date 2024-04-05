@@ -5,11 +5,13 @@
 	import '../app.pcss';
 	import SEO from '$lib/components/seo/seo.svelte';
 	import CookiePreferencesBanner from '$lib/components/cookie-prefences-banner/cookie-preferences-banner.svelte';
+	import { Toaster } from "$lib/components/ui/sonner";
 
 	$: pageTitle = $page?.data?.seo?.title;
   $: pageDescription = $page?.data?.seo?.description;
 	$: path = $page.url.pathname;
 	$: cookieBannerOpen = $page?.data?.cookieBannerOpen;
+	$: preferences = $page?.data?.cookiePreferences;
 </script>
 
 <ModeWatcher defaultMode='dark'/>
@@ -21,4 +23,5 @@
 		</Shell>
 	</div>
 </div>
-<CookiePreferencesBanner open={cookieBannerOpen}/>
+<CookiePreferencesBanner open={cookieBannerOpen} {preferences}/>
+<Toaster />

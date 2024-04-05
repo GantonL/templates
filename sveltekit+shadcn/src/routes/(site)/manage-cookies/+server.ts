@@ -7,7 +7,10 @@ export async function POST(event: RequestEvent) {
     if (value === 'undefined') {
       event.cookies.delete(key, { path: '/' })
     } else {
-      event.cookies.set(key, value.toString(), { path: '/' });
+      event.cookies.set(key, value.toString(), {
+        maxAge: 60 * 60 * 24 * CookieManagerConfiguration['user-preference-cookies-expiry-days'],
+        path: '/' 
+      });
     }
   });
   return json({ success: true });

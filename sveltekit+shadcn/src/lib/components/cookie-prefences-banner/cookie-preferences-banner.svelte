@@ -3,8 +3,26 @@
   import * as Card from "$lib/components/ui/card";
 	import { Cookie } from "lucide-svelte";
 	import Button from "../ui/button/button.svelte";
+	import { CookieManagerConfiguration } from "$lib/manage-cookies/configuration";
+	import { cookieSetRequest } from "$lib/manage-cookies/manager";
+	import { toast } from "svelte-sonner";
   export let open: boolean;
+  export let preferences: Record<string, boolean>;
 
+  function setCookiesPreferences(acceptAll: boolean) {
+    Object.keys(preferences).forEach(key => {
+      preferences[key] = acceptAll;
+    });
+    cookieSetRequest({[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)})
+    toast.success('Cookie preferences saved');
+    removeBanner();
+  }
+
+  function removeBanner() {
+    open = false;
+    cookieSetRequest({['show-manage-cookies-banner']: JSON.stringify(undefined)})
+  }
+  
 </script>
 <div class="fixed bottom-6 left-6 p-4 z-50 mr-6 max-w-[420px]" class:hidden={!open}>
   <Card.Root>
@@ -23,8 +41,8 @@
     <Card.Footer>
       <div class="flex flex-col gap-2">
         <div class="flex flex-row flex-wrap gap-2">
-          <Button variant="default" class="flex-grow" on:click={() => (open = false)}>Accept all cookies</Button>
-          <Button variant="default" class="flex-grow" on:click={() => (open = false)}>Necessary cookies only</Button>
+          <Button variant="default" class="flex-grow" on:click={() => setCookiesPreferences(true)}>Accept all cookies</Button>
+          <Button variant="default" class="flex-grow" on:click={() => setCookiesPreferences(false)}>Necessary cookies only</Button>
         </div>
         <Button variant="secondary" on:click={() => {
             goto('/manage-cookies');

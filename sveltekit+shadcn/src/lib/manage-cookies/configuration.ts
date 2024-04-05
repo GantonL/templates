@@ -2,7 +2,7 @@ import { AppName } from "$lib/consts";
 import type { ManageCookiesConfiguration } from "$lib/models/manage-cookies-configuration";
 
 export const CookieManagerConfiguration: ManageCookiesConfiguration = {
-  'user-preference-cookie-name': `${AppName}-user-preferences`,
+  'user-preference-cookie-name': `${AppName.split(' ').join('-')}-user-preferences`,
   'show-manage-cookies-banner': true,
   'user-preference-cookies-expiry-days': 365,
   'cookies-categories': [
