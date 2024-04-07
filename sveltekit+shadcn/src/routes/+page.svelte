@@ -24,6 +24,6 @@
 
 <LayoutSwitcher />
 <div class="flex flex-row gap-2 items-center">
-	<Switch id="cookie-preferences-banner" on:click={onCookiePreferences} checked={cookiePreferencesToggled}/>
+	<Switch id="cookie-preferences-banner" on:click={onCookiePreferences} checked={cookiePreferencesToggled} name="Toggle cookies preferences banner" aria-label="Toggle cookies preferences banner"/>
 	<Label for="cookie-preferences-banner">Toggle cookie preferences banner</Label>
 </div>

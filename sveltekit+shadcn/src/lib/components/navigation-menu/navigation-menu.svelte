@@ -32,7 +32,7 @@
       {/each}
       {#if layout === 'vertical-left'}
         <div class="flex-grow"></div>
-        <Button variant="outline" class="w-full" on:click={() => expanded = !expanded}>
+        <Button name="Toggle menu items labels" aria-label="Toggle menu items labels" variant="outline" class="w-full" on:click={() => expanded = !expanded} >
           {#if expanded}
             <ChevronsLeft size=16/>
           {:else}

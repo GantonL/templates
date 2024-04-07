@@ -18,7 +18,7 @@
 
 <DropdownMenu.Root>
   <DropdownMenu.Trigger asChild let:builder>
-    <Button variant="ghost" builders={[builder]} class="relative aspect-square rounded-full">
+    <Button name="User Menu" aria-label="User Menu" variant="ghost" builders={[builder]} class="relative aspect-square rounded-full">
       <Avatar.Root>
         <Avatar.Image src={user?.photoURL} alt={user?.displayName} />
         <Avatar.Fallback>
