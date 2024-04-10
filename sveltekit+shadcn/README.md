@@ -4,6 +4,7 @@ This is a free to use template of a generic, flexible web app powered by:
 - Sveltekit.
 - Shadcn-svelte.
 - Tailwind.
+
 Go to [https://sveltekit-shadcn-app-template.web.app](https://sveltekit-shadcn-app-template.web.app) to see it in action.
 
 This template provides:
