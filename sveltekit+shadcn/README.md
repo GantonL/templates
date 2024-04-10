@@ -8,7 +8,7 @@ This is a free to use template of a generic, flexible web app powered by:
 Go to [https://sveltekit-shadcn-app-template.web.app](https://sveltekit-shadcn-app-template.web.app) to see it in action.
 
 This template provides:
-- Basic layouts that you can choose from: (configurable for inspection through the settings page)
+- Basic layouts that you can choose from: (configurable for inspection through the home page)
   - Collapsible left side navigation.
   - Top bar navigation menu.
   - Bottom navigation menu (mobile style).
