@@ -1,22 +1,22 @@
 # Overview
 
-This is a free to use template of a generic, flexible web app powered by:
+This is a free-to-use template of a generic, flexible web app powered by:
 - Sveltekit.
 - Shadcn-svelte.
 - Tailwind.
 
-Go to [https://sveltekit-shadcn-app-template.web.app](https://sveltekit-shadcn-app-template.web.app) to see it in action.
+Go to [https://sveltekit-shadcn.templates.guylahav.com](https://sveltekit-shadcn.templates.guylahav.com) to see it in action.
 
 This template provides:
 - Basic layouts that you can choose from: (configurable for inspection through the home page)
-  - Collapsible left side navigation.
+  - Collapsible left-side navigation.
   - Top bar navigation menu.
   - Bottom navigation menu (mobile style).
 - Theme toggle.
 - Pages:
   - Home
-  - Example (To inspect the behavior of standard page with scrollable content)
-  - Error (To inspect the behavior of an error boundry)
+  - Example (To inspect the behavior of a standard page with scrollable content)
+  - Error (To inspect the behavior of an error boundary)
   - Settings
   - Policies:
     - Terms & Conditions.
@@ -24,7 +24,7 @@ This template provides:
   - View Transition.
 - Cookie management (with actual support for managing your cookies).
 - SEO:
-  Each page has an example of it's minimal seo object that should be defined for basic seo.
+  Each page has an example of its minimal SEO object that should be defined for basic SEO.
 
 ## Roadmap
 - A11y preferences management support.
