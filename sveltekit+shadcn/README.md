@@ -22,7 +22,7 @@ This template provides:
     - Terms & Conditions.
     - Privacy.
   - View Transition.
-- Cookie management (with actual support for managing your cookies).
+- Cookie management (with actual support for managing your cookies) **Currently doesn't work in the deployed site due to firebase cloud functions cooikes restrictions**.
 - SEO:
   Each page has an example of its minimal SEO object that should be defined for basic SEO.
 
