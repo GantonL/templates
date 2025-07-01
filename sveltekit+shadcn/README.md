@@ -1,7 +1,7 @@
 # Overview
 
 This is a free-to-use template of a generic, flexible web app powered by:
-- Sveltekit.
+- Sveltekit (Svelte v4).
 - Shadcn-svelte.
 - Tailwind.
 
