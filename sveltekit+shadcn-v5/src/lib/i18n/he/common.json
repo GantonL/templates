@@ -1,0 +1,14 @@
+{
+	"locales": {
+		"he": "עברית",
+		"en": "English"
+	},
+	"brand": {
+		"name": "המותג שלי",
+		"description": "המותג המטריף שלי שעושה דברים מגניבים",
+		"support-email": "support@my-brand.com"
+	},
+	"copyright": "© {{year}} המותג שלי. כל הזכויות שמורות.",
+	"privacy_policy": "מדיניות פרטיות",
+	"terms_of_service": "תנאי שירות"
+}

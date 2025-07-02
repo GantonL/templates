@@ -47,5 +47,8 @@
 		"vite": "^6.2.6",
 		"vitest": "^3.2.3",
 		"vitest-browser-svelte": "^0.1.0"
+	},
+	"dependencies": {
+		"sveltekit-i18n": "^2.4.2"
 	}
 }

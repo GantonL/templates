@@ -1,0 +1,14 @@
+{
+	"locales": {
+		"he": "עברית",
+		"en": "English"
+	},
+	"brand": {
+		"name": "My Brand",
+		"description": "The best brand that does awsome things",
+		"support-email": "support@my-brand.com"
+	},
+	"copyright": "© {{year}} Clinikal. All rights reserved.",
+	"privacy_policy": "Privacy Policy",
+	"terms_of_service": "Terms of Service"
+}
