@@ -3,7 +3,8 @@ import { Locale } from '../../routes/api';
 import { defaultLocale } from '$lib/api/configurations/common';
 
 interface Params {
-	year: string;
+	year?: string;
+	number?: number;
 }
 
 /** @type {import('sveltekit-i18n').Config} */

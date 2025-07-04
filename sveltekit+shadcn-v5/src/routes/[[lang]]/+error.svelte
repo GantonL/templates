@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { t } from '$lib/i18n';
+	import { title } from '$lib/stores';
+	title.set(t.get('common.error_number', { number: page?.status ?? 500 }));
 </script>
 
 <div class="flex h-80 items-center justify-center">

@@ -3,8 +3,9 @@
 	import '../../app.css';
 	import { locale } from '$lib/i18n';
 	import type { AvailableLocals } from '$lib/enums/available-locales';
-	import { direction, title } from '$lib/stores';
+	import { direction } from '$lib/stores';
 	import { directionMap } from '$lib/api/configurations/common';
+	import SEO from '$lib/components/seo/seo.svelte';
 	let { children } = $props();
 
 	onMount(() => {
@@ -25,7 +26,5 @@
 	}
 </script>
 
-<svelte:head>
-	<title>{$title}</title>
-</svelte:head>
+<SEO />
 {@render children?.()}
