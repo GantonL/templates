@@ -11,5 +11,6 @@
 	"copyright": "© {{year}} המותג שלי. כל הזכויות שמורות.",
 	"privacy_policy": "מדיניות פרטיות",
 	"terms_of_service": "תנאי שירות",
-	"error_number": "שגיאה ({{number}})"
+	"error_number": "({{number}}) שגיאה",
+	"manage_cookies": "Manage cookies"
 }

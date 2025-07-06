@@ -11,5 +11,6 @@
 	"copyright": "© {{year}} Clinikal. All rights reserved.",
 	"privacy_policy": "Privacy Policy",
 	"terms_of_service": "Terms of Service",
-	"error_number": "Error ({{number}})"
+	"error_number": "Error ({{number}})",
+	"manage_cookies": "Manage cookies"
 }

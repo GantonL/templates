@@ -16,7 +16,7 @@
 		<meta property="og:description" content={$pageDescription} />
 	{/if}
 
-	<meta property="og:site_name" content={$t('common.brand.name')} />
+	<!-- <meta property="og:site_name" content={$t('common.brand.name')} /> -->
 	<meta property="og:locale" content={$locale} />
 	<meta property="og:url" content={`${BaseUrl}${$slug}`} />
 	<meta property="og:type" content={$article?.author ? 'article' : 'website'} />

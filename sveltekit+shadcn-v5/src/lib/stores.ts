@@ -1,18 +1,17 @@
 import { writable } from 'svelte/store';
-import { t } from './i18n';
 import { AppName, BaseUrl } from './api/configurations/common';
+import { t } from './i18n';
 
 export const direction = writable<DirectionSetting>('rl');
 function createTitle() {
-	const brand = t.get('common.brand.name');
-	const { subscribe, set } = writable(brand);
+	const { subscribe, set } = writable('');
 	return {
 		subscribe,
 		set: (value: string) => {
-			set(`${value} • ${brand}`);
+			set(`${value} • ${t.get('common.brand.name')}`);
 		},
 		clear: () => {
-			set(brand);
+			set(t.get('common.brand.name'));
 		}
 	};
 }
