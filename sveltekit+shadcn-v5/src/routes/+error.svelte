@@ -9,37 +9,14 @@
 
 <div class="flex h-80 items-center justify-center">
 	{#if page?.error}
-		<div
-			class="border-destructive/50 bg-accent/50 text-destructive-foreground flex flex-col gap-4 rounded-lg border p-8"
-		>
-			<h1 class="text-xl">
-				Oh no!
-				{#if page?.status === 404}
-					This page probably doesn't exist.
-				{:else}
-					Something went wrong.
-				{/if}
-			</h1>
-			<section class="text-destructive-foreground/60">
-				{#if page?.status}
-					<p>Error Code: {page?.status}</p>
-				{/if}
-				{#if page?.error?.message}
-					<p>Details: {page?.error?.message}</p>
-				{/if}
-			</section>
+		<div class="flex flex-col">
+			<Alert.Root variant="destructive" class="border-destructive/50">
+				<CircleAlert />
+				<Alert.Title>{$t(`common.status_code_error.${page.status}.title`)}</Alert.Title>
+				<Alert.Description>
+					<p>{$t(`common.status_code_error.${page.status}.description`)}</p>
+				</Alert.Description>
+			</Alert.Root>
 		</div>
 	{/if}
 </div>
-<Alert.Root variant="destructive">
-	<CircleAlert />
-	<Alert.Title>Unable to process your payment.</Alert.Title>
-	<Alert.Description>
-		<p>Please verify your billing information and try again.</p>
-		<ul class="list-inside list-disc text-sm">
-			<li>Check your card details</li>
-			<li>Ensure sufficient funds</li>
-			<li>Verify billing address</li>
-		</ul>
-	</Alert.Description>
-</Alert.Root>

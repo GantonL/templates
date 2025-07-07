@@ -1,6 +1,7 @@
 import i18n, { type Config } from 'sveltekit-i18n';
 import { Locale } from '../../routes/api';
 import { defaultLocale } from '$lib/api/configurations/common';
+import { AvailableLocals } from '$lib/enums/available-locales';
 
 interface Params {
 	year?: string;
@@ -40,10 +41,4 @@ export const changeLocale = (newLocale: string) => {
 	const formData = new FormData();
 	formData.append('locale', newLocale);
 	fetch(Locale, { method: 'POST', body: formData });
-};
-
-export const property = <T = string>(propertyName: keyof T): keyof T | string => {
-	const currentLocal = locale.get();
-	const extention = `${currentLocal === defaultLocale ? '' : `_${currentLocal}`}`;
-	return `${String(propertyName)}${extention}`;
 };

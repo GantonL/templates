@@ -12,5 +12,11 @@
 	"privacy_policy": "Privacy Policy",
 	"terms_of_service": "Terms of Service",
 	"error_number": "Error ({{number}})",
-	"manage_cookies": "Manage cookies"
+	"manage_cookies": "Manage cookies",
+	"status_code_error": {
+		"404": {
+			"title": "Page not found",
+			"description": ""
+		}
+	}
 }
