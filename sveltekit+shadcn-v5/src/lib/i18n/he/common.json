@@ -12,7 +12,7 @@
 	"privacy_policy": "מדיניות פרטיות",
 	"terms_of_service": "תנאי שירות",
 	"error_number": "({{number}}) שגיאה",
-	"manage_cookies": "Manage cookies",
+	"manage_cookies": "ניהול עוגיות",
 	"status_code_error": {
 		"404": {
 			"title": "העמוד המבוקש לא נמצא",
