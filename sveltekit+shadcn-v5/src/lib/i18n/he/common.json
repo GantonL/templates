@@ -13,6 +13,7 @@
 	"terms_of_service": "תנאי שירות",
 	"error_number": "({{number}}) שגיאה",
 	"manage_cookies": "ניהול עוגיות",
+	"cookie_policy": "מדיניות עוגיות",
 	"status_code_error": {
 		"404": {
 			"title": "העמוד המבוקש לא נמצא",
