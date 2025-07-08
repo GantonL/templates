@@ -6,6 +6,8 @@
 	import { direction } from '$lib/stores';
 	import { directionMap } from '$lib/api/configurations/common';
 	import SEO from '$lib/components/seo/seo.svelte';
+	import { ModeWatcher } from 'mode-watcher';
+
 	let { children } = $props();
 
 	onMount(() => {
@@ -27,4 +29,5 @@
 </script>
 
 <SEO />
+<ModeWatcher />
 {@render children?.()}
