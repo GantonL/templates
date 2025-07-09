@@ -1,5 +1,9 @@
 <script lang="ts">
+	import Shell from '$lib/components/shell/shell.svelte';
+
 	let { children } = $props();
 </script>
 
-{@render children?.()}
+<Shell>
+	{@render children?.()}
+</Shell>
