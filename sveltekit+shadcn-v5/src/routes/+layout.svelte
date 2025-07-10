@@ -7,6 +7,7 @@
 	import { directionMap } from '$lib/api/configurations/common';
 	import SEO from '$lib/components/seo/seo.svelte';
 	import { ModeWatcher } from 'mode-watcher';
+	import { Toaster } from '$lib/components/ui/sonner/index.js';
 
 	let { children } = $props();
 
@@ -28,6 +29,7 @@
 	}
 </script>
 
+<Toaster />
 <SEO />
 <ModeWatcher />
 {@render children?.()}
