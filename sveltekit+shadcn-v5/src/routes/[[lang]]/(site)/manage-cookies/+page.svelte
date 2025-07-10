@@ -8,7 +8,8 @@
 	import { toast } from 'svelte-sonner';
 	import { t } from '$lib/i18n';
 	import ResourceMarkdown from '$lib/components/resource-markdown/resource-markdown.svelte';
-
+	import { title } from '$lib/stores';
+	title.set(t.get('common.manage_cookies_preferences'));
 	function saveChanges() {
 		cookieSetRequest({
 			[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)
