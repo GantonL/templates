@@ -31,5 +31,9 @@
 	"reject": "Reject",
 	"optional_cookies_rejected": "Optional cookies rejected",
 	"analytics": "Analytics",
-	"advertising": "Advertising"
+	"advertising": "Advertising",
+	"cookie_preferences": "Cookie preferences",
+	"accept_all_cookies": "Accept all cookies",
+	"necessary_cookies_only": "Necessary cookies only",
+	"manage_preferences": "Manage preferences"
 }

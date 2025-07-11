@@ -31,5 +31,9 @@
 	"reject": "דחייה",
 	"optional_cookies_rejected": "עוגיות לא הכרחיות נדחו",
 	"analytics": "ניתוחי מידעים",
-	"advertising": "פירסום"
+	"advertising": "פירסום",
+	"cookie_preferences": "העדפות עוגיות",
+	"accept_all_cookies": "קבלת כל העוגיות",
+	"necessary_cookies_only": "עוכיות הכרחיות בלבד",
+	"manage_preferences": "ניהול העדפות"
 }
