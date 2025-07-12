@@ -89,3 +89,4 @@ Global state is managed through Svelte stores:
 - Markdown files are processed as Svelte components via mdsvex
 - Theme switching handled by mode-watcher library
 - Type definitions extended in `src/app.d.ts`
+- **API Routes**: Centralized route definitions in `src/routes/api/index.ts` - import route constants from here rather than hardcoding endpoints
