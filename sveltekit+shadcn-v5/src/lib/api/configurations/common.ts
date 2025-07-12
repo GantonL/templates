@@ -11,6 +11,7 @@ export const getDirection = (locale: AvailableLocals): DirectionSetting => {
 	return directionSelection;
 };
 export const AppName: string = 'My Brand';
+export const SupportEmail: string = 'support@my-brand.com';
 export const BaseUrl: string = 'https://my-brand.com';
 export const Author: string = 'Guy Lahav';
 export const TwitterUsername: string = '@myusername';

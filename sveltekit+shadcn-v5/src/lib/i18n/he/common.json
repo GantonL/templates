@@ -35,5 +35,12 @@
 	"cookie_preferences": "העדפות עוגיות",
 	"accept_all_cookies": "קבלת כל העוגיות",
 	"necessary_cookies_only": "עוכיות הכרחיות בלבד",
-	"manage_preferences": "ניהול העדפות"
+	"manage_preferences": "ניהול העדפות",
+	"example": "דוגמה",
+	"application": "אפליקציה",
+	"site": "אתר",
+	"contact_information": "פרטי התקשרות",
+	"search": "חיפוש",
+	"select_an_option": "בחירת אפשרות",
+	"no_option_found": "לא נמצאה אפשרות"
 }

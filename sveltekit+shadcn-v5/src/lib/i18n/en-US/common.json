@@ -5,10 +5,10 @@
 	},
 	"brand": {
 		"name": "My Brand",
-		"description": "The best brand that does awsome things",
+		"description": "The best brand that does amazing things",
 		"support-email": "support@my-brand.com"
 	},
-	"copyright": "© {{year}} Clinikal. All rights reserved.",
+	"copyright": "© {{year}} My Brand. All rights reserved.",
 	"privacy_policy": "Privacy Policy",
 	"terms_of_service": "Terms of Service",
 	"error_number": "Error ({{number}})",
@@ -35,5 +35,12 @@
 	"cookie_preferences": "Cookie preferences",
 	"accept_all_cookies": "Accept all cookies",
 	"necessary_cookies_only": "Necessary cookies only",
-	"manage_preferences": "Manage preferences"
+	"manage_preferences": "Manage preferences",
+	"example": "Example",
+	"application": "Application",
+	"site": "Site",
+	"contact_information": "Contact information",
+	"search": "Search",
+	"select_an_option": "Select an option",
+	"no_option_found": "No option found"
 }
