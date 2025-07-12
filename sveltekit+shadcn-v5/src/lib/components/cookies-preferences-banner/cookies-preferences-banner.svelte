@@ -3,7 +3,7 @@
 	import * as Card from '$lib/components/ui/card';
 	import Button from '../ui/button/button.svelte';
 	import { CookieManagerConfiguration } from '$lib/manage-cookies/configuration';
-	import { cookieSetRequest } from '$lib/manage-cookies/manager';
+	import { cookieSetRequest, hideBanner } from '$lib/manage-cookies/manager';
 	import { toast } from 'svelte-sonner';
 	import { Cookie } from '@lucide/svelte';
 	import { t } from '$lib/i18n';
@@ -26,7 +26,7 @@
 
 	function removeBanner() {
 		open = false;
-		cookieSetRequest({ ['show-manage-cookies-banner']: JSON.stringify(false) });
+		hideBanner();
 	}
 </script>
 

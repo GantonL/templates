@@ -4,7 +4,7 @@
 	import { Label } from '$lib/components/ui/label';
 	import { Switch } from '$lib/components/ui/switch';
 	import { page } from '$app/state';
-	import { cookieSetRequest } from '$lib/manage-cookies/manager';
+	import { cookieSetRequest, hideBanner } from '$lib/manage-cookies/manager';
 	import { toast } from 'svelte-sonner';
 	import { t } from '$lib/i18n';
 	import ResourceMarkdown from '$lib/components/resource-markdown/resource-markdown.svelte';
@@ -15,6 +15,7 @@
 			[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)
 		});
 		toast.success(t.get('common.changes_saved'));
+		hideBanner();
 	}
 
 	function rejectAll() {
@@ -25,6 +26,7 @@
 			[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)
 		});
 		toast.success(t.get('common.optional_cookies_rejected'));
+		hideBanner();
 	}
 
 	const preferences = page.data.preferences;

@@ -57,3 +57,7 @@ export function getCookie(
 	}
 	return event.cookies.get(cookieName);
 }
+
+export function hideBanner() {
+	cookieSetRequest({ ['show-manage-cookies-banner']: JSON.stringify(false) });
+}
