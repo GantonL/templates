@@ -8,6 +8,7 @@
 	import { Cookie } from '@lucide/svelte';
 	import { t } from '$lib/i18n';
 	import { page } from '$app/state';
+	import { direction } from '$lib/stores';
 
 	const preferences = page.data.cookiePreferences;
 	let open = page.data.cookieBannerOpen;
@@ -29,7 +30,11 @@
 	}
 </script>
 
-<Card.Root class="fixed bottom-6 left-6 z-50 mr-6 max-w-[420px] p-4 {!open ? 'hidden' : ''}">
+<Card.Root
+	class="fixed bottom-6 {$direction === 'lr' ? 'left-6' : 'right-6'} z-50 max-w-[420px] p-4 {!open
+		? 'hidden'
+		: ''}"
+>
 	<Card.Header>
 		<Card.Title>
 			<div class="flex flex-row items-center gap-4">
