@@ -25,7 +25,7 @@
 
 	function removeBanner() {
 		open = false;
-		cookieSetRequest({ ['show-manage-cookies-banner']: JSON.stringify(undefined) });
+		cookieSetRequest({ ['show-manage-cookies-banner']: JSON.stringify(false) });
 	}
 </script>
 
@@ -34,17 +34,15 @@
 		<Card.Title>
 			<div class="flex flex-row items-center gap-4">
 				<Cookie />
-				{$t('common.cookie_preferences')}
+				{$t('common.manage_cookies_preferences')}
 			</div>
 		</Card.Title>
 		<Card.Description>
-			<div class="text-primary">
-				By clicking “Accept all cookies”, you agree My Brand can store cookies on your device and
-				disclose information in accordance with our
-				<a href="/policies/cookies" class="inderline-offset-2 text-muted-foreground underline"
-					>Cookie Policy.</a
-				>
-			</div>
+			By clicking “Accept all cookies”, you agree My Brand can store cookies on your device and
+			disclose information in accordance with our
+			<a href="/policies/cookies" class="inderline-offset-2 text-muted-foreground underline"
+				>Cookie Policy.</a
+			>
 		</Card.Description>
 	</Card.Header>
 	<Card.Footer>
