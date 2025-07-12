@@ -1,5 +1,4 @@
 import { AppName } from '$lib/api/configurations/common';
-import { t } from '$lib/i18n';
 import type { ManageCookiesConfiguration } from '$lib/models/manage-cookies-configuration';
 
 export const CookieManagerConfiguration: ManageCookiesConfiguration = {
