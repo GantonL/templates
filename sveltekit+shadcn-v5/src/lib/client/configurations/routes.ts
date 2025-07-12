@@ -31,7 +31,7 @@ export const AppRoutes: GroupedRoutes[] = [
 			},
 			{
 				label: 'common.terms_of_service',
-				path: '/policies/term',
+				path: '/policies/terms',
 				icon: Handshake
 			}
 		]

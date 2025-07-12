@@ -4,10 +4,15 @@
 	let { path }: { path: string } = $props();
 	let readyToRender = $state(false);
 	let Content: Component | undefined = $state();
-	onMount(async () => {
+	onMount(() => {
+		setContent();
+		locale.subscribe(setContent);
+	});
+
+	async function setContent() {
 		Content = (await import(`$lib/resources/markdown/${locale.get()}/${path}.md`)).default;
 		readyToRender = true;
-	});
+	}
 </script>
 
 <article
