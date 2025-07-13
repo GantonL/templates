@@ -18,6 +18,7 @@ This is a modern, full-stack web application template that combines the power of
 - **Dark/Light Mode**: Theme switching with persistent user preferences
 - **Testing**: Configured with Vitest for unit and browser testing
 - **Deployment Ready**: Optimized for Cloudflare deployment
+- **Cookie manager**: Cookie prefernces banner and manager
 
 ## Getting Started
 
