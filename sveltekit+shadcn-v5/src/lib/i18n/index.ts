@@ -1,7 +1,5 @@
 import i18n, { type Config } from 'sveltekit-i18n';
 import { Locale } from '../../routes/api';
-import { defaultLocale } from '$lib/api/configurations/common';
-import { AvailableLocals } from '$lib/enums/available-locales';
 
 interface Params {
 	year?: string;
