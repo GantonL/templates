@@ -35,7 +35,7 @@
 	}
 </script>
 
-<Sidebar.Root collapsible="icon" {side}>
+<Sidebar.Root collapsible="icon" {side} id="sidebar">
 	<Sidebar.Content>
 		{#each AppRoutes as group (group.title)}
 			<Sidebar.Group>
