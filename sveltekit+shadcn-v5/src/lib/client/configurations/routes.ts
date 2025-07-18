@@ -35,7 +35,7 @@ export const AppRoutes: GroupedRoutes[] = [
 				icon: Handshake
 			},
 			{
-				label: 'common.accessibility_statment',
+				label: 'common.accessibility_statement',
 				path: '/accessibility-statement',
 				icon: PersonStanding
 			}
