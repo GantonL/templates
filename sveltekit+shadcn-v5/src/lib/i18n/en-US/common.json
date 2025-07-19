@@ -16,8 +16,7 @@
 	"cookie_policy": "Cookie policy",
 	"status_code_error": {
 		"404": {
-			"title": "Page not found",
-			"description": ""
+			"description": "Page not found"
 		}
 	},
 	"manage_cookies_preferences": "Manage cookies preferences",
@@ -43,5 +42,6 @@
 	"search": "Search",
 	"select_an_option": "Select an option",
 	"no_option_found": "No option found",
-	"accessibility_statement": "Accessibility statement"
+	"accessibility_statement": "Accessibility statement",
+	"error_boundary": "Error Boundary"
 }

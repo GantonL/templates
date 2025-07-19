@@ -11,13 +11,12 @@
 	"copyright": "© {{year}} המותג שלי. כל הזכויות שמורות.",
 	"privacy_policy": "מדיניות פרטיות",
 	"terms_of_service": "תנאי שירות",
-	"error_number": "({{number}}) שגיאה",
+	"error_number": "שגיאה ({{number}})",
 	"manage_cookies": "ניהול עוגיות",
 	"cookie_policy": "מדיניות עוגיות",
 	"status_code_error": {
 		"404": {
-			"title": "העמוד המבוקש לא נמצא",
-			"description": ""
+			"description": "העמוד המבוקש לא נמצא"
 		}
 	},
 	"manage_cookies_preferences": "ניהול העדפות עוגיות",
@@ -43,5 +42,6 @@
 	"search": "חיפוש",
 	"select_an_option": "בחירת אפשרות",
 	"no_option_found": "לא נמצאה אפשרות",
-	"accessibility_statement": "הצהרת נגישות"
+	"accessibility_statement": "הצהרת נגישות",
+	"error_boundary": "גבול שגיאה"
 }

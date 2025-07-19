@@ -43,7 +43,6 @@ This is a SvelteKit v5 application with shadcn-svelte components and Tailwind CS
 - **TypeScript**: Full type safety throughout the application
 - **mdsvex**: Markdown processing for Svelte components
 - **Vitest**: Testing framework with browser and server test configurations
-- **mode-watcher**: Dark/light theme management
 
 ### Directory Structure
 - `src/lib/`: Core library code
@@ -66,9 +65,9 @@ This is a SvelteKit v5 application with shadcn-svelte components and Tailwind CS
 The app supports multiple languages with:
 - Route-based locale detection (`[[lang]]` parameter)
 - Cookie-based locale persistence
-- RTL/LTR direction switching using `AvailableLocales` enum
+- RTL/LTR direction switching using $direction store.
 - Localized markdown content in `src/lib/resources/markdown/`
-- JSON translation files organized by locale (`en-US/`, `he/`)
+- JSON translation files organized by locale (`AvailableLocales`)
 - Centralized translation keys using `sveltekit-i18n`
 
 ### Component Architecture
@@ -99,6 +98,7 @@ Global state is managed through Svelte stores:
 - Theme switching handled by mode-watcher library
 - Type definitions extended in `src/app.d.ts`
 - **API Routes**: Centralized route definitions in `src/routes/api/index.ts` - import route constants from here rather than hardcoding endpoints
+- When adding new routes, always ask the developer if the route should be added to the sitemap.xml file
 
 ## Development Guidelines & Best Practices
 
@@ -148,6 +148,8 @@ export const LanguageSelectorConfiguration: ComboboxConfiguration = {
 - **ALL user-facing text must use translation keys**
 - Use descriptive, hierarchical translation keys
 - Store translations in JSON files organized by locale
+- Use $t(...) syntax in template
+- Use t.get(...) in ts logic (non-temaplate code)
 
 #### Examples:
 ```svelte
@@ -273,7 +275,7 @@ pageDescription.set('Page description for SEO');
 ```
 src/lib/
 ├── api/configurations/          # Server/API configs
-├── client/configurations/       # Client-side configs  
+├── client/configurations/       # Client-side configs
 ├── components/                  # Reusable components
 │   └── [name]/configurations/   # Component configs
 ├── enums/                       # Type enumerations
@@ -318,7 +320,7 @@ import { AppRoutes } from '$lib/client/configurations/routes';
 ## Key Principles Summary
 
 1. **Configuration Over Hardcoding**: Never hardcode data in components
-2. **Translation First**: All user-facing text through i18n system  
+2. **Translation First**: All user-facing text through i18n system
 3. **Type Safety**: Use TypeScript interfaces and enums
 4. **Centralized State**: Global state through Svelte stores
 5. **Event-Driven**: Components communicate via structured events
