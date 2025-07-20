@@ -1,9 +1,10 @@
 import type { Link } from '$lib/models/link';
 import { Banana, BookLock, Cookie, Handshake, PersonStanding, AlertTriangle } from '@lucide/svelte';
 
-interface GroupedRoutes {
+export interface GroupedRoutes {
 	title: string;
 	children: Link[];
+	excludeFromMainMenu?: boolean;
 }
 export const AppRoutes: GroupedRoutes[] = [
 	{
@@ -23,6 +24,7 @@ export const AppRoutes: GroupedRoutes[] = [
 	},
 	{
 		title: 'common.site',
+		excludeFromMainMenu: true,
 		children: [
 			{
 				label: 'common.cookie_policy',

@@ -9,12 +9,18 @@
 	import type { AvailableLocals } from '$lib/enums/available-locales';
 	import { onMount } from 'svelte';
 
+	let currentPath = $derived(page.url.pathname);
 	let side = $state<'right' | 'left'>('left');
+	const navigationGroups: typeof AppRoutes = AppRoutes.filter(
+		(route) => !route.excludeFromMainMenu
+	);
+
 	onMount(() => {
 		locale.subscribe((seletedLocale) => {
 			updateSide(seletedLocale as AvailableLocals);
 		});
 	});
+
 	function updateSide(locale: AvailableLocals) {
 		if (!locale) {
 			return;
@@ -24,9 +30,8 @@
 			side = dir === 'lr' ? 'left' : 'right';
 		}
 	}
-	let currentPath = $derived(page.url.pathname);
-	const sidebar = useSidebar();
 
+	const sidebar = useSidebar();
 	function onSidebarLink() {
 		if (!sidebar.isMobile) {
 			return;
@@ -37,7 +42,7 @@
 
 <Sidebar.Root collapsible="icon" {side} id="sidebar">
 	<Sidebar.Content>
-		{#each AppRoutes as group (group.title)}
+		{#each navigationGroups as group (group.title)}
 			<Sidebar.Group>
 				<Sidebar.GroupLabel>
 					{$t(group.title)}
