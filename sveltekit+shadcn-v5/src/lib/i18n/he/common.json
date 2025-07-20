@@ -45,5 +45,10 @@
 	"accessibility_statement": "הצהרת נגישות",
 	"error_boundary": "גבול שגיאה",
 	"toggle_menu": "מיתוג תפריט",
-	"settings": "הגדרות"
+	"settings": "הגדרות",
+	"theme": "ערכת נושא",
+	"theme_settings_description": "בחירת ערכת הנושא המועדפת",
+	"default": "ברירת מחדל",
+	"dirty": "מלוכלך",
+	"vivid": "מלא חיים"
 }

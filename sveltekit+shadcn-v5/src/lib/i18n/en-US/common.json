@@ -45,5 +45,10 @@
 	"accessibility_statement": "Accessibility statement",
 	"error_boundary": "Error Boundary",
 	"toggle_menu": "Toggle menu",
-	"settings": "Settings"
+	"settings": "Settings",
+	"theme": "Theme",
+	"theme_settings_description": "Choose your favorite theme",
+	"default": "Default",
+	"dirty": "Dirty",
+	"vivid": "Vivid"
 }

@@ -1,6 +1,7 @@
 import { writable } from 'svelte/store';
 import { AppName, BaseUrl } from './api/configurations/common';
 import { t } from './i18n';
+import { Themes } from './enums/theme';
 
 export const direction = writable<DirectionSetting>('rl');
 function createTitle() {
@@ -25,3 +26,5 @@ export const squareImage = writable<{ url?: string; alt?: string }>({
 	url: `${BaseUrl}/images/logo.png`,
 	alt: `${AppName} logo`
 });
+
+export const theme = writable(Themes.Default);
