@@ -134,8 +134,8 @@ export interface ComboboxConfiguration {
 // Create configuration object
 export const LanguageSelectorConfiguration: ComboboxConfiguration = {
   options: [
-    { value: AvailableLocals.Hebrew, label: 'common.locales.he' },
-    { value: AvailableLocals.English_US, label: 'common.locales.en' }
+    { value: AvailableLocals.Hebrew, label: `common.locales.${AvailableLocals.Hebrew}` },
+    { value: AvailableLocals.English_US, label: `common.locales.${AvailableLocals.English_US}` }
   ],
   placeholder: 'common.select_language',
   event: 'language_changed'
@@ -239,7 +239,7 @@ import { AppName, SupportEmail } from '$lib/api/configurations/common';
 ```typescript
 // src/lib/enums/available-locales.ts
 export enum AvailableLocales {
-  Hebrew = 'he',
+  Hebrew = 'he-IL',
   English_US = 'en-US'
 }
 

@@ -5,11 +5,11 @@ export const LanguageSelectorConfiguration: ComboboxConfiguration = {
 	options: [
 		{
 			value: AvailableLocals.Hebrew,
-			label: 'common.locales.he'
+			label: `common.locales.${AvailableLocals.Hebrew}`
 		},
 		{
 			value: AvailableLocals.English_US,
-			label: 'common.locales.en'
+			label: `common.locales.${AvailableLocals.English_US}`
 		}
 	],
 	placeholder: 'common.select_language',

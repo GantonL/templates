@@ -1,5 +1,6 @@
 import i18n, { type Config } from 'sveltekit-i18n';
 import { Locale } from '../../routes/api';
+import { AvailableLocals } from '$lib/enums/available-locales';
 
 interface Params {
 	year?: string;
@@ -10,22 +11,22 @@ interface Params {
 const config: Config<Params> = {
 	loaders: [
 		{
-			locale: 'he',
+			locale: AvailableLocals.Hebrew,
 			key: 'common',
-			loader: async () => (await import('./he/common.json')).default
+			loader: async () => (await import('./he-IL/common.json')).default
 		},
 		{
-			locale: 'he',
+			locale: AvailableLocals.Hebrew,
 			key: 'seo',
-			loader: async () => (await import('./he/seo.json')).default
+			loader: async () => (await import('./he-IL/seo.json')).default
 		},
 		{
-			locale: 'en-US',
+			locale: AvailableLocals.English_US,
 			key: 'common',
 			loader: async () => (await import('./en-US/common.json')).default
 		},
 		{
-			locale: 'en-US',
+			locale: AvailableLocals.English_US,
 			key: 'seo',
 			loader: async () => (await import('./en-US/seo.json')).default
 		}
