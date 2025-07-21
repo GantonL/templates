@@ -2,7 +2,7 @@
 
 Modern full-stack web application template built with SvelteKit v5, shadcn-svelte, and TypeScript.
 
-**Demo:** [https://sveltekit-shadcn.templates.guylahav.com](https://sveltekit-shadcn.templates.guylahav.com)
+**Demo:** [https://ssv5-template.pages.dev/](https://ssv5-template.pages.dev/)
 
 ## Tech Stack
 - **SvelteKit v5** - Full-stack framework with file-based routing
