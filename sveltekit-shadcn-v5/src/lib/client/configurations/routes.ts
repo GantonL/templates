@@ -1,5 +1,13 @@
 import type { Link } from '$lib/models/link';
-import { Banana, BookLock, Cookie, Handshake, PersonStanding, AlertTriangle, Settings } from '@lucide/svelte';
+import {
+	Banana,
+	BookLock,
+	Cookie,
+	Handshake,
+	PersonStanding,
+	AlertTriangle,
+	Settings
+} from '@lucide/svelte';
 
 export interface GroupedRoutes {
 	title: string;
@@ -24,6 +32,11 @@ export const AppRoutes: GroupedRoutes[] = [
 				label: 'common.error_boundary',
 				path: '/error-boundary',
 				icon: AlertTriangle
+			},
+			{
+				label: 'common.manage_cookies',
+				path: '/manage-cookies',
+				icon: Cookie
 			}
 		]
 	},
