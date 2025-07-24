@@ -4,19 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Essential Commands
 
-**Development**: `bun run dev`  
-**Build**: `bun run build`  
-**Test**: `npm run test`  
-**Lint/Format**: `npm run lint && npm run format`  
-**Type Check**: `npm run check`
+**Development**: `bun run dev`
+**Build**: `bun run build`
+**Test**: `bun run test`
+**Lint/Format**: `bun run lint && npm run format`
+**Type Check**: `bun run check`
 
 ## Tech Stack
 
-**Framework**: SvelteKit v5 + TypeScript  
-**UI**: shadcn-svelte + Tailwind CSS v4  
-**Deployment**: Cloudflare  
-**Package Manager**: Bun  
-**Testing**: Vitest + Playwright
+**Framework**: SvelteKit v5 + TypeScript
+**UI**: shadcn-svelte + Tailwind CSS v4
+**Deployment**: Cloudflare
+**Package Manager**: Bun
 
 ## Project Structure
 
@@ -39,9 +38,9 @@ src/routes/
 
 ## Core Systems
 
-**i18n**: Route-based locale detection, RTL/LTR direction, translation keys  
-**State**: Centralized Svelte stores for global state  
-**Routes**: Import from `src/routes/api/index.ts`, ask about sitemap additions  
+**i18n**: Route-based locale detection, RTL/LTR direction, translation keys
+**State**: Centralized Svelte stores for global state
+**Routes**: Import from `src/routes/api/index.ts`, ask about sitemap additions
 **SEO**: Store-based metadata management
 
 ## Development Rules

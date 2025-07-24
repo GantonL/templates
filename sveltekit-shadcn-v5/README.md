@@ -9,26 +9,23 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 - **shadcn-svelte** - Customizable UI components
 - **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **TypeScript** - Full type safety
-- **Vitest** - Testing framework
-- **mdsvex** - Markdown processing
 
 ## Features
 - **Application Shell** - Responsive layout component
 - **Theme Switching** - Dark/light mode with persistence
 - **Internationalization** - Multi-language support (English/Hebrew) with route and dropdown configuration
 - **Cookie Management** - GDPR-compliant cookie preferences and manager
-- **SEO Optimized** - Pre-built SEO component, sitemap.xml, robots.txt
+- **SEO Optimized** - Pre-built SEO component including meta tags and structured data, sitemap.xml, robots.txt
 - **Policy Pages** - Pre-configured Terms, Privacy, Cookies, and Accessibility policies
 - **Configuration-Driven** - Centralized configurations for maintainable code
-- **State Management** - Svelte stores for global state
-- **Testing Ready** - Vitest configured for unit and browser tests
 - **Cloudflare Ready** - Optimized for Cloudflare deployment
+- **mdsvex** - Markdown processing
 
 ## Pages
 - **Home** - Landing page with feature overview
 - **Example** - Scrollable content demonstration
 - **Error** - Error boundary behavior showcase
-- **View Transitions** - Smooth page transitions
+- **Cookies Management** - Cookies preferences manager
 - **Policy Suite** - Complete legal page templates
 
 ## Development
