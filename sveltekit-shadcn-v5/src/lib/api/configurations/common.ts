@@ -13,6 +13,7 @@ export const getDirection = (locale: AvailableLocals): DirectionSetting => {
 export const AppName: string = 'My Brand';
 export const SupportEmail: string = 'support@my-brand.com';
 export const BaseUrl: string = 'https://my-brand.com';
+export const BaseDemoUrl: string = 'https://ssv5-template.pages.dev/';
 export const Author: string = 'Guy Lahav';
 export const TwitterUsername: string = '@myusername';
 export const TwitterSitename: string = '@mysitename';
