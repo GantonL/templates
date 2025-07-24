@@ -8,19 +8,19 @@
 			"description": "General application settings"
 		},
 		"accessibility_statement": {
-			"description": ""
+			"description": "Information about accessibility features and compliance"
 		},
 		"manage_cookies": {
-			"description": ""
+			"description": "Manage your cookie preferences and settings"
 		},
 		"cookies_policy": {
-			"description": ""
+			"description": "Our policy on cookies and tracking technologies"
 		},
 		"privacy_policy": {
-			"description": ""
+			"description": "How we collect, use, and protect your personal information"
 		},
-		"temrs_of_service": {
-			"description": ""
+		"terms_of_service": {
+			"description": "Terms and conditions for using our service"
 		}
 	}
 }

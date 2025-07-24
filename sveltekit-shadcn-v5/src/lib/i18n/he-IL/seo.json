@@ -8,19 +8,19 @@
 			"description": "הגדרות מערכת כלליות"
 		},
 		"accessibility_statement": {
-			"description": ""
+			"description": "מידע על תכונות נגישות ועמידה בסטנדרטים"
 		},
 		"manage_cookies": {
-			"description": ""
+			"description": "ניהול העדפות והגדרות עוגיות"
 		},
 		"cookies_policy": {
-			"description": ""
+			"description": "המדיניות שלנו לגבי עוגיות וטכנולוגיות מעקב"
 		},
 		"privacy_policy": {
-			"description": ""
+			"description": "כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך"
 		},
-		"temrs_of_service": {
-			"description": ""
+		"terms_of_service": {
+			"description": "תנאי השירות לשימוש בשירות שלנו"
 		}
 	}
 }
