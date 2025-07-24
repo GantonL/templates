@@ -4,8 +4,9 @@ import { Locale } from './api';
 import type { LayoutLoad } from './$types';
 import { loadTranslations, locale, locales } from '$lib/i18n';
 import { direction } from '$lib/stores';
+import { getBaseMetaTags } from '$lib/client/configurations/meta-tags';
 
-export const load: LayoutLoad = async ({ fetch, params }) => {
+export const load: LayoutLoad = async ({ fetch, params, url }) => {
 	const localeRes: { locale: AvailableLocals } = await (await fetch(Locale)).json();
 	const localeFromCookie = localeRes.locale;
 	const localeFromRoute = params['lang'];
@@ -18,6 +19,7 @@ export const load: LayoutLoad = async ({ fetch, params }) => {
 	direction.set(newDirection);
 	await loadTranslations(choosenLocale);
 	return {
-		locale: choosenLocale
+		locale: choosenLocale,
+		baseMetaTags: getBaseMetaTags({ url })
 	};
 };

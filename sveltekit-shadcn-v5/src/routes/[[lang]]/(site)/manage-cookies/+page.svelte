@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { CookieManagerConfiguration } from '$lib/manage-cookies/configuration';
 	import { Button } from '$lib/components/ui/button';
 	import { Label } from '$lib/components/ui/label';
@@ -6,10 +6,32 @@
 	import { page } from '$app/state';
 	import { cookieSetRequest, hideBanner } from '$lib/manage-cookies/manager';
 	import { toast } from 'svelte-sonner';
-	import { t } from '$lib/i18n';
 	import ResourceMarkdown from '$lib/components/resource-markdown/resource-markdown.svelte';
-	import { title } from '$lib/stores';
-	title.set(t.get('common.manage_cookies_preferences'));
+	import { locale, t } from '$lib/i18n';
+	import { metaTags } from '$lib/stores';
+	import { onMount } from 'svelte';
+	import { getTitleTemplate } from '$lib/client/configurations/meta-tags';
+	import type { MetaTagsProps } from 'svelte-meta-tags';
+
+	function setPageMetaTags() {
+		const title = t.get('common.manage_cookies');
+		const description = t.get('seo.pages.manage_cookies.description');
+		const metaTagsObject = Object.freeze({
+			title,
+			titleTemplate: getTitleTemplate(),
+			description,
+			openGraph: {
+				title,
+				description
+			}
+		}) satisfies MetaTagsProps;
+		metaTags.set(metaTagsObject);
+	}
+
+	onMount(() => {
+		locale.subscribe(setPageMetaTags);
+	});
+
 	function saveChanges() {
 		cookieSetRequest({
 			[CookieManagerConfiguration['user-preference-cookie-name']]: JSON.stringify(preferences)
@@ -61,6 +83,6 @@
 		<Button variant="destructive" size="lg" onclick={rejectAll}>{$t('common.reject')}</Button>
 	</section>
 	<a href="/policies/cookies" class="text-center underline underline-offset-2">
-		<span class="flex flex-row items-center gap-2">{$t('common.cookie_policy')}</span>
+		<span class="flex flex-row items-center gap-2">{$t('common.cookies_policy')}</span>
 	</a>
 </div>

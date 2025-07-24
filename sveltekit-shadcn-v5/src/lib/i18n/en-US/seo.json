@@ -1,1 +1,26 @@
-{}
+{
+	"description": "A Sveltekit FullStack application template",
+	"pages": {
+		"example": {
+			"description": "An example page that renders scrollable dummy text"
+		},
+		"settings": {
+			"description": "General application settings"
+		},
+		"accessibility_statement": {
+			"description": ""
+		},
+		"manage_cookies": {
+			"description": ""
+		},
+		"cookies_policy": {
+			"description": ""
+		},
+		"privacy_policy": {
+			"description": ""
+		},
+		"temrs_of_service": {
+			"description": ""
+		}
+	}
+}

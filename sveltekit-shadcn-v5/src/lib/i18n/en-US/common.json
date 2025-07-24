@@ -13,7 +13,7 @@
 	"terms_of_service": "Terms of Service",
 	"error_number": "Error ({{number}})",
 	"manage_cookies": "Manage cookies",
-	"cookie_policy": "Cookie policy",
+	"cookies_policy": "Cookies policy",
 	"status_code_error": {
 		"404": {
 			"description": "Page not found"

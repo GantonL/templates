@@ -45,7 +45,7 @@ export const AppRoutes: GroupedRoutes[] = [
 		excludeFromMainMenu: true,
 		children: [
 			{
-				label: 'common.cookie_policy',
+				label: 'common.cookies_policy',
 				path: '/policies/cookies',
 				icon: Cookie
 			},

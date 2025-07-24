@@ -1,1 +1,26 @@
-{}
+{
+	"description": "תבנית לבניית אפליקציית Sveltekit",
+	"pages": {
+		"example": {
+			"description": "עמוד דוגמה שמציג תוכן דמה שניתן לגלילה"
+		},
+		"settings": {
+			"description": "הגדרות מערכת כלליות"
+		},
+		"accessibility_statement": {
+			"description": ""
+		},
+		"manage_cookies": {
+			"description": ""
+		},
+		"cookies_policy": {
+			"description": ""
+		},
+		"privacy_policy": {
+			"description": ""
+		},
+		"temrs_of_service": {
+			"description": ""
+		}
+	}
+}

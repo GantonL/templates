@@ -1,9 +1,29 @@
 <script lang="ts">
-	import { t } from '$lib/i18n';
-	import { title } from '$lib/stores';
+	import { getTitleTemplate } from '$lib/client/configurations/meta-tags';
 	import ThemeSettings from '$lib/components/settings/theme/theme.svelte';
+	import { locale, t } from '$lib/i18n';
+	import { metaTags } from '$lib/stores';
+	import { onMount } from 'svelte';
+	import type { MetaTagsProps } from 'svelte-meta-tags';
 
-	title.set(t.get('common.settings'));
+	function setPageMetaTags() {
+		const title = t.get('common.settings');
+		const description = t.get('seo.pages.settings.description');
+		const metaTagsObject = Object.freeze({
+			title,
+			titleTemplate: getTitleTemplate(),
+			description,
+			openGraph: {
+				title,
+				description
+			}
+		}) satisfies MetaTagsProps;
+		metaTags.set(metaTagsObject);
+	}
+
+	onMount(() => {
+		locale.subscribe(setPageMetaTags);
+	});
 </script>
 
 <ThemeSettings />
