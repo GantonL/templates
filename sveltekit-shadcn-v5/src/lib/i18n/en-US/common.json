@@ -50,5 +50,7 @@
 	"theme_settings_description": "Choose your favorite theme",
 	"default": "Default",
 	"dirty": "Dirty",
-	"vivid": "Vivid"
+	"vivid": "Vivid",
+	"home": "Home",
+	"back": "Back"
 }

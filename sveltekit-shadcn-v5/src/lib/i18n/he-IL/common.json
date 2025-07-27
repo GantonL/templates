@@ -50,5 +50,7 @@
 	"theme_settings_description": "בחירת ערכת הנושא המועדפת",
 	"default": "ברירת מחדל",
 	"dirty": "מלוכלך",
-	"vivid": "מלא חיים"
+	"vivid": "מלא חיים",
+	"home": "מסך הבית",
+	"back": "חזרה"
 }
