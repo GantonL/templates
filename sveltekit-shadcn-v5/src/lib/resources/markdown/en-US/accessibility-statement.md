@@ -1,3 +1,9 @@
+---
+title: Accessibility Statement
+description: Application accessibility statement.
+date: '2025-7-7'
+---
+
 # Accessibility Statement
 
 ## Our Commitment to Accessibility
@@ -52,6 +58,6 @@ We welcome your feedback regarding the accessibility of our site. You can contac
 
 If you did not receive an appropriate response, you can contact the Equal Employment Department in the Social Equality Division at the Ministry of Justice:
 
-- **Website:** [https://www.gov.il/en/departments/civil_service_commission](https://www.gov.il/en/departments/civil_service_commission)
+- **Website:** [Civil Service Commision](https://www.gov.il/en/departments/civil_service_commission)
 - **Phone:** 02-6466340
 - **Fax:** 02-6467002

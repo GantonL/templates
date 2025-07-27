@@ -1,3 +1,9 @@
+---
+title: הצהרת נגישות
+description: מדיניוהצהרת נגישות
+date: '07.07.2025'
+---
+
 # הצהרת נגישות
 
 ## המחויבות שלנו לנגישות
@@ -52,6 +58,6 @@
 
 במידה ולא קיבלתם מענה מתאים, ניתן לפנות למחלקת השוויון בעבודה באגף לשוויון חברתי במשרד המשפטים:
 
-- **אתר:** [https://www.gov.il/he/departments/civil_service_commission](https://www.gov.il/he/departments/civil_service_commission)
+- **אתר:** [נציבות שירות המדינה](https://www.gov.il/he/departments/civil_service_commission)
 - **טלפון:** 02-6466340
 - **פקס:** 02-6467002
