@@ -20,6 +20,10 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 - **Configuration-Driven** - Centralized configurations for maintainable code
 - **Cloudflare Ready** - Optimized for Cloudflare deployment
 - **mdsvex** - Markdown processing
+- **Components**:
+  - **Shell** - A basic application shell with header, footer, sidebar.
+  - **BasePage** - All pages are wrapped with a base page component to centralizes seo handling via props. open for extensions.
+  - **SEO** - Shell is wrapped with the SEO component that handles seo and structred data related logic.
 
 ## Pages
 - **Home** - Landing page with feature overview

@@ -15,7 +15,6 @@ Modern full-stack web application template combining **SvelteKit v5**, **shadcn-
 - **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **TypeScript** - Full type safety
 - **Vitest** - Testing framework
-- **mdsvex** - Markdown processing
 
 ## Features
 
@@ -29,6 +28,7 @@ Modern full-stack web application template combining **SvelteKit v5**, **shadcn-
 - **State Management** - Svelte stores for global state
 - **Testing Ready** - Vitest configured for unit and browser tests
 - **Cloudflare Ready** - Optimized for Cloudflare deployment
+- **mdsvex** - Markdown processing
 
 ## Development
 

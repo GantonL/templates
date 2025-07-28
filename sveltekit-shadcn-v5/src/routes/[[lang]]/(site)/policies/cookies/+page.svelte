@@ -1,29 +1,8 @@
 <script lang="ts">
 	import ResourceMarkdown from '$lib/components/resource-markdown/resource-markdown.svelte';
-	import { locale, t } from '$lib/i18n';
-	import { metaTags } from '$lib/stores';
-	import { onMount } from 'svelte';
-	import { getTitleTemplate } from '$lib/client/configurations/meta-tags';
-	import type { MetaTagsProps } from 'svelte-meta-tags';
-
-	function setPageMetaTags() {
-		const title = t.get('common.cookies_policy');
-		const description = t.get('seo.pages.cookies_policy.description');
-		const metaTagsObject = Object.freeze({
-			title,
-			titleTemplate: getTitleTemplate(),
-			description,
-			openGraph: {
-				title,
-				description
-			}
-		}) satisfies MetaTagsProps;
-		metaTags.set(metaTagsObject);
-	}
-
-	onMount(() => {
-		locale.subscribe(setPageMetaTags);
-	});
+	import BasePage from '$lib/components/base-page/base-page.svelte';
 </script>
 
-<ResourceMarkdown path="cookies-policy" />
+<BasePage title="common.cookies_policy" description="seo.pages.cookies_policy.description">
+	<ResourceMarkdown path="cookies-policy" />
+</BasePage>

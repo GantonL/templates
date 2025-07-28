@@ -15,7 +15,6 @@ date: '2025-7-9'
 - **Tailwind CSS v4** - עיצוב utility-first עם פלאגין Vite
 - **TypeScript** - בטיחות טיפוסים מלאה
 - **Vitest** - מסגרת בדיקות
-- **mdsvex** - עיבוד Markdown
 
 ## תכונות
 
@@ -29,6 +28,7 @@ date: '2025-7-9'
 - **ניהול מצב** - Svelte stores למצב גלובלי
 - **מוכן לבדיקות** - Vitest מוגדר לבדיקות יחידה ודפדפן
 - **מוכן ל-Cloudflare** - מותאם לפריסה ב-Cloudflare
+- **mdsvex** - עיבוד Markdown
 
 ## פיתוח
 

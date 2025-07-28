@@ -1,29 +1,11 @@
 <script lang="ts">
-	import { getTitleTemplate } from '$lib/client/configurations/meta-tags';
+	import BasePage from '$lib/components/base-page/base-page.svelte';
 	import ResourceMarkdown from '$lib/components/resource-markdown/resource-markdown.svelte';
-	import { locale, t } from '$lib/i18n';
-	import { metaTags } from '$lib/stores';
-	import { onMount } from 'svelte';
-	import type { MetaTagsProps } from 'svelte-meta-tags';
-
-	function setPageMetaTags() {
-		const title = t.get('common.accessibility_statement');
-		const description = t.get('seo.pages.accessibility_statement.description');
-		const metaTagsObject = Object.freeze({
-			title,
-			titleTemplate: getTitleTemplate(),
-			description,
-			openGraph: {
-				title,
-				description
-			}
-		}) satisfies MetaTagsProps;
-		metaTags.set(metaTagsObject);
-	}
-
-	onMount(() => {
-		locale.subscribe(setPageMetaTags);
-	});
 </script>
 
-<ResourceMarkdown path="accessibility-statement" />
+<BasePage
+	title="common.accessibility_statement"
+	description="seo.pages.accessibility_statement.description"
+>
+	<ResourceMarkdown path="accessibility-statement" />
+</BasePage>
