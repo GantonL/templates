@@ -53,6 +53,14 @@ bun run check
 # Lint and format
 bun run lint
 bun run format
+
+# CLI Scripts
+bun run create:page <path>   # Create new page with template
+bun run create:md <path>     # Create markdown files for all locales
+
+# Examples
+bun run create:page /demo/[:demo_id]   # Creates demo page with dynamic ID parameter
+bun run create:md demo.md                 # Creates demo.md files for all configured locales
 ```
 
 ## Architecture
@@ -67,6 +75,6 @@ bun run format
 
 - **Layout variants** - Configurable navigation layouts (collapsible, top bar, bottom menu)
 - **Database abstraction** - ORM integration layer
-- **CLI tooling** - Project scaffolding and configuration utilities
+- **Enhanced CLI tooling** - Extended scaffolding and utilities
 - **Premade generic components** - Data Table
 - **Accessibility Managment tool**

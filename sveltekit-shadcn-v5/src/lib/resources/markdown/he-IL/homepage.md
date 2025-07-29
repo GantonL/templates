@@ -29,15 +29,18 @@ date: '2025-7-9'
 - **מוכן לבדיקות** - Vitest מוגדר לבדיקות יחידה ודפדפן
 - **מוכן ל-Cloudflare** - מותאם לפריסה ב-Cloudflare
 - **mdsvex** - עיבוד Markdown
+- **סקריפטי CLI** - מחוללים מובנים לדפים וקבצי markdown
 
 ## פיתוח
 
 ```bash
-bun run dev    # הפעל שרת פיתוח
-bun run build  # בנה לייצור
-bun run test   # הרץ בדיקות
-bun run check  # בדיקת טיפוסים
-bun run lint   # lint ועיצוב
+bun run dev         # הפעל שרת פיתוח
+bun run build       # בנה לייצור
+bun run test        # הרץ בדיקות
+bun run check       # בדיקת טיפוסים
+bun run lint        # lint ועיצוב
+bun run create:page # צור דף חדש עם תבנית
+bun run create:md   # צור קבצי markdown לכל השפות
 ```
 
 בקרו ב[תיעוד SvelteKit](https://svelte.dev/docs/kit) ללמידה נוספת.

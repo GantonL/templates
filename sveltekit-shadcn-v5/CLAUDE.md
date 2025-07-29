@@ -9,6 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 **Test**: `bun run test`
 **Lint/Format**: `bun run lint && npm run format`
 **Type Check**: `bun run check`
+**Create Page**: `bun run create:page <path>` - Creates new SvelteKit page with BasePage template
+**Create Markdown**: `bun run create:md <path>` - Creates markdown files for all configured locales
 
 ## Tech Stack
 

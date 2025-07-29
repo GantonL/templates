@@ -13,7 +13,9 @@
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
+		"test": "bun run test:unit -- --run",
+		"create:page": "bun run scripts/create-page.js",
+		"create:md": "bun run scripts/create-markdown.js"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",

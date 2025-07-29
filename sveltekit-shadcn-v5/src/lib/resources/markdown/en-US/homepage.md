@@ -29,15 +29,18 @@ Modern full-stack web application template combining **SvelteKit v5**, **shadcn-
 - **Testing Ready** - Vitest configured for unit and browser tests
 - **Cloudflare Ready** - Optimized for Cloudflare deployment
 - **mdsvex** - Markdown processing
+- **CLI Scripts** - Built-in generators for pages and markdown files
 
 ## Development
 
 ```bash
-bun run dev    # Start development server
-bun run build  # Build for production
-bun run test   # Run tests
-bun run check  # Type checking
-bun run lint   # Lint and format
+bun run dev         # Start development server
+bun run build       # Build for production
+bun run test        # Run tests
+bun run check       # Type checking
+bun run lint        # Lint and format
+bun run create:page # Create new page with template
+bun run create:md   # Create markdown files for all locales
 ```
 
 Visit the [SvelteKit documentation](https://svelte.dev/docs/kit) to learn more.
