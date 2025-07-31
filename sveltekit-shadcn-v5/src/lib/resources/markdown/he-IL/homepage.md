@@ -41,6 +41,7 @@ bun run check       # בדיקת טיפוסים
 bun run lint        # lint ועיצוב
 bun run create:page # צור דף חדש עם תבנית
 bun run create:md   # צור קבצי markdown לכל השפות
+bun run create:api-controller  # צור API controller חדש
 ```
 
 בקרו ב[תיעוד SvelteKit](https://svelte.dev/docs/kit) ללמידה נוספת.

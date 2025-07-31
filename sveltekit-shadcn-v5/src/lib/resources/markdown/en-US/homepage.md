@@ -41,6 +41,7 @@ bun run check       # Type checking
 bun run lint        # Lint and format
 bun run create:page # Create new page with template
 bun run create:md   # Create markdown files for all locales
+bun run create:api-controller  # Create an api controller with template
 ```
 
 Visit the [SvelteKit documentation](https://svelte.dev/docs/kit) to learn more.

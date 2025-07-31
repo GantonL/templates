@@ -57,10 +57,12 @@ bun run format
 # CLI Scripts
 bun run create:page <path>   # Create new page with template
 bun run create:md <path>     # Create markdown files for all locales
+bun run create:api-controller <path>     # Create an api controller with template
 
 # Examples
-bun run create:page /demo/[:demo_id]   # Creates demo page with dynamic ID parameter
+bun run create:page /demo/[demo_id]   # Creates demo page with dynamic ID parameter
 bun run create:md demo.md                 # Creates demo.md files for all configured locales
+bun run create:api-controller demo/nested/[nested_id]/more-nested     # Create an api "controller" for more-nested
 ```
 
 ## Architecture

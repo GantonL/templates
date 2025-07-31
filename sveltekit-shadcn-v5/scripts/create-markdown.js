@@ -1,9 +1,10 @@
 import { readdir } from 'fs/promises';
+import { logError, logSuccess } from './utils';
 
 const args = process.argv.slice(2);
 const inputPath = args[0];
 if (!inputPath) {
-	console.error('You must define a path for your markdown file');
+	logError('You must define a path for your markdown file');
 	process.exit(1);
 }
 const markdownsLocation = 'src/lib/resources/markdown';
@@ -14,7 +15,7 @@ for await (const locale of locales) {
 	await Bun.write(path, fileContent);
 }
 if (locales?.length > 0) {
-	console.log('Markdowns created successfuly for locales', locales);
+	logSuccess('Markdowns created successfuly for locales', locales);
 }
 
 function getFileContent() {

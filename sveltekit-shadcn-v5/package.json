@@ -15,7 +15,8 @@
 		"test:unit": "vitest",
 		"test": "bun run test:unit -- --run",
 		"create:page": "bun run scripts/create-page.js",
-		"create:md": "bun run scripts/create-markdown.js"
+		"create:md": "bun run scripts/create-markdown.js",
+		"create:api-controller": "bun run scripts/create-api-controller.js"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
