@@ -6,15 +6,14 @@ date: '2025-7-9'
 
 # SvelteKit + shadcn-svelte Template
 
-Modern full-stack web application template combining **SvelteKit v5**, **shadcn-svelte**, and **TypeScript**. Built for developer productivity and performance.
+Modern full-stack web application starter template built for developer productivity and performance.
 
 ## Tech Stack
 
-- **SvelteKit v5** - Full-stack framework with file-based routing
+- **SvelteKit** - Full-stack framework with file-based routing
 - **shadcn-svelte** - Customizable UI components
 - **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **TypeScript** - Full type safety
-- **Vitest** - Testing framework
 
 ## Features
 

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { locale } from '$lib/i18n';
-	import { onMount, type Component } from 'svelte';
+	import { type Component } from 'svelte';
 	let { path }: { path: string } = $props();
 	let readyToRender = $state(false);
 	let Content: Component | undefined = $state();
-	onMount(() => {
+
+	$effect.pre(() => {
 		setContent();
 		locale.subscribe(setContent);
 	});
