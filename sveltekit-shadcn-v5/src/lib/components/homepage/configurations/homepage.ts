@@ -13,7 +13,7 @@ import {
 	Database,
 	Wrench,
 	Table,
-	Shield
+	PersonStanding
 } from '@lucide/svelte';
 
 export interface HomepageHeroConfig {
@@ -192,7 +192,7 @@ export const homepageConfig: HomepageConfig = {
 			{
 				title: 'homepage.roadmap.accessibility.title',
 				description: 'homepage.roadmap.accessibility.description',
-				icon: Shield
+				icon: PersonStanding
 			}
 		]
 	}

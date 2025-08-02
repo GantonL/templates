@@ -5,7 +5,6 @@
 	import CardDescription from '$lib/components/ui/card/card-description.svelte';
 	import CardHeader from '$lib/components/ui/card/card-header.svelte';
 	import CardTitle from '$lib/components/ui/card/card-title.svelte';
-	import Button from '$lib/components/ui/button/button.svelte';
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { homepageConfig, type HomepageConfig } from './configurations/homepage.js';
 
