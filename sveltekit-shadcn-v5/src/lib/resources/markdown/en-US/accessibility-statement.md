@@ -17,21 +17,25 @@ Our website is based on the international accessibility guidelines WCAG 2.1 (Web
 ## Accessibility Features on Our Site
 
 ### Keyboard Navigation
+
 - The site can be navigated using keyboard only
 - All interactive elements are accessible via keyboard
 - Focus indicators are clear and visible
 
 ### Screen Reader Support
+
 - The site supports leading screen readers such as NVDA, JAWS, and VoiceOver
 - Images include appropriate alternative text
 - Headings are organized in logical hierarchy
 
 ### Contrast and Colors
+
 - Text-to-background contrast meets WCAG requirements
 - Information is not conveyed through color alone
 - Support for both light and dark themes
 
 ### Fonts and Sizes
+
 - Clear and readable fonts
 - Text can be enlarged up to 200% without losing functionality
 - Appropriate spacing between elements

@@ -1,0 +1,93 @@
+{
+	"hero": {
+		"title": "תבנית SvelteKit + shadcn-svelte",
+		"description": "תבנית התחלה לאפליקציית רשת מלאה ומודרנית הבנויה עבור פרודוקטיביות מפתחים וביצועים."
+	},
+	"techStack": {
+		"title": "סטק טכנולוגי",
+		"sveltekit": {
+			"title": "SvelteKit",
+			"description": "פריימוורק מלא עם ניתוב מבוסס קבצים"
+		},
+		"shadcn": {
+			"title": "shadcn-svelte",
+			"description": "רכיבי ממשק משתמש הניתנים להתאמה"
+		},
+		"tailwind": {
+			"title": "Tailwind CSS v4",
+			"description": "עיצוב utility-first עם תוסף Vite"
+		},
+		"typescript": {
+			"title": "TypeScript",
+			"description": "בטיחות סוגים מלאה"
+		}
+	},
+	"features": {
+		"title": "תכונות",
+		"appShell": {
+			"title": "מעטפת אפליקציה",
+			"description": "רכיב פריסה רספונסיבי עם דפוסי עיצוב מודרניים"
+		},
+		"theming": {
+			"title": "החלפת ערכת נושא",
+			"description": "מצב כהה/בהיר עם שמירה וזיהוי העדפות מערכת"
+		},
+		"i18n": {
+			"title": "בינלאומיות",
+			"description": "תמיכה רב-לשונית (אנגלית/עברית) עם תצורת נתיבים"
+		},
+		"cookies": {
+			"title": "ניהול עוגיות",
+			"description": "מערכת העדפות וניהול עוגיות תואמת GDPR"
+		},
+		"seo": {
+			"title": "מותאם SEO",
+			"description": "רכיבי SEO מוכנים מראש, sitemap.xml ו-robots.txt"
+		},
+		"configuration": {
+			"title": "מונע תצורה",
+			"description": "תצורות מרכזיות לקוד ניתן לתחזוקה ולהרחבה"
+		}
+	},
+	"development": {
+		"title": "פיתוח",
+		"subtitle": "פקודות התחלה מהירה",
+		"description": "התחל לעבוד תוך דקות",
+		"commands": {
+			"dev": "הפעל שרת פיתוח",
+			"build": "בנה לפרודקשן",
+			"test": "הרץ בדיקות",
+			"createPage": "צור עמוד חדש עם תבנית",
+			"createMd": "צור קובצי מארקדאון לכל השפות",
+			"createApi": "צור בקר API עם תבנית"
+		}
+	},
+	"roadmap": {
+		"title": "מפת דרכים",
+		"layoutVariants": {
+			"title": "וריאציות פריסה",
+			"description": "פריסות ניווט הניתנות להגדרה (מתקפל, סרגל עליון, תפריט תחתון)"
+		},
+		"database": {
+			"title": "הפשטת מסד נתונים",
+			"description": "שכבת אינטגרציה של ORM"
+		},
+		"cli": {
+			"title": "כלי CLI משופרים",
+			"description": "כלי פיגום ועזר מורחבים"
+		},
+		"components": {
+			"title": "רכיבים גנריים מוכנים מראש",
+			"description": "טבלת נתונים"
+		},
+		"accessibility": {
+			"title": "כלי ניהול נגישות",
+			"description": "כלי ניהול ובדיקת נגישות מובנים"
+		}
+	},
+	"cta": {
+		"title": "מוכן לבנות משהו מדהים?",
+		"description": "בקר בתיעוד SvelteKit כדי ללמוד עוד ולהתחיל במסע שלך.",
+		"button": "תיעוד SvelteKit"
+	}
+}

@@ -13,6 +13,7 @@ These Terms & Conditions ("Terms") govern your use of our website and services. 
 ## Acceptance of Terms
 
 By accessing our website, you confirm that you:
+
 - Are at least 18 years old or have parental consent
 - Have the legal capacity to enter into these Terms
 - Will comply with all applicable laws and regulations
@@ -21,14 +22,18 @@ By accessing our website, you confirm that you:
 ## Use of the Site
 
 ### Permitted Use
+
 You may use our website and services for:
+
 - Personal, non-commercial purposes
 - Legitimate business activities
 - Educational and research purposes
 - Accessing information and resources we provide
 
 ### Prohibited Activities
+
 You may not:
+
 - Violate any applicable laws or regulations
 - Infringe on intellectual property rights
 - Distribute malicious software or viruses
@@ -40,13 +45,16 @@ You may not:
 ## User Accounts
 
 ### Registration
+
 - You must provide accurate and complete information
 - You are responsible for maintaining account security
 - You must notify us immediately of any unauthorized use
 - One person or entity may maintain only one account
 
 ### Account Termination
+
 We may terminate or suspend your account if you:
+
 - Violate these Terms or our policies
 - Engage in fraudulent or illegal activities
 - Cause harm to other users or our services
@@ -55,20 +63,25 @@ We may terminate or suspend your account if you:
 ## Intellectual Property
 
 ### Our Rights
+
 All content on our website is protected by intellectual property laws:
+
 - **Copyright**: Text, images, graphics, and multimedia content
 - **Trademarks**: Company names, logos, and brand elements
 - **Patents**: Innovative technologies and processes
 - **Trade Secrets**: Proprietary information and methods
 
 ### User-Generated Content
+
 When you submit content to our services:
+
 - You retain ownership of your original content
 - You grant us a license to use, modify, and distribute your content
 - You represent that you have the right to share the content
 - You agree not to submit infringing or illegal content
 
 ### Licensing
+
 - Content may be licensed under Creative Commons or similar licenses
 - Third-party content is used with appropriate permissions
 - Open-source components are used according to their licenses
@@ -76,12 +89,14 @@ When you submit content to our services:
 ## Services and Availability
 
 ### Service Provision
+
 - We strive to provide reliable and high-quality services
 - Services may be temporarily unavailable for maintenance
 - We reserve the right to modify or discontinue services
 - New features may be added or removed at our discretion
 
 ### Technical Requirements
+
 - You are responsible for your internet connection and devices
 - Certain features may require specific browsers or software
 - We support current versions of major browsers
@@ -90,6 +105,7 @@ When you submit content to our services:
 ## Privacy and Data Protection
 
 Your privacy is important to us. Please review our Privacy Policy, which describes:
+
 - How we collect and use your information
 - Your rights regarding your personal data
 - Security measures we implement
@@ -98,14 +114,18 @@ Your privacy is important to us. Please review our Privacy Policy, which describ
 ## Disclaimers and Limitations
 
 ### Disclaimer of Warranties
+
 Our services are provided "as is" and "as available":
+
 - We make no warranties about service availability or quality
 - We disclaim all express and implied warranties
 - We do not guarantee that services will be error-free
 - You use our services at your own risk
 
 ### Limitation of Liability
+
 To the maximum extent permitted by law:
+
 - We are not liable for indirect, incidental, or consequential damages
 - Our total liability is limited to the amount you paid for services
 - We are not responsible for third-party content or services
@@ -114,6 +134,7 @@ To the maximum extent permitted by law:
 ## Indemnification
 
 You agree to indemnify and hold us harmless from:
+
 - Claims arising from your use of our services
 - Violations of these Terms or applicable laws
 - Infringement of third-party rights
@@ -122,9 +143,11 @@ You agree to indemnify and hold us harmless from:
 ## Governing Law and Disputes
 
 ### Governing Law
+
 These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law principles.
 
 ### Dispute Resolution
+
 - We encourage informal resolution of disputes
 - Binding arbitration may be required for certain disputes
 - Class action lawsuits may be prohibited
@@ -133,6 +156,7 @@ These Terms are governed by the laws of [Your Jurisdiction], without regard to c
 ## Changes to Terms
 
 We may update these Terms from time to time:
+
 - Changes will be posted on our website
 - Significant changes will be communicated via email
 - Continued use constitutes acceptance of new terms
@@ -150,4 +174,4 @@ If you have questions about these Terms, please contact us:
 
 If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue in full force and effect.
 
-*Last updated: July 7, 2025*
+_Last updated: July 7, 2025_

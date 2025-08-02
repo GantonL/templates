@@ -19,16 +19,19 @@ Cookies are small text files that are placed on your computer or mobile device w
 We use cookies for the following purposes:
 
 ### Essential Cookies
+
 - **Session Management**: To maintain your login session and remember your preferences
 - **Security**: To protect against cross-site request forgery and other security threats
 - **Language Preference**: To remember your selected language and display content accordingly
 
 ### Analytics Cookies
+
 - **Usage Analytics**: To understand how visitors interact with our website
 - **Performance Monitoring**: To identify and fix technical issues
 - **Traffic Analysis**: To measure website traffic and optimize user experience
 
 ### Functional Cookies
+
 - **Theme Preference**: To remember your dark/light mode selection
 - **User Interface**: To maintain your preferred layout and display settings
 - **Accessibility**: To remember accessibility preferences and settings
@@ -44,6 +47,7 @@ You can control cookies through your browser settings:
 ## Third-Party Cookies
 
 We may use third-party services that set their own cookies:
+
 - Analytics providers for website statistics
 - Content delivery networks for improved performance
 - Social media platforms for sharing functionality
@@ -56,4 +60,4 @@ We may update this Cookies Policy from time to time. Any changes will be posted 
 
 If you have questions about our use of cookies, please contact us through the contact information provided on our website.
 
-*Last updated: July 7, 2025*
+_Last updated: July 7, 2025_

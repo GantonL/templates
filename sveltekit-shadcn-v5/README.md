@@ -5,12 +5,14 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 **Demo:** [https://ssv5.templates.guylahav.com/](https://ssv5.templates.guylahav.com/)
 
 ## Tech Stack
+
 - **SvelteKit v5** - Full-stack framework with file-based routing
 - **shadcn-svelte** - Customizable UI components
 - **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **TypeScript** - Full type safety
 
 ## Features
+
 - **Application Shell** - Responsive layout component
 - **Theme Switching** - Dark/light mode with persistence
 - **Internationalization** - Multi-language support (English/Hebrew) with route and dropdown configuration
@@ -26,6 +28,7 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
   - **SEO** - Shell is wrapped with the SEO component that handles seo and structred data related logic.
 
 ## Pages
+
 - **Home** - Landing page with feature overview
 - **Example** - Scrollable content demonstration
 - **Error** - Error boundary behavior showcase

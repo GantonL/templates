@@ -1,0 +1,93 @@
+{
+	"hero": {
+		"title": "SvelteKit + shadcn-svelte Template",
+		"description": "Modern full-stack web application starter template built for developer productivity and performance."
+	},
+	"techStack": {
+		"title": "Tech Stack",
+		"sveltekit": {
+			"title": "SvelteKit",
+			"description": "Full-stack framework"
+		},
+		"shadcn": {
+			"title": "shadcn-svelte",
+			"description": "Customizable UI components"
+		},
+		"tailwind": {
+			"title": "Tailwind CSS v4",
+			"description": "Utility-first styling with Vite plugin"
+		},
+		"typescript": {
+			"title": "TypeScript",
+			"description": "Full type safety"
+		}
+	},
+	"features": {
+		"title": "Features",
+		"appShell": {
+			"title": "Application Shell",
+			"description": "Responsive layout component with modern design patterns"
+		},
+		"theming": {
+			"title": "Theme Switching",
+			"description": "Dark/light mode with persistence and system preference detection"
+		},
+		"i18n": {
+			"title": "Internationalization",
+			"description": "Multi-language support (English/Hebrew) with route configuration"
+		},
+		"cookies": {
+			"title": "Cookie Management",
+			"description": "GDPR-compliant cookie preferences and management system"
+		},
+		"seo": {
+			"title": "SEO Optimized",
+			"description": "Pre-built SEO components, sitemap.xml, and robots.txt"
+		},
+		"configuration": {
+			"title": "Configuration-Driven",
+			"description": "Centralized configurations for maintainable and scalable code"
+		}
+	},
+	"development": {
+		"title": "Development",
+		"subtitle": "Quick Start Commands",
+		"description": "Get up and running in minutes",
+		"commands": {
+			"dev": "Start development server",
+			"build": "Build for production",
+			"test": "Run tests",
+			"createPage": "Create new page with template",
+			"createMd": "Create markdown files for all locales",
+			"createApi": "Create API controller with template"
+		}
+	},
+	"roadmap": {
+		"title": "Roadmap",
+		"layoutVariants": {
+			"title": "Layout variants",
+			"description": "Configurable navigation layouts (collapsible, top bar, bottom menu)"
+		},
+		"database": {
+			"title": "Database abstraction",
+			"description": "ORM integration layer"
+		},
+		"cli": {
+			"title": "Enhanced CLI tooling",
+			"description": "Extended scaffolding and utilities"
+		},
+		"components": {
+			"title": "Premade generic components",
+			"description": "Data Table"
+		},
+		"accessibility": {
+			"title": "Accessibility Management tool",
+			"description": "Built-in accessibility management and testing tools"
+		}
+	},
+	"cta": {
+		"title": "Ready to build something amazing?",
+		"description": "Visit the SvelteKit documentation to learn more and start your journey.",
+		"button": "SvelteKit Documentation"
+	}
+}

@@ -1,98 +1,177 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with this SvelteKit template repository focused on internationalization, accessibility, and modern web standards.
 
 ## Essential Commands
 
-**Development**: `bun run dev`
-**Build**: `bun run build`
-**Test**: `bun run test`
-**Lint/Format**: `bun run lint && npm run format`
+**Development**: `vite dev` or `bun run dev`
+**Build**: `vite build` or `bun run build`
+**Test**: `bun run test` (unit tests with Vitest)
+**Lint/Format**: `bun run lint && bun run format`
 **Type Check**: `bun run check`
 **Create Page**: `bun run create:page <path>` - Creates new SvelteKit page with BasePage template
 **Create Markdown**: `bun run create:md <path>` - Creates markdown files for all configured locales
+**Create API Controller**: `bun run create:api-controller <path>` - Creates API endpoint templates
 
 ## Tech Stack
 
-**Framework**: SvelteKit v5 + TypeScript
-**UI**: shadcn-svelte + Tailwind CSS v4
-**Deployment**: Cloudflare
+**Core**: SvelteKit v5, TypeScript, Vite
+**UI**: shadcn-svelte (bits-ui), Tailwind CSS v4, Lucide icons
+**i18n**: sveltekit-i18n with Hebrew/English support
+**Deployment**: Cloudflare (adapter included)
 **Package Manager**: Bun
+**Testing**: Vitest with browser testing, Playwright
+**SEO**: svelte-meta-tags, structured data, sitemap generation
 
-## Project Structure
+## Project Architecture
+
+This is a **template/starter project** for building multilingual SvelteKit applications with:
+
+### Core Features
+
+- **Internationalization**: Hebrew & English with RTL/LTR support
+- **Accessibility**: WCAG compliant components and practices
+- **Cookie Management**: GDPR-compliant cookie preferences
+- **SEO Optimization**: Meta tags, structured data, sitemaps
+- **Theme Management**: Light/dark mode with system preference detection
+- **Mobile-First**: Responsive design with sidebar navigation
+
+### Project Structure
 
 ```
 src/lib/
-├── api/configurations/     # Server/API configs
-├── client/configurations/  # Client configs
-├── components/            # UI components + shadcn-svelte
-├── enums/                # Type definitions
-├── hooks/                # Custom functionality
-├── i18n/                 # Translations
+├── api/configurations/     # Server/API configurations
+├── client/configurations/  # Client-side configurations (routes, themes, meta)
+├── components/
+│   ├── [custom]/          # Application components
+│   └── ui/               # shadcn-svelte components
+├── enums/                # Type definitions and constants
+├── hooks/                # Svelte runes and utilities
+├── i18n/                 # Translation files (en-US, he-IL)
+├── manage-cookies/       # Cookie consent system
 ├── models/               # TypeScript interfaces
-├── resources/markdown/   # Localized content
-└── stores.ts            # Global state
+├── resources/markdown/   # Localized content files
+├── stores.ts            # Global Svelte stores
+├── theme/               # Theme management utilities
+└── utils.ts             # Shared utilities
 
 src/routes/
-├── [[lang]]/            # Locale routing
-└── api/                 # Server endpoints
+├── [[lang]]/            # Internationalized routes
+│   ├── (application)/   # App pages (example, settings)
+│   └── (site)/         # Content pages (policies, accessibility)
+├── api/                # Server endpoints
+└── sitemap.xml/        # Dynamic sitemap generation
 ```
 
-## Core Systems
-
-**i18n**: Route-based locale detection, RTL/LTR direction, translation keys
-**State**: Centralized Svelte stores for global state
-**Routes**: Import from `src/routes/api/index.ts`, ask about sitemap additions
-**SEO**: Store-based metadata management
-
-## Development Rules
+## Development Guidelines
 
 ### Configuration-Driven Architecture
-**NEVER hardcode data in components.**
 
-- Create config objects in `src/lib/api/configurations/` (server) or `src/lib/client/configurations/` (client)
-- Component configs go in `components/[name]/configurations/`
-- Define interfaces first, then create typed config objects
+**Keep components flexible through configuration objects.**
 
-### Translation Requirements
-**ALL user-facing text MUST use translation keys.**
+- Server configs: `src/lib/api/configurations/`
+- Client configs: `src/lib/client/configurations/`
+- Component configs: `components/[name]/configurations/`
+- Use TypeScript interfaces for all configurations
 
-- Use `$t('key')` in templates, `t.get('key')` in TypeScript
-- Store translations in JSON files by locale
-- Use hierarchical keys: `common.actions.save`
+### Internationalization (i18n)
 
-### Component Standards
-**Follow strict component patterns.**
+**All user-facing text must be translatable.**
+
+- Translation files: `src/lib/i18n/[locale]/[namespace].json`
+- Template usage: `$t('namespace.key')`
+- TypeScript usage: `t.get('namespace.key')`
+- Hierarchical keys: `common.navigation.home`
+- Current locales: `en-US`, `he-IL`
+
+### Component Patterns
+
+**Follow established component structure.**
+
+Most components follow:
 
 ```
 components/[name]/
-├── configurations/[config].ts
 ├── [name].svelte
-└── index.ts (if needed)
+└── configurations/ (optional)
+    └── [config].ts
 ```
 
-- Define interfaces in `src/lib/models/`
-- Use typed props and event-driven communication
-- Import via aliases: `$lib/components/ui/button`
+shadcn-svelte components include:
+
+```
+components/ui/[name]/
+├── [name].svelte
+├── index.ts
+└── [additional-parts].svelte
+```
+
+### Routing & Navigation
+
+**Internationalized routing with grouped layouts.**
+
+- Routes configuration: `src/lib/client/configurations/routes.ts`
+- Locale detection: `[[lang]]` parameter
+- Route groups: `(application)`, `(site)`
+- Navigation: Sidebar with grouped routes
 
 ### State Management
-**Centralized stores only.**
 
-- Global state in `src/lib/stores.ts`
-- Use stores for SEO metadata
-- Type all store values
+**Centralized stores for global state.**
 
-### File Organization
-**Strict directory separation.**
+- Main store: `src/lib/stores.ts`
+- Theme management: `src/lib/theme/manager.ts`
+- Cookie preferences: `src/lib/manage-cookies/`
+- Mobile detection: `src/lib/hooks/is-mobile.svelte.ts`
 
-- Constants in `src/lib/api/configurations/common.ts`
-- Use enums for type safety
-- No relative imports (`../../../`)
+### Content Management
 
-### Testing & Code Quality
-**Consistent naming and structure.**
+**Markdown-based content with localization.**
 
-- Client tests: `[name].svelte.test.ts`
-- Server tests: `[name].test.ts`
-- Use Tailwind utilities with shadcn-svelte components
-- Mobile-first responsive design
+- Markdown files: `src/lib/resources/markdown/[locale]/`
+- Content rendering: `resource-markdown` component
+- Automated creation: `bun run create:md <filename>`
+
+## Key Features Implementation
+
+### Cookie Management
+
+- GDPR-compliant consent system
+- Preference management UI
+- Server-side cookie handling
+
+### SEO & Accessibility
+
+- Meta tags management via stores
+- Structured data configuration
+- ARIA labels and semantic HTML
+- Screen reader support
+
+### Theme System
+
+- Light/dark mode toggle
+- System preference detection
+- Persistent theme storage
+
+### Mobile Experience
+
+- Responsive sidebar navigation
+- Touch-friendly interactions
+- Mobile-first component design
+
+## Scripts & Automation
+
+Custom build scripts in `/scripts/`:
+
+- `create-page.js` - Generate page templates
+- `create-markdown.js` - Create localized markdown files
+- `create-api-controller.js` - Generate API endpoints
+- `utils.js` - Shared script utilities
+
+## Important Notes
+
+- This is a **template repository** - customize for your specific needs
+- Hebrew (RTL) and English (LTR) are preconfigured
+- All policies/legal pages are placeholder content
+- Cookie management includes technical and preference cookies
+- SEO configuration includes structured data for organizations
