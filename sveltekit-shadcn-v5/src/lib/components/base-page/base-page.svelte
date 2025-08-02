@@ -14,7 +14,7 @@
 		const pageDescription = t.get(description);
 		const metaTagsObject = Object.freeze({
 			title: pageTitle,
-			titleTemplate: getTitleTemplate(),
+			titleTemplate: title !== 'common.brand.name' ? getTitleTemplate() : undefined,
 			description: pageDescription,
 			openGraph: {
 				title: pageTitle,
