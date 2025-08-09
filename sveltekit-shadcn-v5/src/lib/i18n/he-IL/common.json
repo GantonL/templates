@@ -52,5 +52,12 @@
 	"dirty": "מלוכלך",
 	"vivid": "מלא חיים",
 	"home": "מסך הבית",
-	"back": "חזרה"
+	"back": "חזרה",
+	"server_health": "תקינות שרת",
+	"api_healthy": "תקשורת שרת תקינה",
+	"api_unhealthy": "תקשורת שרת לא תקינה",
+	"api_health_description": "",
+	"db_healty": "תקשורת מסד נתונים תקינה",
+	"db_unhealty": "תקשורת מסד נתונים לא תקינה",
+	"db_health_description": ""
 }

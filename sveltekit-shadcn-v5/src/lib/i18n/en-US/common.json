@@ -52,5 +52,12 @@
 	"dirty": "Dirty",
 	"vivid": "Vivid",
 	"home": "Home",
-	"back": "Back"
+	"back": "Back",
+	"server_health": "Server health",
+	"api_healthy": "API healthy",
+	"api_unhealthy": "API unvailable",
+	"api_health_description": "",
+	"db_healthy": "Database healthy",
+	"db_unhealthy": "Database not accessible",
+	"db_health_description": ""
 }

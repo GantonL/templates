@@ -6,7 +6,8 @@ import {
 	Handshake,
 	PersonStanding,
 	AlertTriangle,
-	Settings
+	Settings,
+	Server
 } from '@lucide/svelte';
 
 export interface GroupedRoutes {
@@ -37,6 +38,11 @@ export const AppRoutes: GroupedRoutes[] = [
 				label: 'common.manage_cookies',
 				path: '/manage-cookies',
 				icon: Cookie
+			},
+			{
+				label: 'common.server_health',
+				path: '/health',
+				icon: Server
 			}
 		]
 	},

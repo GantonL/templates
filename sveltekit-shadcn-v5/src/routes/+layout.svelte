@@ -34,7 +34,7 @@
 	}
 </script>
 
-<Toaster />
+<Toaster expand={true} richColors={true} dir={$direction === 'lr' ? 'ltr' : 'rtl'} />
 <SEO data={mergedMetaTags} />
 <ModeWatcher />
 {@render children?.()}
