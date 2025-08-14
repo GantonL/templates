@@ -3,15 +3,18 @@ import type { Component } from 'svelte';
 
 export interface ServerHealthDisplayStatus {
 	key: string;
-	message: {
-		success: TranslatableString;
-		error: TranslatableString;
-	};
-	description: TranslatableString;
-	inProgress?: boolean;
-	status?: 'ok' | 'error';
-	icon?: {
-		success: Component;
-		error: Component;
+	path: string;
+	title: TranslatableString;
+	icon: Component;
+	descriptionResourcePath: string;
+	status: {
+		message: {
+			success: TranslatableString;
+			error: TranslatableString;
+		};
+		icon: {
+			success: Component;
+			error: Component;
+		};
 	};
 }

@@ -54,10 +54,8 @@
 	"home": "Home",
 	"back": "Back",
 	"server_health": "Server health",
-	"api_healthy": "API healthy",
-	"api_unhealthy": "API unvailable",
-	"api_health_description": "",
-	"db_healthy": "Database healthy",
-	"db_unhealthy": "Database not accessible",
-	"db_health_description": ""
+	"api": "API",
+	"database": "Database",
+	"healthy": "Healthy",
+	"unavailable": "Unavailable"
 }
