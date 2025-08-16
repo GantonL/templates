@@ -116,5 +116,45 @@ describe('AbstractService', () => {
 			// Assert
 			expect(result).toBeUndefined();
 		});
+
+		describe('createMany', () => {
+			it('should create multiple records and return them', async () => {
+				// Arrange
+				const insertData: TestUserInsert[] = [
+					{ name: 'User One', email: 'user1@example.com' },
+					{ name: 'User Two', email: 'user2@example.com' },
+					{ name: 'User Three', email: 'user3@example.com' }
+				];
+
+				// Act
+				const results = await service.createMany(insertData);
+
+				// Assert
+				expect(results).toHaveLength(3);
+				expect(results[0].name).toBe('User One');
+				expect(results[1].name).toBe('User Two');
+				expect(results[2].name).toBe('User Three');
+				expect(results.every((user) => typeof user.id === 'number')).toBe(true);
+			});
+
+			it('should throw error when trying to insert empty array', async () => {
+				// Arrange
+				const insertData: TestUserInsert[] = [];
+
+				// Act & Assert
+				expect(service.createMany(insertData)).rejects.toThrow();
+			});
+
+			it('should throw error for duplicate emails in batch', async () => {
+				// Arrange
+				const insertData: TestUserInsert[] = [
+					{ name: 'User One', email: 'duplicate@example.com' },
+					{ name: 'User Two', email: 'duplicate@example.com' }
+				];
+
+				// Act & Assert
+				await expect(service.createMany(insertData)).rejects.toThrow();
+			});
+		});
 	});
 });
