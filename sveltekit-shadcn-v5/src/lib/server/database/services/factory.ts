@@ -12,7 +12,9 @@ export class ServiceFactory {
 	 * Get a service for a specific table
 	 */
 	getService<TTable extends PgTable>(table: TTable): AbstractService<TTable> {
-		const cacheKey = table._.name;
+		if (!table) throw Error('Invalid table');
+
+		const cacheKey = (table as never)[Symbol('drizzle:Name')] as string;
 
 		if (!this.services.has(cacheKey)) {
 			this.services.set(cacheKey, new AbstractService<TTable>(this.db, table));
@@ -33,5 +35,9 @@ export class ServiceFactory {
 	 */
 	getDatabase(): PostgresJsDatabase {
 		return this.db;
+	}
+
+	getCacheSize(): number {
+		return this.services.size;
 	}
 }
