@@ -12,8 +12,9 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"test:unit": "vitest",
-		"test": "bun run test:unit -- --run",
+		"test:server": "vitest run --environment=node",
+		"test:db:up": "docker compose -f docker-compose.test.yml up -d",
+		"test:db:down": "docker compose -f docker-compose.test.yml down",
 		"create:page": "bun run scripts/create-page.js",
 		"create:md": "bun run scripts/create-markdown.js",
 		"create:api-controller": "bun run scripts/create-api-controller.js"
@@ -57,6 +58,7 @@
 		"vitest-browser-svelte": "^0.1.0"
 	},
 	"dependencies": {
+		"@types/bun": "^1.2.20",
 		"dotenv": "^17.2.1",
 		"drizzle-orm": "^0.44.4",
 		"mode-watcher": "^1.1.0",
