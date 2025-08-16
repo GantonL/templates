@@ -2,7 +2,7 @@
 import type { SQL } from 'drizzle-orm';
 import { type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { type PgTable } from 'drizzle-orm/pg-core';
-import { eq, and, sql } from 'drizzle-orm';
+import { eq, and } from 'drizzle-orm';
 
 const MAX_FIND_LIMIT = 100;
 const MAX_INSERT_LIMIT = 100;
@@ -193,53 +193,26 @@ export class AbstractService<
 	/**
 	 * Count records
 	 */
-	async count(where?: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<number> {
-		let baseQuery = this.db.select({ count: sql<number>`count(*)` }).from(this.table as any);
-
-		if (where) {
-			if (Array.isArray(where)) {
-				const conditions = where.map((condition) =>
-					typeof condition === 'function' ? condition(this.table) : condition
-				);
-				baseQuery = (baseQuery as any).where(and(...conditions));
-			} else {
-				const condition = typeof where === 'function' ? where(this.table) : where;
-				baseQuery = (baseQuery as any).where(condition);
+	async count(filters?: SQL | SQL[]): Promise<number> {
+		if (filters) {
+			if (Array.isArray(filters)) {
+				// const conditions = filters.map((condition) =>
+				// 	typeof condition === 'function' ? condition(this.table) : condition
+				// );
+				filters = and(...filters);
 			}
 		}
 
-		const result = await baseQuery;
-		return result[0]?.count ?? 0;
+		const count = this.db.$count(this.table as any, filters);
+		return count;
 	}
 
 	/**
 	 * Check if records exist
 	 */
-	async exists(where: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<boolean> {
-		const count = await this.count(where);
+	async exists(filters?: SQL | SQL[]): Promise<boolean> {
+		const count = await this.count(filters);
 		return count > 0;
-	}
-
-	/**
-	 * Simple upsert (insert or update if exists)
-	 */
-	async upsert(
-		data: TInsert,
-		conflictTarget: keyof TInsert | (keyof TInsert)[],
-		updateData?: Partial<TInsert>
-	): Promise<TSelect> {
-		const target = Array.isArray(conflictTarget) ? conflictTarget : [conflictTarget];
-
-		const result = await this.db
-			.insert(this.table)
-			.values(data as any)
-			.onConflictDoUpdate({
-				target: target as any,
-				set: (updateData || data) as any
-			})
-			.returning();
-
-		return result[0] as TSelect;
 	}
 
 	private handleLimitOptions(limit: number) {
