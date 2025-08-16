@@ -142,7 +142,7 @@ describe('AbstractService', () => {
 				const insertData: TestUserInsert[] = [];
 
 				// Act & Assert
-				expect(service.createMany(insertData)).rejects.toThrow();
+				await expect(service.createMany(insertData)).rejects.toThrow();
 			});
 
 			it('should throw error for duplicate emails in batch', async () => {

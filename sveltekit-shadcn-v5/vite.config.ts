@@ -28,7 +28,18 @@ export default defineConfig({
 					environment: 'node',
 					include: ['src/**/*.{test,spec}.{js,ts}'],
 					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}'],
-					setupFiles: ['./vitest.setup.local.db.ts']
+					globalSetup: ['./vitest.setup.local.db.ts'],
+					poolOptions: {
+						threads: {
+							singleThread: true
+						},
+						forks: {
+							singleFork: true
+						},
+						vmThreads: {
+							singleThread: true
+						}
+					}
 				}
 			}
 		]

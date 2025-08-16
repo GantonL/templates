@@ -1,5 +1,4 @@
 import { execSync } from 'child_process';
-import { beforeAll, afterAll } from 'vitest';
 
 function wait(ms: number) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
@@ -47,10 +46,9 @@ async function stopDocker() {
 	}
 }
 
-beforeAll(async () => {
+export async function setup() {
 	await startDocker();
-}, 60000);
-
-afterAll(async () => {
-	await stopDocker();
-});
+	return async () => {
+		await stopDocker();
+	};
+}

@@ -4,6 +4,8 @@ import { type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { type PgTable } from 'drizzle-orm/pg-core';
 import { eq, and, sql } from 'drizzle-orm';
 
+const MAX_FIND_LIMIT = 100;
+
 export interface QueryOptions {
 	limit?: number;
 	offset?: number;
@@ -63,6 +65,10 @@ export class AbstractService<
 		where?: WhereCondition<TTable> | WhereCondition<TTable>[],
 		options?: QueryOptions
 	): Promise<TSelect[]> {
+		if (options?.limit !== undefined) {
+			this.handleLimitOptions(options.limit);
+		}
+
 		let baseQuery = this.db.select().from(this.table as any);
 
 		// Apply WHERE conditions
@@ -102,6 +108,7 @@ export class AbstractService<
 	 * Find all records
 	 */
 	async findAll(options: Required<QueryOptions>): Promise<TSelect[]> {
+		this.handleLimitOptions(options.limit);
 		return this.find(undefined, options);
 	}
 
@@ -229,5 +236,14 @@ export class AbstractService<
 			.returning();
 
 		return result[0] as TSelect;
+	}
+
+	private handleLimitOptions(limit: number) {
+		if (limit === 0) {
+			throw Error('Limit must be greater than 0');
+		}
+		if (limit > MAX_FIND_LIMIT) {
+			throw Error(`Limit must be less than or equal to 100`);
+		}
 	}
 }
