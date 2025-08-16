@@ -71,8 +71,8 @@ describe('AbstractService', () => {
 
 			// Assert
 			expect(result1.id).not.toBe(result2.id);
-			expect(result1.name).toBe('Jane Smith');
-			expect(result2.name).toBe('Bob Johnson');
+			expect(result1.name).toBe(insertData1.name);
+			expect(result2.name).toBe(insertData2.name);
 		});
 
 		it('should throw an error for duplicate email', async () => {
@@ -105,8 +105,8 @@ describe('AbstractService', () => {
 			// Assert
 			expect(found).toBeDefined();
 			expect(found?.id).toBe(created.id);
-			expect(found?.name).toBe('Find Me');
-			expect(found?.email).toBe('findme@example.com');
+			expect(found?.name).toBe(insertData.name);
+			expect(found?.email).toBe(insertData.email);
 		});
 
 		it('should return undefined for non-existent ID', async () => {
