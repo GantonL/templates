@@ -155,6 +155,33 @@ describe('AbstractService', () => {
 				// Act & Assert
 				await expect(service.createMany(insertData)).rejects.toThrow();
 			});
+
+			it('should throw error when exceeding MAX_INSERT_LIMIT', async () => {
+				// Arrange
+				const insertData: TestUserInsert[] = Array.from({ length: 101 }, (_, i) => ({
+					name: `User ${i + 1}`,
+					email: `user${i + 1}@example.com`
+				}));
+
+				// Act & Assert
+				await expect(service.createMany(insertData)).rejects.toThrow('Maximum insert data length is 100');
+			});
+
+			it('should successfully create exactly 100 records (at limit)', async () => {
+				// Arrange
+				const insertData: TestUserInsert[] = Array.from({ length: 100 }, (_, i) => ({
+					name: `User ${i + 1}`,
+					email: `user${i + 1}@example.com`
+				}));
+
+				// Act
+				const results = await service.createMany(insertData);
+
+				// Assert
+				expect(results).toHaveLength(100);
+				expect(results[0].name).toBe('User 1');
+				expect(results[99].name).toBe('User 100');
+			});
 		});
 	});
 });

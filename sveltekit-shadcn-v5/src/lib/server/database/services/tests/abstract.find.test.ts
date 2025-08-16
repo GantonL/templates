@@ -289,6 +289,34 @@ describe('AbstractService - Find Methods', () => {
 			// Assert
 			expect(results).toHaveLength(2);
 		});
+
+		it('should throw error when findAll limit exceeds MAX_FIND_LIMIT', async () => {
+			// Arrange
+			await service.create({ name: 'Test User', email: 'test@example.com' });
+
+			// Act & Assert
+			await expect(service.findAll({
+				limit: 101,
+				offset: 0,
+				orderBy: asc(testUsers.id)
+			})).rejects.toThrow('Limit must be less than or equal to 100');
+		});
+
+		it('should successfully use findAll with limit at MAX_FIND_LIMIT', async () => {
+			// Arrange
+			await service.create({ name: 'Test User', email: 'test@example.com' });
+
+			// Act
+			const results = await service.findAll({
+				limit: 100,
+				offset: 0,
+				orderBy: asc(testUsers.id)
+			});
+
+			// Assert
+			expect(results).toHaveLength(1);
+			expect(results[0].name).toBe('Test User');
+		});
 	});
 
 	describe('findOne', () => {
@@ -365,6 +393,26 @@ describe('AbstractService - Find Methods', () => {
 
 			// Act & Assert
 			await expect(service.find(undefined, { limit: 0 })).rejects.toThrow();
+		});
+
+		it('should throw error when limit exceeds MAX_FIND_LIMIT', async () => {
+			// Arrange
+			await service.create({ name: 'Test User', email: 'test@example.com' });
+
+			// Act & Assert
+			await expect(service.find(undefined, { limit: 101 })).rejects.toThrow('Limit must be less than or equal to 100');
+		});
+
+		it('should successfully find with limit exactly at MAX_FIND_LIMIT', async () => {
+			// Arrange
+			await service.create({ name: 'Test User', email: 'test@example.com' });
+
+			// Act
+			const results = await service.find(undefined, { limit: 100 });
+
+			// Assert
+			expect(results).toHaveLength(1);
+			expect(results[0].name).toBe('Test User');
 		});
 
 		it('should handle offset larger than result set', async () => {

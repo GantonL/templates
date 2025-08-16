@@ -5,6 +5,7 @@ import { type PgTable } from 'drizzle-orm/pg-core';
 import { eq, and, sql } from 'drizzle-orm';
 
 const MAX_FIND_LIMIT = 100;
+const MAX_INSERT_LIMIT = 100;
 
 export interface QueryOptions {
 	limit?: number;
@@ -39,6 +40,9 @@ export class AbstractService<
 	 * Create multiple records
 	 */
 	async createMany(data: TInsert[]): Promise<TSelect[]> {
+		if (data.length > MAX_INSERT_LIMIT) {
+			throw Error(`Maximum insert data length is ${MAX_INSERT_LIMIT}`);
+		}
 		const result = await this.db
 			.insert(this.table)
 			.values(data as any)
