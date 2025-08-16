@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, beforeAll, afterAll } from 'vitest';
 import { sql } from 'drizzle-orm';
 import { testDb, checkTestConnection } from './test-client';
 import { testUsers, type TestUser, type TestUserInsert } from './test-schema';
@@ -7,7 +7,7 @@ import { AbstractService } from '../abstract';
 describe('AbstractService', () => {
 	let service: AbstractService<typeof testUsers, TestUser, TestUserInsert>;
 
-	beforeEach(async () => {
+	beforeAll(async () => {
 		// Verify database connection
 		await checkTestConnection();
 
@@ -28,6 +28,11 @@ describe('AbstractService', () => {
 	afterEach(async () => {
 		// Clean up test data
 		await testDb.execute(sql`DELETE FROM test_users`);
+	});
+
+	afterAll(async () => {
+		// Clean up test table
+		await testDb.execute(sql`DROP TABLE test_users`);
 	});
 
 	describe('create', () => {
