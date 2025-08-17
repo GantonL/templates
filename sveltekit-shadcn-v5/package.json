@@ -15,6 +15,8 @@
 		"test:server": "vitest run --environment=node",
 		"test:db:up": "docker compose -f docker-compose.test.yml up -d",
 		"test:db:down": "docker compose -f docker-compose.test.yml down",
+		"local:db:up": "docker compose -f docker-compose.local.yml up -d",
+		"local:db:down": "docker compose -f docker-compose.local.yml down",
 		"create:page": "bun run scripts/create-page.js",
 		"create:md": "bun run scripts/create-markdown.js",
 		"create:api-controller": "bun run scripts/create-api-controller.js"
