@@ -1,38 +1,25 @@
 import { describe, it, expect, afterEach, beforeAll, afterAll, beforeEach } from 'vitest';
 import { sql, eq, gt, like, asc, desc } from 'drizzle-orm';
-import { testDb, checkTestConnection } from './test-client';
+import { testDb } from './test-client';
 import { testUsers, type TestUser, type TestUserInsert } from './test-schema';
 import { AbstractService } from '../abstract';
+import { deleteUsersTableData, dropUsersTable, initializeDBWithUsersTable } from './helper';
 
 describe('AbstractService - Find Methods', () => {
 	let service: AbstractService<typeof testUsers, TestUser, TestUserInsert>;
 
 	beforeAll(async () => {
-		// Verify database connection
-		await checkTestConnection();
-
-		// Create the test table
-		await testDb.execute(sql`
-			CREATE TABLE IF NOT EXISTS test_users (
-				id SERIAL PRIMARY KEY,
-				name TEXT NOT NULL,
-				email TEXT NOT NULL UNIQUE,
-				created_at TIMESTAMP DEFAULT NOW()
-			);
-		`);
-
+		await initializeDBWithUsersTable();
 		// Create service instance
 		service = new AbstractService(testDb, testUsers);
 	});
 
 	afterEach(async () => {
-		// Clean up test data
-		await testDb.execute(sql`DELETE FROM test_users`);
+		await deleteUsersTableData();
 	});
 
 	afterAll(async () => {
-		// Clean up test table
-		await testDb.execute(sql`DROP TABLE test_users`);
+		await dropUsersTable();
 	});
 
 	describe('find', () => {
@@ -295,11 +282,13 @@ describe('AbstractService - Find Methods', () => {
 			await service.create({ name: 'Test User', email: 'test@example.com' });
 
 			// Act & Assert
-			await expect(service.findAll({
-				limit: 101,
-				offset: 0,
-				orderBy: asc(testUsers.id)
-			})).rejects.toThrow('Limit must be less than or equal to 100');
+			await expect(
+				service.findAll({
+					limit: 101,
+					offset: 0,
+					orderBy: asc(testUsers.id)
+				})
+			).rejects.toThrow('Limit must be less than or equal to 100');
 		});
 
 		it('should successfully use findAll with limit at MAX_FIND_LIMIT', async () => {
@@ -400,7 +389,9 @@ describe('AbstractService - Find Methods', () => {
 			await service.create({ name: 'Test User', email: 'test@example.com' });
 
 			// Act & Assert
-			await expect(service.find(undefined, { limit: 101 })).rejects.toThrow('Limit must be less than or equal to 100');
+			await expect(service.find(undefined, { limit: 101 })).rejects.toThrow(
+				'Limit must be less than or equal to 100'
+			);
 		});
 
 		it('should successfully find with limit exactly at MAX_FIND_LIMIT', async () => {

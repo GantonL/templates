@@ -1,33 +1,22 @@
 import { describe, it, expect, beforeAll, afterAll, afterEach } from 'vitest';
 import { sql } from 'drizzle-orm';
-import { testDb, checkTestConnection } from './test-client';
+import { testDb } from './test-client';
 import { testUsers } from './test-schema';
 import { ServiceFactory } from '../factory';
 import { AbstractService } from '../abstract';
+import { dropUsersTable, initializeDBWithUsersTable } from './helper';
 
 describe('ServiceFactory', () => {
 	let factory: ServiceFactory;
 
 	beforeAll(async () => {
-		// Verify database connection
-		await checkTestConnection();
-
-		// Create the test table
-		await testDb.execute(sql`
-			CREATE TABLE IF NOT EXISTS test_users (
-				id SERIAL PRIMARY KEY,
-				name TEXT NOT NULL,
-				email TEXT NOT NULL UNIQUE,
-				created_at TIMESTAMP DEFAULT NOW()
-			);
-		`);
+		await initializeDBWithUsersTable();
 
 		factory = new ServiceFactory(testDb);
 	});
 
 	afterAll(async () => {
-		// Clean up test table
-		await testDb.execute(sql`DROP TABLE test_users`);
+		await dropUsersTable();
 	});
 
 	afterEach(async () => {

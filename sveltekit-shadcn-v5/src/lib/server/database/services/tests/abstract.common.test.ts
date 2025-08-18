@@ -1,38 +1,25 @@
 import { describe, it, expect, afterEach, beforeAll, afterAll } from 'vitest';
-import { sql, eq, like, gt, lt } from 'drizzle-orm';
-import { testDb, checkTestConnection } from './test-client';
+import { eq, like, gt, lt } from 'drizzle-orm';
+import { testDb } from './test-client';
 import { testUsers, type TestUser, type TestUserInsert } from './test-schema';
 import { AbstractService } from '../abstract';
+import { deleteUsersTableData, dropUsersTable, initializeDBWithUsersTable } from './helper';
 
 describe('AbstractService - Common Methods', () => {
 	let service: AbstractService<typeof testUsers, TestUser, TestUserInsert>;
 
 	beforeAll(async () => {
-		// Verify database connection
-		await checkTestConnection();
-
-		// Create the test table
-		await testDb.execute(sql`
-			CREATE TABLE IF NOT EXISTS test_users (
-				id SERIAL PRIMARY KEY,
-				name TEXT NOT NULL,
-				email TEXT NOT NULL UNIQUE,
-				created_at TIMESTAMP DEFAULT NOW()
-			);
-		`);
-
+		await initializeDBWithUsersTable();
 		// Create service instance
 		service = new AbstractService(testDb, testUsers);
 	});
 
 	afterEach(async () => {
-		// Clean up test data
-		await testDb.execute(sql`DELETE FROM test_users`);
+		await deleteUsersTableData();
 	});
 
 	afterAll(async () => {
-		// Clean up test table
-		await testDb.execute(sql`DROP TABLE test_users`);
+		await dropUsersTable();
 	});
 
 	describe('count', () => {

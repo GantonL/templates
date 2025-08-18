@@ -1,38 +1,26 @@
 import { describe, it, expect, afterEach, beforeAll, afterAll } from 'vitest';
-import { sql, eq, like, gt } from 'drizzle-orm';
-import { testDb, checkTestConnection } from './test-client';
+import { eq, like, gt } from 'drizzle-orm';
+import { testDb } from './test-client';
 import { testUsers, type TestUser, type TestUserInsert } from './test-schema';
 import { AbstractService } from '../abstract';
+import { deleteUsersTableData, dropUsersTable, initializeDBWithUsersTable } from './helper';
 
 describe('AbstractService - Delete Methods', () => {
 	let service: AbstractService<typeof testUsers, TestUser, TestUserInsert>;
 
 	beforeAll(async () => {
-		// Verify database connection
-		await checkTestConnection();
-
-		// Create the test table
-		await testDb.execute(sql`
-			CREATE TABLE IF NOT EXISTS test_users (
-				id SERIAL PRIMARY KEY,
-				name TEXT NOT NULL,
-				email TEXT NOT NULL UNIQUE,
-				created_at TIMESTAMP DEFAULT NOW()
-			);
-		`);
+		await initializeDBWithUsersTable();
 
 		// Create service instance
 		service = new AbstractService(testDb, testUsers);
 	});
 
 	afterEach(async () => {
-		// Clean up test data
-		await testDb.execute(sql`DELETE FROM test_users`);
+		await deleteUsersTableData();
 	});
 
 	afterAll(async () => {
-		// Clean up test table
-		await testDb.execute(sql`DROP TABLE test_users`);
+		await dropUsersTable();
 	});
 
 	describe('deleteById', () => {
@@ -84,7 +72,7 @@ describe('AbstractService - Delete Methods', () => {
 			// Verify other records remain
 			const remaining = await service.find();
 			expect(remaining).toHaveLength(2);
-			expect(remaining.map(u => u.id).sort()).toEqual([users[0].id, users[2].id].sort());
+			expect(remaining.map((u) => u.id).sort()).toEqual([users[0].id, users[2].id].sort());
 		});
 	});
 
@@ -102,7 +90,7 @@ describe('AbstractService - Delete Methods', () => {
 
 			// Assert
 			expect(results).toHaveLength(2);
-			expect(results.map(r => r.email).sort()).toEqual([created[0].email, created[2].email]);
+			expect(results.map((r) => r.email).sort()).toEqual([created[0].email, created[2].email]);
 
 			// Verify records are actually deleted
 			const remaining = await service.find();
@@ -123,7 +111,7 @@ describe('AbstractService - Delete Methods', () => {
 
 			// Assert
 			expect(results).toHaveLength(2);
-			expect(results.map(r => r.id).sort()).toEqual([users[1].id, users[2].id].sort());
+			expect(results.map((r) => r.id).sort()).toEqual([users[1].id, users[2].id].sort());
 
 			// Verify only first record remains
 			const remaining = await service.find();
@@ -177,7 +165,7 @@ describe('AbstractService - Delete Methods', () => {
 			// Verify other records remain
 			const remaining = await service.find();
 			expect(remaining).toHaveLength(2);
-			expect(remaining.map(u => u.id).sort()).toEqual([users[0].id, users[2].id].sort());
+			expect(remaining.map((u) => u.id).sort()).toEqual([users[0].id, users[2].id].sort());
 		});
 
 		it('should return empty array when no records match conditions', async () => {
@@ -210,7 +198,7 @@ describe('AbstractService - Delete Methods', () => {
 
 			// Assert
 			expect(results).toHaveLength(2);
-			expect(results.map(r => r.id).sort()).toEqual([users[0].id, users[1].id].sort());
+			expect(results.map((r) => r.id).sort()).toEqual([users[0].id, users[1].id].sort());
 
 			// Verify all records are deleted
 			const remaining = await service.find();
@@ -252,8 +240,8 @@ describe('AbstractService - Delete Methods', () => {
 			// Assert
 			const remaining = await service.find();
 			expect(remaining).toHaveLength(2);
-			expect(remaining.map(u => u.email)).toContain('child@example.com');
-			expect(remaining.map(u => u.email)).toContain('independent@example.com');
+			expect(remaining.map((u) => u.email)).toContain('child@example.com');
+			expect(remaining.map((u) => u.email)).toContain('independent@example.com');
 		});
 
 		it('should handle concurrent deletions correctly', async () => {
