@@ -11,7 +11,7 @@ export const getUrlFiltersUtil = <T>(
 	const searchParams = url.searchParams;
 	const query = searchParams.get('q');
 
-	if (query === null || !configuration?.searchColumns) {
+	if (!query || !configuration?.searchColumns) {
 		return [];
 	}
 
