@@ -4,11 +4,11 @@ import { type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { type PgTable } from 'drizzle-orm/pg-core';
 import { eq, and } from 'drizzle-orm';
 
-const MAX_FIND_LIMIT = 100;
-const MAX_INSERT_LIMIT = 100;
+export const MAX_FIND_LIMIT = 100;
+export const MAX_INSERT_LIMIT = 100;
 
 export interface QueryOptions {
-	limit?: number;
+	limit: number;
 	offset?: number;
 	orderBy?: SQL | SQL[];
 }
