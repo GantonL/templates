@@ -7,7 +7,8 @@ import {
 	PersonStanding,
 	AlertTriangle,
 	Settings,
-	Server
+	Server,
+	DatabaseZap
 } from '@lucide/svelte';
 
 export interface GroupedRoutes {
@@ -69,6 +70,16 @@ export const AppRoutes: GroupedRoutes[] = [
 				label: 'common.accessibility_statement',
 				path: '/accessibility-statement',
 				icon: PersonStanding
+			}
+		]
+	},
+	{
+		title: 'common.demos',
+		children: [
+			{
+				label: 'common.database_operations',
+				path: '/database-operations',
+				icon: DatabaseZap
 			}
 		]
 	}

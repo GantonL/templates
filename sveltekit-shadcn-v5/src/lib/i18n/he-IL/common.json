@@ -57,5 +57,14 @@
 	"api": "שרת",
 	"database": "מסד נתונים",
 	"healthy": "תקין",
-	"unavailable": "לא זמין"
+	"unavailable": "לא זמין",
+	"demos": "הדגמות",
+	"database_operations": "פעולות מסד נתונים",
+	"name": "שם",
+	"email": "דוא״ל",
+	"created_at": "תאריך יצירה",
+	"no_results": "לא נמצאו תוצאות",
+	"of": "מתוך",
+	"row(s)_selected": "שורות נבחרו",
+	"total": "סך הכל"
 }

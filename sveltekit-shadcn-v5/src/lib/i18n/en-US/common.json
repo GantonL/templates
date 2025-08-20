@@ -57,5 +57,14 @@
 	"api": "API",
 	"database": "Database",
 	"healthy": "Healthy",
-	"unavailable": "Unavailable"
+	"unavailable": "Unavailable",
+	"demos": "Demos",
+	"database_operations": "Databse operations",
+	"name": "Name",
+	"email": "Email",
+	"created_at": "Create at",
+	"no_results": "No results",
+	"of": "of",
+	"row(s)_selected": "row(s) selected",
+	"total": "Total"
 }
