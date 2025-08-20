@@ -1,177 +1,149 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with this SvelteKit template repository focused on internationalization, accessibility, and modern web standards.
+Developer guidance for Claude Code when working with this SvelteKit template.
 
-## Essential Commands
+## Commands
 
-**Development**: `vite dev` or `bun run dev`
-**Build**: `vite build` or `bun run build`
-**Test**: `bun run test` (unit tests with Vitest)
-**Lint/Format**: `bun run lint && bun run format`
-**Type Check**: `bun run check`
-**Create Page**: `bun run create:page <path>` - Creates new SvelteKit page with BasePage template
-**Create Markdown**: `bun run create:md <path>` - Creates markdown files for all configured locales
-**Create API Controller**: `bun run create:api-controller <path>` - Creates API endpoint templates
+```bash
+# Development
+bun run dev                     # Start dev server
+bun run build                   # Build for production
+bun run check                   # Type checking
+bun run lint && bun run format  # Code quality
+
+# Database
+bun run local:db:up             # Start PostgreSQL container
+bun run local:db:down           # Stop PostgreSQL container
+bun run test:server             # Run database tests
+
+# Scaffolding
+bun run create:page <path>              # New page template
+bun run create:md <filename>            # Markdown files for all locales
+bun run create:api-controller <path>    # API endpoint template
+```
 
 ## Tech Stack
 
-**Core**: SvelteKit v5, TypeScript, Vite
-**UI**: shadcn-svelte (bits-ui), Tailwind CSS v4, Lucide icons
-**i18n**: sveltekit-i18n with Hebrew/English support
-**Deployment**: Cloudflare (adapter included)
-**Package Manager**: Bun
-**Testing**: Vitest with browser testing, Playwright
-**SEO**: svelte-meta-tags, structured data, sitemap generation
+- **SvelteKit v5** + TypeScript + Vite
+- **shadcn-svelte** (bits-ui) + Tailwind CSS v4
+- **Drizzle ORM** + PostgreSQL + Docker
+- **sveltekit-i18n** (Hebrew/English with RTL/LTR)
+- **Vitest** + Playwright for testing
 
-## Project Architecture
+## Features
 
-This is a **template/starter project** for building multilingual SvelteKit applications with:
+- **Database Layer** - Abstract service pattern with CRUD operations
+- **Internationalization** - Hebrew & English with RTL/LTR support
+- **Theme System** - Dark/light mode with persistence
+- **Cookie Management** - GDPR-compliant consent system
+- **SEO Optimized** - Meta tags, structured data, sitemap
 
-### Core Features
-
-- **Internationalization**: Hebrew & English with RTL/LTR support
-- **Accessibility**: WCAG compliant components and practices
-- **Cookie Management**: GDPR-compliant cookie preferences
-- **SEO Optimization**: Meta tags, structured data, sitemaps
-- **Theme Management**: Light/dark mode with system preference detection
-- **Mobile-First**: Responsive design with sidebar navigation
-
-### Project Structure
+## Project Structure
 
 ```
 src/lib/
-├── api/configurations/     # Server/API configurations
-├── client/configurations/  # Client-side configurations (routes, themes, meta)
-├── components/
-│   ├── [custom]/          # Application components
-│   └── ui/               # shadcn-svelte components
-├── enums/                # Type definitions and constants
-├── hooks/                # Svelte runes and utilities
-├── i18n/                 # Translation files (en-US, he-IL)
-├── manage-cookies/       # Cookie consent system
-├── models/               # TypeScript interfaces
-├── resources/markdown/   # Localized content files
-├── stores.ts            # Global Svelte stores
-├── theme/               # Theme management utilities
-└── utils.ts             # Shared utilities
+├── server/database/         # Database services & tests
+├── components/ui/           # shadcn-svelte components
+├── client/configurations/   # Client configs (routes, themes)
+├── api/configurations/      # Server configs
+├── i18n/                   # Translations (en-US, he-IL)
+└── resources/markdown/     # Localized content
 
 src/routes/
-├── [[lang]]/            # Internationalized routes
-│   ├── (application)/   # App pages (example, settings)
-│   └── (site)/         # Content pages (policies, accessibility)
-├── api/                # Server endpoints
-└── sitemap.xml/        # Dynamic sitemap generation
+├── [[lang]]/               # Internationalized routes
+│   ├── (application)/      # App pages (example, health)
+│   └── (site)/            # Content pages (policies)
+└── api/                   # Server endpoints
 ```
 
-## Development Guidelines
+## Database Layer
 
-### Configuration-Driven Architecture
+### Service Pattern
 
-**Keep components flexible through configuration objects.**
+Use $lib/server/database/services/users.ts and src/routes/api/demo/users/+server.ts for best practices.
 
-- Server configs: `src/lib/api/configurations/`
-- Client configs: `src/lib/client/configurations/`
-- Component configs: `components/[name]/configurations/`
-- Use TypeScript interfaces for all configurations
+```typescript
+import { serviceFactory } from '$lib/server/database/services/provider';
 
-### Internationalization (i18n)
+// Get service instance
+const userService = serviceFactory.getService(users);
 
-**All user-facing text must be translatable.**
+// CRUD operations
+const user = await userService.create({ name: "John", email: "john@example.com" });
+const allUsers = await userService.findAll({ limit: 20 });
+const user = await userService.findById(1);
+await userService.updateById(1, { name: "Jane" });
+await userService.deleteById(1);
 
-- Translation files: `src/lib/i18n/[locale]/[namespace].json`
-- Template usage: `$t('namespace.key')`
-- TypeScript usage: `t.get('namespace.key')`
-- Hierarchical keys: `common.navigation.home`
-- Current locales: `en-US`, `he-IL`
+// Advanced queries
+const activeUsers = await userService.find(
+  (table) => eq(table.status, 'active'),
+  { limit: 10, orderBy: desc(table.createdAt) }
+);
+```
 
-### Component Patterns
+### Query Utilities
 
-**Follow established component structure.**
+```typescript
+// Parse URL params into query conditions
+const filters = getUrlFiltersUtil(url, {
+  searchColumns: [users.name, users.email]
+});
 
-Most components follow:
+// Parse pagination from URL: ?limit=20&offset=40&orderBy=name,-createdAt
+const options = getUrlOptionsUtil(url, users);
+
+// Parse body filters
+const bodyFilters = getBodyFiltersUtil(
+  { ids: [1, 2, 3] },
+  { ids: users.id }
+);
+```
+
+## Internationalization
+
+```typescript
+// In templates
+$t('common.navigation.home')
+
+// In TypeScript
+t.get('common.navigation.home')
+
+// Translation files: src/lib/i18n/[locale]/[namespace].json
+// Supported: en-US, he-IL (with RTL/LTR support)
+```
+
+## Component Patterns
 
 ```
 components/[name]/
 ├── [name].svelte
 └── configurations/ (optional)
     └── [config].ts
-```
 
-shadcn-svelte components include:
-
-```
-components/ui/[name]/
+components/ui/[name]/           # shadcn-svelte
 ├── [name].svelte
 ├── index.ts
 └── [additional-parts].svelte
 ```
 
-### Routing & Navigation
+## Scaffolding Examples
 
-**Internationalized routing with grouped layouts.**
+```bash
+# Create dynamic product page
+bun run create:page /products/[product_id]
 
-- Routes configuration: `src/lib/client/configurations/routes.ts`
-- Locale detection: `[[lang]]` parameter
-- Route groups: `(application)`, `(site)`
-- Navigation: Sidebar with grouped routes
+# Create localized content
+bun run create:md about-us.md
 
-### State Management
-
-**Centralized stores for global state.**
-
-- Main store: `src/lib/stores.ts`
-- Theme management: `src/lib/theme/manager.ts`
-- Cookie preferences: `src/lib/manage-cookies/`
-- Mobile detection: `src/lib/hooks/is-mobile.svelte.ts`
-
-### Content Management
-
-**Markdown-based content with localization.**
-
-- Markdown files: `src/lib/resources/markdown/[locale]/`
-- Content rendering: `resource-markdown` component
-- Automated creation: `bun run create:md <filename>`
-
-## Key Features Implementation
-
-### Cookie Management
-
-- GDPR-compliant consent system
-- Preference management UI
-- Server-side cookie handling
-
-### SEO & Accessibility
-
-- Meta tags management via stores
-- Structured data configuration
-- ARIA labels and semantic HTML
-- Screen reader support
-
-### Theme System
-
-- Light/dark mode toggle
-- System preference detection
-- Persistent theme storage
-
-### Mobile Experience
-
-- Responsive sidebar navigation
-- Touch-friendly interactions
-- Mobile-first component design
-
-## Scripts & Automation
-
-Custom build scripts in `/scripts/`:
-
-- `create-page.js` - Generate page templates
-- `create-markdown.js` - Create localized markdown files
-- `create-api-controller.js` - Generate API endpoints
-- `utils.js` - Shared script utilities
+# Create nested API controller
+bun run create:api-controller users/[user_id]/orders
+```
 
 ## Important Notes
 
-- This is a **template repository** - customize for your specific needs
-- Hebrew (RTL) and English (LTR) are preconfigured
-- All policies/legal pages are placeholder content
-- Cookie management includes technical and preference cookies
-- SEO configuration includes structured data for organizations
+- **Template repository** - customize for your specific needs
+- Hebrew (RTL) and English (LTR) preconfigured
+- Policy pages are placeholder content
+- Services are cached per table in singleton factory
+- Use configuration-driven architecture for maintainable code
