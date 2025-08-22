@@ -1,8 +1,13 @@
 import type { PageServerLoad } from './$types';
 import { Demo } from '../../../api';
 
+const baseUrl = `${Demo}/users`;
+const countUrl = `${Demo}/count/users`;
 export const load: PageServerLoad = async ({ fetch }) => {
-	const usersRes = await fetch(`${Demo}/users`);
+	const limit = 10;
+	const usersRes = await fetch(`${baseUrl}?limit=${limit}`);
 	const users = await usersRes.json();
-	return { users };
+	const totalRes = await fetch(countUrl);
+	const total = await totalRes.json();
+	return { users, total };
 };

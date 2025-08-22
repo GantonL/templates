@@ -5,14 +5,12 @@ import type { TableConfiguration } from '$lib/models/table';
 import type { User } from '$lib/server/database/schema';
 import Avatar from '$lib/components/avatar/avatar.svelte';
 import { locale } from '$lib/i18n';
-import { Skeleton } from '$lib/components/ui/skeleton';
 
 export type TableUsers = User;
 
 export const columns: ColumnDef<TableUsers>[] = [
 	{
 		id: 'avatar',
-		header: () => renderComponent(Skeleton, { class: 'bg-tranparent w-4' }),
 		cell: ({ row }) =>
 			renderComponent(Avatar, {
 				id: String(row.original.id)
@@ -34,7 +32,7 @@ export const columns: ColumnDef<TableUsers>[] = [
 		cell: ({ row }) => {
 			const createdAt = row.original.createdAt;
 			if (!createdAt) return;
-			return Intl.DateTimeFormat(locale.get()).format(createdAt);
+			return Intl.DateTimeFormat(locale.get()).format(new Date(createdAt));
 		}
 	}
 ];

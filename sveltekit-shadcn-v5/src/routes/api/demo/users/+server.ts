@@ -12,7 +12,7 @@ export const GET: RequestHandler = async ({ url }) => {
 	const filters = getUrlFilters(url);
 	const options = getUrlOptions(url);
 	const users = await service.find(filters, options);
-	return json({ users });
+	return json(users);
 };
 
 export const POST: RequestHandler = async ({ request }) => {

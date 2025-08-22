@@ -2,7 +2,7 @@
 import type { SQL } from 'drizzle-orm';
 import { type PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { type PgTable } from 'drizzle-orm/pg-core';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, count } from 'drizzle-orm';
 
 export const MAX_FIND_LIMIT = 100;
 export const MAX_INSERT_LIMIT = 100;
@@ -69,23 +69,11 @@ export class AbstractService<
 		where?: WhereCondition<TTable> | WhereCondition<TTable>[],
 		options?: QueryOptions
 	): Promise<TSelect[]> {
-		if (options?.limit !== undefined) {
-			this.handleLimitOptions(options.limit);
-		}
-
 		let baseQuery = this.db.select().from(this.table as any);
 
 		// Apply WHERE conditions
 		if (where) {
-			if (Array.isArray(where)) {
-				const conditions = where.map((condition) =>
-					typeof condition === 'function' ? condition(this.table) : condition
-				);
-				baseQuery = baseQuery.where(and(...conditions)) as any;
-			} else {
-				const condition = typeof where === 'function' ? where(this.table) : where;
-				baseQuery = baseQuery.where(condition) as any;
-			}
+			baseQuery = this.buildWhereQueries(baseQuery, where);
 		}
 
 		// Apply ordering
@@ -98,7 +86,8 @@ export class AbstractService<
 		}
 
 		// Apply pagination
-		if (options?.limit) {
+		if (options?.limit !== undefined) {
+			this.handleLimitOptions(options.limit);
 			baseQuery = (baseQuery as any).limit(options.limit);
 		}
 		if (options?.offset) {
@@ -147,14 +136,8 @@ export class AbstractService<
 	): Promise<TSelect[]> {
 		let baseQuery = this.db.update(this.table).set(data as any);
 
-		if (Array.isArray(where)) {
-			const conditions = where.map((condition) =>
-				typeof condition === 'function' ? condition(this.table) : condition
-			);
-			baseQuery = (baseQuery as any).where(and(...conditions));
-		} else {
-			const condition = typeof where === 'function' ? where(this.table) : where;
-			baseQuery = (baseQuery as any).where(condition);
+		if (where) {
+			baseQuery = this.buildWhereQueries(baseQuery, where);
 		}
 
 		return (await (baseQuery as any).returning()) as TSelect[];
@@ -177,6 +160,47 @@ export class AbstractService<
 	async deleteWhere(where: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<TSelect[]> {
 		let baseQuery = this.db.delete(this.table);
 
+		if (where) {
+			baseQuery = this.buildWhereQueries(baseQuery, where);
+		}
+
+		return (await (baseQuery as any).returning()) as TSelect[];
+	}
+
+	/**
+	 * Count records
+	 */
+	async count(where?: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<number> {
+		let baseQuery = this.db.select({ count: count() }).from(this.table as any);
+		if (where) {
+			baseQuery = this.buildWhereQueries(baseQuery, where);
+		}
+
+		const result = await baseQuery;
+		return (result ?? [{ count: 0 }])[0].count ?? 0;
+	}
+
+	/**
+	 * Check if records exist
+	 */
+	async exists(where?: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<boolean> {
+		const count = await this.count(where);
+		return count > 0;
+	}
+
+	private handleLimitOptions(limit: number) {
+		if (limit === 0) {
+			throw Error('Limit must be greater than 0');
+		}
+		if (limit > MAX_FIND_LIMIT) {
+			throw Error(`Limit must be less than or equal to ${MAX_FIND_LIMIT}`);
+		}
+	}
+
+	private buildWhereQueries<T>(
+		baseQuery: T,
+		where: WhereCondition<TTable> | WhereCondition<TTable>[]
+	) {
 		if (Array.isArray(where)) {
 			const conditions = where.map((condition) =>
 				typeof condition === 'function' ? condition(this.table) : condition
@@ -186,41 +210,6 @@ export class AbstractService<
 			const condition = typeof where === 'function' ? where(this.table) : where;
 			baseQuery = (baseQuery as any).where(condition);
 		}
-
-		return (await (baseQuery as any).returning()) as TSelect[];
-	}
-
-	/**
-	 * Count records
-	 */
-	async count(filters?: SQL | SQL[]): Promise<number> {
-		if (filters) {
-			if (Array.isArray(filters)) {
-				// const conditions = filters.map((condition) =>
-				// 	typeof condition === 'function' ? condition(this.table) : condition
-				// );
-				filters = and(...filters);
-			}
-		}
-
-		const count = this.db.$count(this.table as any, filters);
-		return count;
-	}
-
-	/**
-	 * Check if records exist
-	 */
-	async exists(filters?: SQL | SQL[]): Promise<boolean> {
-		const count = await this.count(filters);
-		return count > 0;
-	}
-
-	private handleLimitOptions(limit: number) {
-		if (limit === 0) {
-			throw Error('Limit must be greater than 0');
-		}
-		if (limit > MAX_FIND_LIMIT) {
-			throw Error(`Limit must be less than or equal to 100`);
-		}
+		return baseQuery;
 	}
 }

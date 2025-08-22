@@ -227,14 +227,14 @@
 					<span class:hidden={sidebar.isMobile}>Add</span>
 				</div>
 			</Button>
-			{#if configuration?.bulkActions && (table.getIsSomePageRowsSelected() || table.getIsAllPageRowsSelected() || table.getIsAllRowsSelected())}
+			<!-- {#if configuration?.bulkActions && (table.getIsSomePageRowsSelected() || table.getIsAllPageRowsSelected() || table.getIsAllRowsSelected())}
 				<Menu
 					{disabled}
 					rawData={table.getFilteredSelectedRowModel().rows.map((r) => r.original)}
 					configuration={configuration.bulkActions}
 					event={onBulkMenu}
 				/>
-			{/if}
+			{/if} -->
 		</div>
 		<div class="flex flex-row items-center gap-2">
 			<DropdownMenu.Root>

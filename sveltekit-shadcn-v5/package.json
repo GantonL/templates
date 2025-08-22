@@ -19,7 +19,11 @@
 		"local:db:down": "docker compose -f docker-compose.local.yml down",
 		"create:page": "bun run scripts/create-page.js",
 		"create:md": "bun run scripts/create-markdown.js",
-		"create:api-controller": "bun run scripts/create-api-controller.js"
+		"create:api-controller": "bun run scripts/create-api-controller.js",
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "drizzle-kit migrate",
+		"db:push": "drizzle-kit push",
+		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -36,7 +40,7 @@
 		"@vitest/browser": "^3.2.3",
 		"bits-ui": "^2.8.6",
 		"clsx": "^2.1.1",
-		"drizzle-kit": "^0.31.4",
+		"drizzle-kit": "0.30.0",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^3.0.0",
