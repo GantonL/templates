@@ -6,9 +6,12 @@ import { eq, and, count } from 'drizzle-orm';
 
 export const MAX_FIND_LIMIT = 100;
 export const MAX_INSERT_LIMIT = 100;
+export const MAX_DELETE_LIMIT = 100;
 
-export interface QueryOptions {
+export interface DeleteQueryOptions {
 	limit: number;
+}
+export interface QueryOptions extends DeleteQueryOptions {
 	offset?: number;
 	orderBy?: SQL | SQL[];
 }
@@ -87,7 +90,7 @@ export class AbstractService<
 
 		// Apply pagination
 		if (options?.limit !== undefined) {
-			this.handleLimitOptions(options.limit);
+			this.handleLimitOptions(options.limit, 'find');
 			baseQuery = (baseQuery as any).limit(options.limit);
 		}
 		if (options?.offset) {
@@ -101,7 +104,7 @@ export class AbstractService<
 	 * Find all records
 	 */
 	async findAll(options: Required<QueryOptions>): Promise<TSelect[]> {
-		this.handleLimitOptions(options.limit);
+		this.handleLimitOptions(options.limit, 'find');
 		return this.find(undefined, options);
 	}
 
@@ -157,14 +160,22 @@ export class AbstractService<
 	/**
 	 * Delete records matching conditions
 	 */
-	async deleteWhere(where: WhereCondition<TTable> | WhereCondition<TTable>[]): Promise<TSelect[]> {
+	async deleteWhere(
+		where: WhereCondition<TTable> | WhereCondition<TTable>[],
+		options?: DeleteQueryOptions
+	): Promise<number> {
 		let baseQuery = this.db.delete(this.table);
 
 		if (where) {
 			baseQuery = this.buildWhereQueries(baseQuery, where);
 		}
 
-		return (await (baseQuery as any).returning()) as TSelect[];
+		if (options?.limit !== undefined) {
+			this.handleLimitOptions(options.limit, 'delete');
+			baseQuery = (baseQuery as any).limit(options.limit);
+		}
+
+		return (await (baseQuery as any).returning())?.length ?? (0 as number);
 	}
 
 	/**
@@ -188,12 +199,13 @@ export class AbstractService<
 		return count > 0;
 	}
 
-	private handleLimitOptions(limit: number) {
+	private handleLimitOptions(limit: number, method: 'find' | 'delete') {
 		if (limit === 0) {
 			throw Error('Limit must be greater than 0');
 		}
-		if (limit > MAX_FIND_LIMIT) {
-			throw Error(`Limit must be less than or equal to ${MAX_FIND_LIMIT}`);
+		const max = method === 'find' ? MAX_FIND_LIMIT : MAX_DELETE_LIMIT;
+		if (limit > max) {
+			throw Error(`Limit must be less than or equal to ${max}`);
 		}
 	}
 

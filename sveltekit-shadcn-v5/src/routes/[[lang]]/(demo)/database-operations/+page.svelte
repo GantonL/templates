@@ -9,6 +9,7 @@
 	import { Demo } from '../../../api';
 	import { columns, tableConfiguration } from './configurations';
 	import { Button } from '$lib/components/ui/button';
+	import { DELETE, POST } from '$lib/api/helpers/request';
 
 	let users = $state<User[]>(page.data.users ?? []);
 	let total = $state<number>(page.data.total ?? 0);
@@ -22,55 +23,34 @@
 		const lastName = Math.floor(Math.random() * 1000000000);
 		const name = `${firstName} ${lastName}`;
 		const email = `${firstName.toLowerCase()}.${lastName}@example.com`;
-
 		return { name, email };
 	}
 	async function onAddData() {
 		try {
 			const randomUser = generateRandomUser();
-			const response = await fetch(`${Demo}/users`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					data: [randomUser]
-				})
-			});
-
-			if (response.ok) {
-				const result = await response.json();
-				// Add the created user(s) to the local state
-				if (result.created && result.created.length > 0) {
-					users = [...result.created, ...users];
-					total = total + result.created.length;
-				}
-				console.log('User created successfully:', result);
-			} else {
-				console.error('Failed to create user:', response.statusText);
+			const response = await POST<[typeof randomUser], { created: [User] }>(`${Demo}/users`, [
+				randomUser
+			]);
+			const newUsers = response?.created ?? [];
+			if (!newUsers || (newUsers as User[]).length === 0) {
+				return;
 			}
+			users = [...newUsers, ...users];
+			total = total + 1;
 		} catch (error) {
 			console.error('Error creating user:', error);
 		}
 	}
 	async function onReset() {
 		try {
-			const response = await fetch(`${Demo}/users`, {
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					filters: []
-				})
-			});
-
-			if (response.ok) {
+			const response = await DELETE<[], { deleted: number }>(`${Demo}/users`, []);
+			const deleted = response?.deleted ?? 0;
+			if (!deleted) {
+				return;
+			}
+			if (deleted === total) {
 				users = [];
 				total = 0;
-				console.log('Users reset');
-			} else {
-				console.error('Failed reset users:', response.statusText);
 			}
 		} catch (error) {
 			console.error('Error reseting users:', error);

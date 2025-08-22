@@ -86,11 +86,10 @@ describe('AbstractService - Delete Methods', () => {
 			]);
 
 			// Act
-			const results = await service.deleteWhere(like(testUsers.name, 'Admin%'));
+			const result = await service.deleteWhere(like(testUsers.name, 'Admin%'));
 
 			// Assert
-			expect(results).toHaveLength(2);
-			expect(results.map((r) => r.email).sort()).toEqual([created[0].email, created[2].email]);
+			expect(result).toBe(2);
 
 			// Verify records are actually deleted
 			const remaining = await service.find();
@@ -107,11 +106,10 @@ describe('AbstractService - Delete Methods', () => {
 			]);
 
 			// Act
-			const results = await service.deleteWhere((table) => gt(table.id, users[0].id));
+			const result = await service.deleteWhere((table) => gt(table.id, users[0].id));
 
 			// Assert
-			expect(results).toHaveLength(2);
-			expect(results.map((r) => r.id).sort()).toEqual([users[1].id, users[2].id].sort());
+			expect(result).toBe(2);
 
 			// Verify only first record remains
 			const remaining = await service.find();
@@ -121,7 +119,7 @@ describe('AbstractService - Delete Methods', () => {
 
 		it('should delete records matching multiple conditions', async () => {
 			// Arrange
-			const users = await service.createMany([
+			await service.createMany([
 				{ name: 'Test Admin', email: 'testadmin@example.com' },
 				{ name: 'Test User', email: 'testuser@example.com' },
 				{ name: 'Other Admin', email: 'otheradmin@example.com' },
@@ -129,15 +127,13 @@ describe('AbstractService - Delete Methods', () => {
 			]);
 
 			// Act
-			const results = await service.deleteWhere([
+			const result = await service.deleteWhere([
 				like(testUsers.name, 'Test%'),
 				like(testUsers.name, '%Admin%')
 			]);
 
 			// Assert
-			expect(results).toHaveLength(1);
-			expect(results[0].name).toBe(users[0].name);
-			expect(results[0].email).toBe(users[0].email);
+			expect(result).toBe(1);
 
 			// Verify other records remain
 			const remaining = await service.find();
@@ -153,14 +149,13 @@ describe('AbstractService - Delete Methods', () => {
 			]);
 
 			// Act
-			const results = await service.deleteWhere([
+			const result = await service.deleteWhere([
 				(table) => gt(table.id, users[0].id),
 				eq(testUsers.name, users[1].name)
 			]);
 
 			// Assert
-			expect(results).toHaveLength(1);
-			expect(results[0].name).toBe(users[1].name);
+			expect(result).toBe(1);
 
 			// Verify other records remain
 			const remaining = await service.find();
@@ -179,7 +174,7 @@ describe('AbstractService - Delete Methods', () => {
 			const results = await service.deleteWhere(eq(testUsers.name, 'NonExistent'));
 
 			// Assert
-			expect(results).toHaveLength(0);
+			expect(results).toBe(0);
 
 			// Verify all records remain
 			const remaining = await service.find();
@@ -188,17 +183,16 @@ describe('AbstractService - Delete Methods', () => {
 
 		it('should handle empty conditions array', async () => {
 			// Arrange
-			const users = await service.createMany([
+			await service.createMany([
 				{ name: 'User One', email: 'user1@example.com' },
 				{ name: 'User Two', email: 'user2@example.com' }
 			]);
 
 			// Act
-			const results = await service.deleteWhere([]);
+			const result = await service.deleteWhere([]);
 
 			// Assert
-			expect(results).toHaveLength(2);
-			expect(results.map((r) => r.id).sort()).toEqual([users[0].id, users[1].id].sort());
+			expect(result).toBe(2);
 
 			// Verify all records are deleted
 			const remaining = await service.find();
@@ -228,7 +222,7 @@ describe('AbstractService - Delete Methods', () => {
 
 		it('should maintain data integrity after cascading deletes', async () => {
 			// Arrange
-			const users = await service.createMany([
+			await service.createMany([
 				{ name: 'Parent User', email: 'parent@example.com' },
 				{ name: 'Child User', email: 'child@example.com' },
 				{ name: 'Independent User', email: 'independent@example.com' }

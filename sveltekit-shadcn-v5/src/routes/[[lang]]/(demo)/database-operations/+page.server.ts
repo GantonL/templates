@@ -1,14 +1,14 @@
 import type { PageServerLoad } from './$types';
 import { Demo } from '../../../api';
+import { GET } from '$lib/api/helpers/request';
+import type { User } from '$lib/server/database/schema';
 
-const baseUrl = `${Demo}/users`;
-const countUrl = `${Demo}/count/users`;
+const usersUrl = `${Demo}/users`;
+const countUsersUrl = `${Demo}/count/users`;
 export const load: PageServerLoad = async ({ fetch }) => {
 	const limit = 10;
 	const orderBy = '-createdAt';
-	const usersRes = await fetch(`${baseUrl}?limit=${limit}&orderBy=${orderBy}`);
-	const users = await usersRes.json();
-	const totalRes = await fetch(countUrl);
-	const total = await totalRes.json();
+	const users = await GET<User>(usersUrl, { fetch, limit, orderBy });
+	const total = await GET<number>(countUsersUrl, { fetch });
 	return { users, total };
 };
