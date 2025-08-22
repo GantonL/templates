@@ -5,7 +5,8 @@ const baseUrl = `${Demo}/users`;
 const countUrl = `${Demo}/count/users`;
 export const load: PageServerLoad = async ({ fetch }) => {
 	const limit = 10;
-	const usersRes = await fetch(`${baseUrl}?limit=${limit}`);
+	const orderBy = '-createdAt';
+	const usersRes = await fetch(`${baseUrl}?limit=${limit}&orderBy=${orderBy}`);
 	const users = await usersRes.json();
 	const totalRes = await fetch(countUrl);
 	const total = await totalRes.json();

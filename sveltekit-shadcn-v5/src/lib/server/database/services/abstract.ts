@@ -205,10 +205,10 @@ export class AbstractService<
 			const conditions = where.map((condition) =>
 				typeof condition === 'function' ? condition(this.table) : condition
 			);
-			baseQuery = (baseQuery as any).where(and(...conditions));
+			baseQuery = conditions?.length > 0 ? (baseQuery as any).where(and(...conditions)) : baseQuery;
 		} else {
 			const condition = typeof where === 'function' ? where(this.table) : where;
-			baseQuery = (baseQuery as any).where(condition);
+			baseQuery = condition ? (baseQuery as any).where(condition) : baseQuery;
 		}
 		return baseQuery;
 	}

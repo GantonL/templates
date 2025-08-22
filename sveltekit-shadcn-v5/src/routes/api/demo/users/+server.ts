@@ -34,7 +34,7 @@ export const PUT: RequestHandler = async ({ url, request }) => {
 export const DELETE: RequestHandler = async ({ url, request }) => {
 	const { filters } = await request.json();
 	const urlFilters = getUrlFilters(url);
-	const bodyFilters = getBodyFilters(filters);
+	const bodyFilters = getBodyFilters(filters ?? []);
 	const deleted = await service.deleteWhere([...urlFilters, ...bodyFilters]);
 	return json({ deleted });
 };

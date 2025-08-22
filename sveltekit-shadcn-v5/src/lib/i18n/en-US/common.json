@@ -66,5 +66,8 @@
 	"no_results": "No results",
 	"of": "of",
 	"row(s)_selected": "row(s) selected",
-	"total": "Total"
+	"total": "Total",
+	"user": "User",
+	"danger_zone": "Danger zone",
+	"reset_data": "RESET DATA"
 }
