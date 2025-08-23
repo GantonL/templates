@@ -97,6 +97,11 @@ export const homepageConfig: HomepageConfig = {
 				title: 'homepage.techStack.typescript.title',
 				description: 'homepage.techStack.typescript.description',
 				icon: FileCode2
+			},
+			{
+				title: 'homepage.techStack.postgresql.title',
+				description: 'homepage.techStack.postgresql.description',
+				icon: Database
 			}
 		]
 	},
@@ -132,6 +137,11 @@ export const homepageConfig: HomepageConfig = {
 				title: 'homepage.features.configuration.title',
 				description: 'homepage.features.configuration.description',
 				icon: Code
+			},
+			{
+				title: 'homepage.features.database.title',
+				description: 'homepage.features.database.description',
+				icon: Database
 			}
 		]
 	},
@@ -149,8 +159,32 @@ export const homepageConfig: HomepageConfig = {
 				description: 'homepage.development.commands.build'
 			},
 			{
-				command: 'bun run test',
-				description: 'homepage.development.commands.test'
+				command: 'bun run check',
+				description: 'homepage.development.commands.check'
+			},
+			{
+				command: 'bun run lint',
+				description: 'homepage.development.commands.lint'
+			},
+			{
+				command: 'bun run format',
+				description: 'homepage.development.commands.format'
+			},
+			{
+				command: 'bun run local:db:up',
+				description: 'homepage.development.commands.dbUp'
+			},
+			{
+				command: 'bun run local:db:down',
+				description: 'homepage.development.commands.dbDown'
+			},
+			{
+				command: 'bun run test:server',
+				description: 'homepage.development.commands.testServer'
+			},
+			{
+				command: 'bun run db:migrate',
+				description: 'homepage.development.commands.migrate'
 			},
 			{
 				command: 'bun run create:page',
@@ -173,11 +207,6 @@ export const homepageConfig: HomepageConfig = {
 				title: 'homepage.roadmap.layoutVariants.title',
 				description: 'homepage.roadmap.layoutVariants.description',
 				icon: Menu
-			},
-			{
-				title: 'homepage.roadmap.database.title',
-				description: 'homepage.roadmap.database.description',
-				icon: Database
 			},
 			{
 				title: 'homepage.roadmap.cli.title',

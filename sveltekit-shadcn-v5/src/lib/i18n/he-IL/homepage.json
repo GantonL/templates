@@ -20,6 +20,10 @@
 		"typescript": {
 			"title": "TypeScript",
 			"description": "בטיחות סוגים מלאה"
+		},
+		"postgresql": {
+			"title": "PostgreSQL",
+			"description": "מסד נתונים יחסי חזק עם Drizzle ORM"
 		}
 	},
 	"features": {
@@ -47,6 +51,10 @@
 		"configuration": {
 			"title": "מונע תצורה",
 			"description": "תצורות מרכזיות לקוד ניתן לתחזוקה ולהרחבה"
+		},
+		"database": {
+			"title": "שכבת הפשטה למסד נתונים",
+			"description": "דפוס שירות עם פעולות CRUD, כלי שאילתות ועוזרי בקשות"
 		}
 	},
 	"development": {
@@ -56,7 +64,13 @@
 		"commands": {
 			"dev": "הפעל שרת פיתוח",
 			"build": "בנה לפרודקשן",
-			"test": "הרץ בדיקות",
+			"check": "הרץ בדיקת סוגים",
+			"lint": "הרץ בדיקת קוד",
+			"format": "עצב קוד",
+			"dbUp": "הפעל מכל PostgreSQL",
+			"dbDown": "עצור מכל PostgreSQL",
+			"testServer": "הרץ בדיקות מסד נתונים",
+			"migrate": "הרץ מיגרציות מסד נתונים",
 			"createPage": "צור עמוד חדש עם תבנית",
 			"createMd": "צור קובצי מארקדאון לכל השפות",
 			"createApi": "צור בקר API עם תבנית"
@@ -67,10 +81,6 @@
 		"layoutVariants": {
 			"title": "וריאציות פריסה",
 			"description": "פריסות ניווט הניתנות להגדרה (מתקפל, סרגל עליון, תפריט תחתון)"
-		},
-		"database": {
-			"title": "הפשטת מסד נתונים",
-			"description": "שכבת אינטגרציה של ORM"
 		},
 		"cli": {
 			"title": "כלי CLI משופרים",
