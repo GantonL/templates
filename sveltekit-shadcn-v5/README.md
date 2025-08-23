@@ -169,6 +169,47 @@ const bodyFilters = getBodyFiltersUtil(
 );
 ```
 
+### Request Helper
+
+Unified API request helper for consistent client-side communication:
+
+```typescript
+import { GET, POST, PUT, DELETE } from '$lib/api/helpers/request';
+
+// GET request with query parameters
+const users = await GET<User[]>('/api/users', {
+  limit: 20,
+  offset: 0,
+  searchTerm: 'john',
+  orderBy: 'name,-createdAt'
+});
+
+// POST request to create data
+const newUser = await POST<CreateUserData, User>(
+  '/api/users',
+  { name: 'John Doe', email: 'john@example.com' }
+);
+
+// PUT request to update data with filters
+const updatedUser = await PUT<UpdateUserData, UserFilters, User>(
+  '/api/users',
+  { name: 'Jane Doe' },
+  { id: 1 }
+);
+
+// DELETE request with filters
+await DELETE<UserFilters, void>(
+  '/api/users',
+  { ids: [1, 2, 3] }
+);
+
+// Custom fetch function (useful for SSR)
+const serverUsers = await GET<User[]>('/api/users', {
+  fetch: event.fetch,
+  limit: 10
+});
+```
+
 ### Service Factory Pattern
 
 Services are managed through a singleton factory:

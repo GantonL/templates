@@ -100,6 +100,33 @@ const bodyFilters = getBodyFiltersUtil(
 );
 ```
 
+### Request Helper
+
+Client-side API request utilities:
+
+```typescript
+import { GET, POST, PUT, DELETE } from '$lib/api/helpers/request';
+
+// GET with query params
+const users = await GET<User[]>('/api/users', {
+  limit: 20,
+  searchTerm: 'john',
+  orderBy: 'name,-createdAt'
+});
+
+// POST to create
+const user = await POST<CreateData, User>('/api/users', data);
+
+// PUT to update with filters
+const updated = await PUT<Data, Filters, User>('/api/users', data, filters);
+
+// DELETE with filters
+await DELETE<Filters, void>('/api/users', { ids: [1, 2, 3] });
+
+// SSR with custom fetch
+const serverData = await GET('/api/users', { fetch: event.fetch });
+```
+
 ## Internationalization
 
 ```typescript
