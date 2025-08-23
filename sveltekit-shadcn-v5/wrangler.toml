@@ -1,4 +1,4 @@
 name = "sveltekit-shadcn-v5"
+pages_build_output_dir = ".svelte-kit/cloudflare"
 compatibility_date = "2025-08-23"
-
 compatibility_flags = ["nodejs_compat"]
