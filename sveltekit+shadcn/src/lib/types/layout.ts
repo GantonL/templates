@@ -1,1 +1,0 @@
-export type Layout = 'vertical-left' | 'horizontal-top' | 'horizontal-bottom';
