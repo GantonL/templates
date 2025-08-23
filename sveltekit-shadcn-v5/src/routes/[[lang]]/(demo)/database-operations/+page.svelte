@@ -9,11 +9,12 @@
 	import { Demo } from '../../../api';
 	import { columns, tableConfiguration } from './configurations';
 	import { Button } from '$lib/components/ui/button';
-	import { DELETE, POST } from '$lib/api/helpers/request';
+	import { DELETE, GET, POST } from '$lib/api/helpers/request';
 	import { type TableConfiguration } from '$lib/models/table';
 
 	let users = $state<User[]>(page.data.users ?? []);
 	let total = $state<number>(page.data.total ?? 0);
+	let fetchInProgress = $state(false);
 	let configuration = $derived<TableConfiguration<User>>({
 		...tableConfiguration,
 		serverSide: {
@@ -48,6 +49,14 @@
 			console.error('Error creating user:', error);
 		}
 	}
+	async function onPageIndexChanged(newIndex: number) {
+		fetchInProgress = true;
+		const limit = 10;
+		const offset = newIndex === 0 ? newIndex : newIndex * limit;
+		const response = await GET<User[]>(`${Demo}/users`, { limit, offset });
+		users = response;
+		fetchInProgress = false;
+	}
 	async function onReset() {
 		try {
 			const response = await DELETE<[], { deleted: number }>(`${Demo}/users`, []);
@@ -67,7 +76,15 @@
 
 <BasePage title="common.database_operations" description="seo.description">
 	{#key total}
-		<AppDataTable data={users} {columns} {configuration} addData={onAddData} />
+		<AppDataTable
+			data={users}
+			{columns}
+			{configuration}
+			addData={onAddData}
+			pageIndexChanged={onPageIndexChanged}
+			disabled={fetchInProgress}
+			isLoading={fetchInProgress}
+		/>
 	{/key}
 	<Alert.Root variant="destructive" class="border-destructive/50">
 		<CircleAlert />
