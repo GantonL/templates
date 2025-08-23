@@ -69,5 +69,7 @@
 	"total": "Total",
 	"user": "User",
 	"danger_zone": "Danger zone",
-	"reset_data": "RESET DATA"
+	"reset_data": "RESET DATA",
+	"database_unavailable": "Database unavailable",
+	"database_unavailable_demo_description": "Fork or clone the repository and follow instruction to see this page in action"
 }

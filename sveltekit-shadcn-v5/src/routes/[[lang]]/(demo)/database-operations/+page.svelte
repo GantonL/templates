@@ -5,7 +5,7 @@
 	import * as Alert from '$lib/components/ui/alert';
 	import { t } from '$lib/i18n';
 	import { type User } from '$lib/server/database/schema';
-	import { CircleAlert } from '@lucide/svelte';
+	import { CircleAlert, Info } from '@lucide/svelte';
 	import { Demo } from '../../../api';
 	import { columns, tableConfiguration } from './configurations';
 	import { Button } from '$lib/components/ui/button';
@@ -14,6 +14,7 @@
 
 	let users = $state<User[]>(page.data.users ?? []);
 	let total = $state<number>(page.data.total ?? 0);
+	let isDB = $state<number>(page.data.dbAvailable ?? false);
 	let fetchInProgress = $state(false);
 	let configuration = $derived<TableConfiguration<User>>({
 		...tableConfiguration,
@@ -75,6 +76,15 @@
 </script>
 
 <BasePage title="common.database_operations" description="seo.description">
+	{#if !isDB}
+		<Alert.Root variant="destructive" class="border-destructive/50">
+			<Info />
+			<Alert.Title>{$t('common.database_unavailable')}</Alert.Title>
+			<Alert.Description class="py-2">
+				{$t('common.database_unavailable_demo_description')}
+			</Alert.Description>
+		</Alert.Root>
+	{/if}
 	{#key total}
 		<AppDataTable
 			data={users}
@@ -86,13 +96,15 @@
 			isLoading={fetchInProgress}
 		/>
 	{/key}
-	<Alert.Root variant="destructive" class="border-destructive/50">
-		<CircleAlert />
-		<Alert.Title>{$t('common.danger_zone')}</Alert.Title>
-		<Alert.Description class="py-2">
-			<Button variant="destructive" size="lg" onclick={onReset} disabled={total === 0}>
-				{$t('common.reset_data')}
-			</Button>
-		</Alert.Description>
-	</Alert.Root>
+	{#if isDB}
+		<Alert.Root variant="destructive" class="border-destructive/50">
+			<CircleAlert />
+			<Alert.Title>{$t('common.danger_zone')}</Alert.Title>
+			<Alert.Description class="py-2">
+				<Button variant="destructive" size="lg" onclick={onReset} disabled={total === 0}>
+					{$t('common.reset_data')}
+				</Button>
+			</Alert.Description>
+		</Alert.Root>
+	{/if}
 </BasePage>

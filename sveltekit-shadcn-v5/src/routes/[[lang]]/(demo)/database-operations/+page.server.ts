@@ -10,11 +10,11 @@ export const load: PageServerLoad = async ({ fetch }) => {
 	let total = 0;
 	const healthy = await GET(DbHealth, { fetch }).catch(() => false);
 	if (!healthy) {
-		return { users, total };
+		return { users, total, dbAvailable: false };
 	}
 	const limit = 10;
 	const orderBy = '-createdAt';
 	users = await GET<User[]>(usersUrl, { fetch, limit, orderBy });
 	total = await GET<number>(countUsersUrl, { fetch });
-	return { users, total };
+	return { users, total, dbAvailable: true };
 };

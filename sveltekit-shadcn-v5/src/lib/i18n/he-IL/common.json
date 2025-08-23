@@ -69,5 +69,7 @@
 	"total": "סך הכל",
 	"user": "משתמש",
 	"danger_zone": "איזור מסוכן",
-	"reset_data": "ניקוי מידע"
+	"reset_data": "ניקוי מידע",
+	"database_unavailable": "מסד נתונים לא פעיל",
+	"database_unavailable_demo_description": "שכפלו את בסיס הקוד ועקבו אחר ההוראות בכדי לראות את העמוד בפעולה"
 }
