@@ -1,5 +1,6 @@
 interface BaseRequestOptions {
 	fetch?: typeof fetch;
+	headers?: RequestInit['headers'];
 }
 interface BaseFilters {
 	searchTerm?: string;
@@ -9,9 +10,7 @@ interface UrlSearchParams extends BaseFilters {
 	orderBy?: string;
 	offset?: number;
 }
-interface GetOptions extends BaseRequestOptions, UrlSearchParams {
-	headers?: RequestInit['headers'];
-}
+interface GetOptions extends BaseRequestOptions, UrlSearchParams {}
 
 interface CreateUpdateDeleteOptions extends BaseRequestOptions, BaseFilters {
 	body?: RequestInit['body'];
@@ -98,7 +97,9 @@ const baseRequest = async (
 
 const addUrlSearchParams = (url: string, parameters: UrlSearchParams) => {
 	if (!parameters) return url;
-	for (const key of Object.keys(parameters) as (keyof UrlSearchParams)[]) {
+	// To preserve definitive order, instead of using Object.keys(parameters);
+	const keys: (keyof UrlSearchParams)[] = ['limit', 'offset', 'orderBy', 'searchTerm'];
+	for (const key of keys) {
 		const value = parameters[key];
 		if (value === undefined || value === null) continue;
 		url = applySearchParamOnUrl(url, key, value);
