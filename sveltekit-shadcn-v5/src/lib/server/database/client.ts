@@ -8,5 +8,5 @@ export const client = postgres(DATABASE_URL, { prepare: false });
 export const db = drizzle(client);
 
 export const checkConnection = async () => {
-	return await db.execute(sql`SELECT 1`);
+	return await db.execute(sql`SELECT version()`);
 };
