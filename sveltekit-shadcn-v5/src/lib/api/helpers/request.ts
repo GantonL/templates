@@ -23,7 +23,7 @@ const baseHeaders = {
 
 export const GET = async <R>(url: string, options?: GetOptions): Promise<R> => {
 	if (options) {
-		addUrlSearchParams(url, {
+		url = addUrlSearchParams(url, {
 			limit: options.limit,
 			orderBy: options.orderBy,
 			offset: options.offset,
@@ -97,8 +97,7 @@ const baseRequest = async (
 };
 
 const addUrlSearchParams = (url: string, parameters: UrlSearchParams) => {
-	if (!url) return;
-	if (!parameters) return;
+	if (!parameters) return url;
 	for (const key of Object.keys(parameters) as (keyof UrlSearchParams)[]) {
 		const value = parameters[key];
 		if (value === undefined || value === null) continue;
@@ -119,7 +118,8 @@ const applySearchParamOnUrl = (
 	if (Array.isArray(value)) {
 		value = value.map((e) => String(e)).join();
 	}
-	return url.concat(`${concatenator}${key}=${value}`);
+	const concatenatedUrl = url.concat(`${concatenator}${key}=${value}`);
+	return concatenatedUrl;
 };
 
 const createPostBody = (data: unknown, options?: CreateUpdateDeleteOptions) => {

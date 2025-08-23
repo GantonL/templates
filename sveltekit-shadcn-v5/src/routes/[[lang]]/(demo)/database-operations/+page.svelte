@@ -10,12 +10,16 @@
 	import { columns, tableConfiguration } from './configurations';
 	import { Button } from '$lib/components/ui/button';
 	import { DELETE, POST } from '$lib/api/helpers/request';
+	import { type TableConfiguration } from '$lib/models/table';
 
 	let users = $state<User[]>(page.data.users ?? []);
 	let total = $state<number>(page.data.total ?? 0);
-
-	$effect.pre(() => {
-		tableConfiguration.serverSide!.totalItems = total;
+	let configuration = $derived<TableConfiguration<User>>({
+		...tableConfiguration,
+		serverSide: {
+			...tableConfiguration.serverSide,
+			totalItems: total
+		} as TableConfiguration<User>['serverSide']
 	});
 
 	function generateRandomUser() {
@@ -34,6 +38,9 @@
 			const newUsers = response?.created ?? [];
 			if (!newUsers || (newUsers as User[]).length === 0) {
 				return;
+			}
+			if (configuration.serverSide?.enabled && users.length + 1 > tableConfiguration.pageSize!) {
+				users.pop();
 			}
 			users = [...newUsers, ...users];
 			total = total + 1;
@@ -59,7 +66,9 @@
 </script>
 
 <BasePage title="common.database_operations" description="seo.description">
-	<AppDataTable data={users} {columns} configuration={tableConfiguration} addData={onAddData} />
+	{#key total}
+		<AppDataTable data={users} {columns} {configuration} addData={onAddData} />
+	{/key}
 	<Alert.Root variant="destructive" class="border-destructive/50">
 		<CircleAlert />
 		<Alert.Title>{$t('common.danger_zone')}</Alert.Title>

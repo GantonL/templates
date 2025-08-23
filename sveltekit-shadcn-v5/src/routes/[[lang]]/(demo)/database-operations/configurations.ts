@@ -14,9 +14,7 @@ export const columns: ColumnDef<TableUsers>[] = [
 		cell: ({ row }) =>
 			renderComponent(Avatar, {
 				id: String(row.original.id)
-			}),
-		enableSorting: false,
-		enableHiding: false
+			})
 	},
 	{
 		accessorKey: 'name',
@@ -62,5 +60,6 @@ export const tableConfiguration: TableConfiguration<TableUsers> = {
 	serverSide: {
 		enabled: true,
 		manualPagination: true
-	}
+	},
+	pageSize: 10
 };
