@@ -20,6 +20,10 @@
 		"typescript": {
 			"title": "TypeScript",
 			"description": "Full type safety"
+		},
+		"postgresql": {
+			"title": "PostgreSQL",
+			"description": "Robust relational database with Drizzle ORM"
 		}
 	},
 	"features": {
@@ -47,6 +51,10 @@
 		"configuration": {
 			"title": "Configuration-Driven",
 			"description": "Centralized configurations for maintainable and scalable code"
+		},
+		"database": {
+			"title": "Database Abstraction Layer",
+			"description": "Service pattern with CRUD operations, query utilities, and request helpers"
 		}
 	},
 	"development": {
@@ -56,7 +64,13 @@
 		"commands": {
 			"dev": "Start development server",
 			"build": "Build for production",
-			"test": "Run tests",
+			"check": "Run type checking",
+			"lint": "Run linting",
+			"format": "Format code",
+			"dbUp": "Start PostgreSQL container",
+			"dbDown": "Stop PostgreSQL container",
+			"testServer": "Run database tests",
+			"migrate": "Run database migrations",
 			"createPage": "Create new page with template",
 			"createMd": "Create markdown files for all locales",
 			"createApi": "Create API controller with template"
@@ -67,10 +81,6 @@
 		"layoutVariants": {
 			"title": "Layout variants",
 			"description": "Configurable navigation layouts (collapsible, top bar, bottom menu)"
-		},
-		"database": {
-			"title": "Database abstraction",
-			"description": "ORM integration layer"
 		},
 		"cli": {
 			"title": "Enhanced CLI tooling",

@@ -59,8 +59,13 @@ install Bun & Docker on your local machine.
 # Install dependencies
 bun install
 
+# Make sure Docker deamon is running
+
 # Start local database
 bun run local:db:up
+
+# Migrate to create the demo table
+bun run db:migrate
 
 # Start development server
 bun run dev
@@ -75,6 +80,7 @@ bun run local:db:down
 # Local Development Database
 bun run local:db:up        # Start PostgreSQL container
 bun run local:db:down      # Stop PostgreSQL container
+bun run db:migrate         # Run database migrations
 
 # Test Database
 bun run test:db:up         # Start test PostgreSQL container
