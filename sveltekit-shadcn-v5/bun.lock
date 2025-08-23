@@ -7,7 +7,6 @@
         "@dicebear/collection": "^9.2.4",
         "@dicebear/core": "^9.2.4",
         "@types/bun": "^1.2.20",
-        "dotenv": "^17.2.1",
         "drizzle-orm": "^0.44.4",
         "mode-watcher": "^1.1.0",
         "postgres": "^3.4.7",
@@ -553,8 +552,6 @@
     "directory-tree": ["directory-tree@3.5.2", "", { "dependencies": { "command-line-args": "^5.2.0", "command-line-usage": "^6.1.1" }, "bin": { "directory-tree": "bin/index.js" } }, "sha512-DsOqeZEHkZnZrVOJG3mE/J9M6J8PulImiC6I1ZpoprVlfno8GvLOPDMkxiJihklLK7B9aVudG463L1+S/kzjiw=="],
 
     "dom-accessibility-api": ["dom-accessibility-api@0.5.16", "", {}, "sha512-X7BJ2yElsnOJ30pZF4uIIDfBEVgF4XEBxL9Bxhy6dnrm5hkzqmsWHGTiHqRiITNhMyFLyAiWndIJP7Z1NTteDg=="],
-
-    "dotenv": ["dotenv@17.2.1", "", {}, "sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ=="],
 
     "drizzle-kit": ["drizzle-kit@0.30.0", "", { "dependencies": { "@drizzle-team/brocli": "^0.10.2", "@esbuild-kit/esm-loader": "^2.5.5", "esbuild": "^0.19.7", "esbuild-register": "^3.5.0" }, "bin": { "drizzle-kit": "bin.cjs" } }, "sha512-zAf0qg/BX2lV/Xip4igXrtbDv+Ub8S39U6qSOEGNvqcHrnmaQjS4mkkFZOUsgXRbuH56QUeWZxfnLHefrKCV5g=="],
 

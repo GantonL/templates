@@ -68,7 +68,6 @@
 		"@dicebear/collection": "^9.2.4",
 		"@dicebear/core": "^9.2.4",
 		"@types/bun": "^1.2.20",
-		"dotenv": "^17.2.1",
 		"drizzle-orm": "^0.44.4",
 		"mode-watcher": "^1.1.0",
 		"postgres": "^3.4.7",
