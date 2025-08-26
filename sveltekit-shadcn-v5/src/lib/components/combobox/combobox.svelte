@@ -53,7 +53,9 @@
 					role="combobox"
 					aria-expanded={open}
 				>
-					{$t(selectedValue?.label ?? configuration.placeholder ?? 'common.select_an_option')}
+					{selectedValue?.noTranslationRequired
+						? (selectedValue?.label ?? $t(configuration.placeholder ?? 'common.select_an_option'))
+						: $t(selectedValue?.label ?? configuration.placeholder ?? 'common.select_an_option')}
 					{#if inProgress}
 						<LoaderCircle size="14" class="animate-spin" />
 					{:else}
@@ -87,7 +89,7 @@
 							}}
 						>
 							<Check class={cn(value !== option.value && 'text-transparent')} />
-							{$t(option.label)}
+							{option.noTranslationRequired ? option.label : $t(option.label)}
 						</Command.Item>
 					{/each}
 				</Command.Group>

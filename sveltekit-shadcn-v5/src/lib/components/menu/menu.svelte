@@ -3,6 +3,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { MenuConfiguration } from '$lib/models/menu';
+	import { t } from '$lib/i18n';
 
 	let {
 		rawData,
@@ -34,7 +35,7 @@
 					<Ellipsis class="size-4 rotate-90" />
 				{/if}
 				{#if configuration.label}
-					<span>{configuration.label}</span>
+					<span>{$t(configuration.label)}</span>
 				{/if}
 			</Button>
 		{/snippet}
@@ -43,7 +44,7 @@
 		{#each configuration.groups as group, index (group)}
 			<DropdownMenu.Group>
 				{#if group.header}
-					<DropdownMenu.GroupHeading>{group.header}</DropdownMenu.GroupHeading>
+					<DropdownMenu.GroupHeading>{$t(group.header)}</DropdownMenu.GroupHeading>
 				{/if}
 				{#each group.items as item (item)}
 					<DropdownMenu.Item
@@ -55,7 +56,7 @@
 							{#if item.icon}
 								<item.icon size="16" />
 							{/if}
-							{item.title}
+							{item.noTranlationRequired ? item.title : $t(item.title)}
 						</div>
 					</DropdownMenu.Item>
 				{/each}

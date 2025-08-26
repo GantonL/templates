@@ -224,17 +224,17 @@
 			<Button {disabled} variant="outline" onclick={() => addData && addData()}>
 				<div class="flex flex-row items-center gap-2">
 					<Plus />
-					<span class:hidden={sidebar.isMobile}>Add</span>
+					<span class:hidden={sidebar.isMobile}>{$t('common.add')}</span>
 				</div>
 			</Button>
-			<!-- {#if configuration?.bulkActions && (table.getIsSomePageRowsSelected() || table.getIsAllPageRowsSelected() || table.getIsAllRowsSelected())}
+			{#if configuration?.bulkActions && (table.getIsSomePageRowsSelected() || table.getIsAllPageRowsSelected() || table.getIsAllRowsSelected())}
 				<Menu
 					{disabled}
 					rawData={table.getFilteredSelectedRowModel().rows.map((r) => r.original)}
 					configuration={configuration.bulkActions}
 					event={onBulkMenu}
 				/>
-			{/if} -->
+			{/if}
 		</div>
 		<div class="flex flex-row items-center gap-2">
 			<DropdownMenu.Root>
@@ -247,7 +247,7 @@
 							class="flex flex-row items-center gap-2"
 						>
 							<Settings2 />
-							<span class:hidden={sidebar.isMobile}>View</span>
+							<span class:hidden={sidebar.isMobile}>{$t('common.view')}</span>
 						</Button>
 					{/snippet}
 				</DropdownMenu.Trigger>

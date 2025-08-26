@@ -5,6 +5,7 @@ export interface ComboboxConfiguration {
 		description?: string;
 		disabledIf?: (...args: unknown[]) => boolean;
 		disabledIfArgs?: unknown;
+		noTranslationRequired?: boolean;
 	}[];
 	event?: string;
 	placeholder?: string;
