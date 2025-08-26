@@ -172,7 +172,7 @@
 				{#each table.getHeaderGroups() as headerGroup (headerGroup.id)}
 					<Table.Row>
 						{#each headerGroup.headers as header (header.id)}
-							<Table.Head>
+							<Table.Head class={$direction === 'lr' ? 'text-left' : 'text-right'}>
 								{#if !header.isPlaceholder}
 									<FlexRender
 										content={typeof header.column.columnDef.header === 'string'
