@@ -73,5 +73,6 @@
 	"database_unavailable": "מסד נתונים לא פעיל",
 	"database_unavailable_demo_description": "שכפלו את בסיס הקוד ועקבו אחר ההוראות בכדי לראות את העמוד בפעולה",
 	"add": "הוספה",
-	"view": "תצוגה"
+	"view": "תצוגה",
+	"page": "עמוד"
 }

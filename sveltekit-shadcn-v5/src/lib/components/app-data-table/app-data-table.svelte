@@ -298,7 +298,7 @@
 				{/if}
 			</Button>
 			<div class="flex flex-row items-center gap-1">
-				<span class:hidden={sidebar.isMobile}>Page</span>
+				<span class:hidden={sidebar.isMobile}>{$t('common.page')}</span>
 				<Input
 					type="number"
 					class="max-w-14"
