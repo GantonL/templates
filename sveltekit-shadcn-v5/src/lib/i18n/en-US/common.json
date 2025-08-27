@@ -74,5 +74,7 @@
 	"database_unavailable_demo_description": "Fork or clone the repository and follow instruction to see this page in action",
 	"add": "Add",
 	"view": "View",
-	"page": "Page"
+	"page": "Page",
+	"delete": "Delete",
+	"actions": "Actions"
 }

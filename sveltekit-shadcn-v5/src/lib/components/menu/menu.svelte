@@ -4,6 +4,7 @@
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { MenuConfiguration } from '$lib/models/menu';
 	import { t } from '$lib/i18n';
+	import { useSidebar } from '../ui/sidebar';
 
 	let {
 		rawData,
@@ -16,6 +17,8 @@
 		disabled?: boolean;
 		event: (e: { type: string; data: unknown }) => void;
 	} = $props();
+
+	const sidebar = useSidebar();
 </script>
 
 <DropdownMenu.Root>
@@ -34,7 +37,7 @@
 				{:else}
 					<Ellipsis class="size-4 rotate-90" />
 				{/if}
-				{#if configuration.label}
+				{#if configuration.label && configuration.hideLabelOnSmallScreen && !sidebar.isMobile}
 					<span>{$t(configuration.label)}</span>
 				{/if}
 			</Button>

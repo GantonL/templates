@@ -74,5 +74,7 @@
 	"database_unavailable_demo_description": "שכפלו את בסיס הקוד ועקבו אחר ההוראות בכדי לראות את העמוד בפעולה",
 	"add": "הוספה",
 	"view": "תצוגה",
-	"page": "עמוד"
+	"page": "עמוד",
+	"delete": "מחיקה",
+	"actions": "פעולות"
 }

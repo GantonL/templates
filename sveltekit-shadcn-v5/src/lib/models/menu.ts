@@ -19,6 +19,7 @@ export interface MenuActionItemGroup<T = void> {
 export interface MenuConfiguration<T = void> {
 	groups: MenuActionItemGroup<T>[];
 	label?: string;
+	hideLabelOnSmallScreen?: boolean;
 	buttonVariant?: ButtonVariant;
 	trigger?: Component;
 	triggerClass?: string;

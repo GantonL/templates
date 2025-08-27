@@ -73,6 +73,34 @@
 			console.error('Error reseting users:', error);
 		}
 	}
+	function onBulkActions(e: { type: string; data: User[] }) {
+		switch (e?.type) {
+			case 'delete':
+				onDelete(e.data);
+				break;
+			default:
+				break;
+		}
+	}
+	async function onDelete(usersToDelete: User[]) {
+		const response = await DELETE<{ ids: number[] }, { deleted: number }>(`${Demo}/users`, {
+			ids: usersToDelete.map((u) => u.id)
+		});
+		const deleted = response?.deleted ?? 0;
+		if (!deleted) {
+			return;
+		}
+		if (deleted === total) {
+			users = [];
+			total = 0;
+			return;
+		}
+		if (deleted === usersToDelete.length) {
+			const idsToDelete = usersToDelete.map((u) => u.id);
+			users = users.filter((u) => !idsToDelete.includes(u.id));
+			total = total - deleted;
+		}
+	}
 </script>
 
 <BasePage title="common.database_operations" description="seo.description">
@@ -94,6 +122,7 @@
 			pageIndexChanged={onPageIndexChanged}
 			disabled={fetchInProgress}
 			isLoading={fetchInProgress}
+			bulkActions={onBulkActions}
 		/>
 	{/key}
 	{#if isDB}

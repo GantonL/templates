@@ -5,16 +5,38 @@ import type { TableConfiguration } from '$lib/models/table';
 import type { User } from '$lib/server/database/schema';
 import Avatar from '$lib/components/avatar/avatar.svelte';
 import { locale } from '$lib/i18n';
+import { Checkbox } from '$lib/components/ui/checkbox';
 
 export type TableUsers = User;
 
 export const columns: ColumnDef<TableUsers>[] = [
 	{
+		id: 'select',
+		header: ({ table }) =>
+			renderComponent(Checkbox, {
+				checked: table.getIsAllPageRowsSelected(),
+				indeterminate: table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected(),
+				onCheckedChange: (value) => table.toggleAllPageRowsSelected(!!value),
+				controlledChecked: true,
+				'aria-label': 'Select all'
+			}),
+		cell: ({ row }) =>
+			renderComponent(Checkbox, {
+				checked: row.getIsSelected(),
+				onCheckedChange: (value) => row.toggleSelected(!!value),
+				controlledChecked: true,
+				'aria-label': 'Select row'
+			}),
+		enableSorting: false,
+		enableHiding: false
+	},
+	{
 		id: 'avatar',
 		cell: ({ row }) =>
 			renderComponent(Avatar, {
 				id: String(row.original.id)
-			})
+			}),
+		enableSorting: false
 	},
 	{
 		accessorKey: 'name',
@@ -37,7 +59,8 @@ export const columns: ColumnDef<TableUsers>[] = [
 
 export const tableConfiguration: TableConfiguration<TableUsers> = {
 	bulkActions: {
-		label: 'Actions',
+		label: 'common.actions',
+		hideLabelOnSmallScreen: true,
 		buttonVariant: 'default',
 		trigger: TableOfContents,
 		groups: [
@@ -47,7 +70,7 @@ export const tableConfiguration: TableConfiguration<TableUsers> = {
 						title: 'common.delete',
 						event: 'delete',
 						icon: Trash2,
-						class: 'bg-destructive/5 text-destructive'
+						class: 'bg-destructive/12 text-destructive'
 					}
 				]
 			}
