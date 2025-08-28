@@ -99,6 +99,9 @@
 			const idsToDelete = usersToDelete.map((u) => u.id);
 			users = users.filter((u) => !idsToDelete.includes(u.id));
 			total = total - deleted;
+			if (users.length === 0) {
+				onPageIndexChanged(0);
+			}
 		}
 	}
 </script>
