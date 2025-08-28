@@ -15,7 +15,7 @@ for await (const locale of locales) {
 	await Bun.write(path, fileContent);
 }
 if (locales?.length > 0) {
-	logSuccess('Markdowns created successfuly for locales', locales);
+	logSuccess(`Markdowns created successfuly for locales ${locales.join()}`);
 }
 
 function getFileContent() {
