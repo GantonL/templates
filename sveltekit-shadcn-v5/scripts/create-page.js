@@ -20,4 +20,4 @@ await Bun.write(
   </BasePage>
   `
 );
-logSuccess('Page created successfuly at', path);
+logSuccess(`Page created successfuly at ${path}`);
