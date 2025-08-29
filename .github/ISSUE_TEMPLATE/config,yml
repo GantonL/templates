@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+issue_templates:
+  - name: 🐞 Bug Report
+    description: Report a reproducible bug
+    file: bug_report.md
+  - name: ✨ Feature Request
+    description: Suggest a new feature or enhancement
+    file: feature_request.md
+  - name: 🔧 Refactor
+    description: Propose a code refactor without changing functionality
+    file: refactor.md
