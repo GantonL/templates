@@ -51,13 +51,13 @@
 				{/if}
 				{#each group.items as item (item)}
 					<DropdownMenu.Item
-						class={item.class}
+						class="group/item {item.class}"
 						disabled={item.disableIf && item.disableIf(rawData)}
 						onclick={() => event({ type: item.event, data: $state.snapshot(rawData) })}
 					>
 						<div class="flex flex-row items-center gap-2">
 							{#if item.icon}
-								<item.icon size="16" />
+								<item.icon size="16" class={item.iconClass} />
 							{/if}
 							{item.noTranlationRequired ? item.title : $t(item.title)}
 						</div>

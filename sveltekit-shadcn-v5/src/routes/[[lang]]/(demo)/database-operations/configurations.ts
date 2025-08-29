@@ -70,7 +70,8 @@ export const tableConfiguration: TableConfiguration<TableUsers> = {
 						title: 'common.delete',
 						event: 'delete',
 						icon: Trash2,
-						class: 'bg-destructive/12 text-destructive'
+						class: 'bg-destructive/12 text-destructive',
+						iconClass: 'not:group-hover/item:text-destructive'
 					}
 				]
 			}
