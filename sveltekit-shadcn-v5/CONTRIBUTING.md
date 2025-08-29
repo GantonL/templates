@@ -29,6 +29,11 @@ Thank you for your interest in contributing to this SvelteKit template! This gui
    bun run dev
    ```
 
+5. Start local database container
+  ```bash
+  bun run local:db:up
+  ```
+
 ## Development Workflow
 
 ### Code Quality
