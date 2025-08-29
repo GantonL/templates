@@ -9,3 +9,6 @@ issue_templates:
   - name: 🔧 Refactor
     description: Propose a code refactor without changing functionality
     file: refactor.md
+  - name: 🧹 Chore
+    description: Routine task or maintenance work
+    file: chore.md
