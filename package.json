@@ -1,0 +1,21 @@
+{
+  "name": "@gantonl/templates",
+  "author": {
+    "name": "Guy Lahav",
+    "url": "https://github.com/GantonL"
+  },
+  "version": "0.1.0",
+  "bin": {
+    "create": "cli/bin/create.js"
+  },
+  "type": "module",
+  "files": [
+    "cli",
+    "sveltekit-shadcn-v5"
+  ],
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "prompts": "^2.4.2",
+    "minimist": "^1.2.8"
+  }
+}

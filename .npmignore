@@ -1,0 +1,10 @@
+*README.md
+node_modules
+*.lock
+LICENCE
+CONTRIBUTING.md
+.svelte-kit
+.wrangler
+.env
+!.env.example
+dist
