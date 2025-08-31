@@ -1,0 +1,44 @@
+{
+  "templates": {
+    "sveltekit-shadcn-v5": {
+      "name": "SvelteKit + shadcn/ui v5",
+      "description": "Full-stack SvelteKit application with shadcn/ui components, Drizzle ORM, and modern tooling",
+      "tags": ["sveltekit", "shadcn", "typescript", "drizzle", "tailwind"],
+      "version": "1.0.0",
+      "features": [
+        "🎨 shadcn/ui components",
+        "💾 Drizzle ORM with Postgres",
+        "🌐 Multi-language support (i18n)",
+        "🎭 Theme switching (light/dark)",
+        "📱 Responsive design",
+        "🔍 SEO optimized",
+        "🍪 Cookie management",
+        "🧪 Vitest testing setup",
+        "📊 Data tables",
+        "🔐 Type-safe APIs"
+      ],
+      "packageManager": "bun",
+      "exclude": [
+        "node_modules",
+        ".svelte-kit/**",
+        ".wrangler/**",
+        "dist/**",
+        "build/**",
+        "*.lock",
+        "bun.lockb",
+        "yarn.lock",
+        "package-lock.json",
+        ".env",
+        "CONTRIBUTING.md",
+        "LICENSE",
+        "README.md"
+      ],
+      "postInstallSteps": [
+        "Install dependencies with your preferred package manager",
+        "Copy .env.example to .env and configure your environment",
+        "Run database migrations if needed",
+        "Start the development server"
+      ]
+    }
+  }
+}
