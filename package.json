@@ -5,8 +5,14 @@
     "url": "https://github.com/GantonL"
   },
   "version": "0.1.0",
-  "description": "Professional CLI tool for scaffolding modern web application templates",
-  "keywords": ["cli", "templates", "scaffolding", "sveltekit", "shadcn"],
+  "description": "CLI tool for scaffolding web application templates",
+  "keywords": [
+    "cli",
+    "templates",
+    "scaffolding",
+    "sveltekit",
+    "shadcn"
+  ],
   "bin": {
     "templates": "cli/index.js"
   },
