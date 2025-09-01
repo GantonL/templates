@@ -7,7 +7,6 @@ import updateNotifier from "update-notifier";
 import pc from "picocolors";
 import { loadCommands } from "./utils/command-loader.js";
 import { setupErrorHandling } from "./utils/error-handler.js";
-import { logger } from "./utils/logger.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageJson = JSON.parse(
