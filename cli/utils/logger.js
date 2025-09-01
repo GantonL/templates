@@ -1,23 +1,24 @@
-import pc from 'picocolors';
-import ora from 'ora';
+import pc from "picocolors";
+import ora from "ora";
 
 export const icons = {
-  success: '✅',
-  error: '❌',
-  warning: '⚠️',
-  info: 'ℹ️',
-  rocket: '🚀',
-  package: '📦',
-  sparkle: '✨',
-  gear: '⚙️',
-  folder: '📁',
-  file: '📄',
-  link: '🔗',
-  clock: '⏰',
-  checkmark: '✓',
-  cross: '✗',
-  arrow: '→',
-  bullet: '•'
+  success: "✅",
+  error: "❌",
+  warning: "⚠️",
+  info: "ℹ️",
+  rocket: "🚀",
+  package: "📦",
+  sparkle: "✨",
+  gear: "⚙️",
+  folder: "📁",
+  file: "📄",
+  link: "🔗",
+  clock: "⏰",
+  checkmark: "✓",
+  cross: "✗",
+  arrow: "→",
+  bullet: "•",
+  party: "🎉",
 };
 
 export const logger = {
@@ -26,23 +27,24 @@ export const logger = {
   warning: (message) => console.log(`${icons.warning} ${pc.yellow(message)}`),
   info: (message) => console.log(`${icons.info} ${pc.blue(message)}`),
   log: (message) => console.log(message),
-  
+  party: (message) => console.log(`${icons.party} ${pc.green(message)}`),
   step: (message) => console.log(`${pc.cyan(icons.arrow)} ${message}`),
   bullet: (message) => console.log(`  ${pc.dim(icons.bullet)} ${message}`),
-  
+
   title: (message) => {
     console.log();
     console.log(pc.bold(pc.magenta(message)));
-    console.log(pc.dim('─'.repeat(message.length)));
+    console.log(pc.dim("─".repeat(message.length)));
   },
-  
+
   newline: () => console.log(),
-  
-  spinner: (text) => ora({
-    text,
-    color: 'cyan',
-    spinner: 'dots'
-  })
+
+  spinner: (text) =>
+    ora({
+      text,
+      color: "cyan",
+      spinner: "dots",
+    }),
 };
 
 export const formatCommand = (command) => pc.cyan(command);

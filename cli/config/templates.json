@@ -2,20 +2,29 @@
   "templates": {
     "sveltekit-shadcn-v5": {
       "name": "SvelteKit + shadcn/ui v5",
-      "description": "Full-stack SvelteKit application with shadcn/ui components, Drizzle ORM, and modern tooling",
-      "tags": ["sveltekit", "shadcn", "typescript", "drizzle", "tailwind"],
+      "description": "Full-stack SvelteKit application starter template",
+      "tags": [
+        "sveltekit",
+        "shadcn",
+        "typescript",
+        "drizzle",
+        "tailwind",
+        "postgres"
+      ],
       "version": "1.0.0",
       "features": [
         "🎨 shadcn/ui components",
-        "💾 Drizzle ORM with Postgres",
-        "🌐 Multi-language support (i18n)",
+        "💾 A complete abstraction layer built around Drizzle ORM with Postgres",
+        "🌐 Multi-language support (i18n), RTL/LTR",
         "🎭 Theme switching (light/dark)",
         "📱 Responsive design",
         "🔍 SEO optimized",
         "🍪 Cookie management",
         "🧪 Vitest testing setup",
-        "📊 Data tables",
-        "🔐 Type-safe APIs"
+        "📊 Prebuilt components (Application Shell, data-table, utilities and more)",
+        "🔐 Type-safe APIs",
+        "📝 MDsveX support",
+        "⚖️ Pre-built legal and example pages"
       ],
       "packageManager": "bun",
       "exclude": [
@@ -36,6 +45,7 @@
       "postInstallSteps": [
         "Install dependencies with your preferred package manager",
         "Copy .env.example to .env and configure your environment",
+        "Initialize your local dev database",
         "Run database migrations if needed",
         "Start the development server"
       ]
