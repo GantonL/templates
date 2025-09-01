@@ -1,0 +1,40 @@
+{
+  "name": "@gantonl/templates",
+  "author": {
+    "name": "Guy Lahav",
+    "url": "https://github.com/GantonL"
+  },
+  "version": "0.1.0",
+  "description": "CLI tool for scaffolding web application templates",
+  "keywords": [
+    "cli",
+    "templates",
+    "scaffolding",
+    "sveltekit",
+    "shadcn"
+  ],
+  "bin": {
+    "templates": "cli/index.js"
+  },
+  "type": "module",
+  "files": [
+    "cli",
+    "sveltekit-shadcn-v5"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "prompts": "^2.4.2",
+    "fs-extra": "^11.1.1",
+    "picocolors": "^1.1.0",
+    "ora": "^8.1.0",
+    "boxen": "^8.0.1",
+    "update-notifier": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/prompts": "^2.4.9"
+  }
+}

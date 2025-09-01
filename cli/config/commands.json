@@ -1,0 +1,54 @@
+{
+  "commands": [
+    {
+      "name": "create",
+      "description": "🚀 Create a new project from template",
+      "alias": ["c", "new"],
+      "file": "create.js",
+      "args": [
+        {
+          "name": "project-name",
+          "description": "Name of the project to create",
+          "required": false
+        }
+      ],
+      "options": [
+        {
+          "flags": "-t, --template <name>",
+          "description": "Template to use"
+        },
+        {
+          "flags": "-f, --force",
+          "description": "Overwrite existing directory"
+        },
+        {
+          "flags": "--skip-install",
+          "description": "Skip package installation"
+        },
+        {
+          "flags": "--skip-git",
+          "description": "Skip git initialization"
+        }
+      ]
+    },
+    {
+      "name": "list",
+      "description": "📋 List available templates",
+      "alias": ["ls", "templates"],
+      "file": "list.js"
+    },
+    {
+      "name": "info",
+      "description": "ℹ️  Show template information",
+      "alias": ["i"],
+      "file": "info.js",
+      "args": [
+        {
+          "name": "template-name",
+          "description": "Name of the template",
+          "required": true
+        }
+      ]
+    }
+  ]
+}
