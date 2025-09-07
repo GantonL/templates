@@ -2,7 +2,7 @@ import { renderComponent } from '$lib/components/ui/data-table';
 import type { ColumnDef } from '@tanstack/table-core';
 import { Trash2, TableOfContents } from '@lucide/svelte';
 import type { TableConfiguration } from '$lib/models/table';
-import type { User } from '$lib/server/database/schema';
+import type { User } from '$lib/server/database/schemas/demo_users';
 import Avatar from '$lib/components/avatar/avatar.svelte';
 import { locale } from '$lib/i18n';
 import { Checkbox } from '$lib/components/ui/checkbox';
