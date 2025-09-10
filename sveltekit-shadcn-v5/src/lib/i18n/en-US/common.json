@@ -76,5 +76,10 @@
 	"view": "View",
 	"page": "Page",
 	"delete": "Delete",
-	"actions": "Actions"
+	"actions": "Actions",
+	"authentication": "Athentication",
+	"signin": "Sign in",
+	"signup": "Sign up",
+	"signout": "Sign out",
+	"auth_protected": "Auth protected"
 }

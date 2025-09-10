@@ -76,5 +76,10 @@
 	"view": "תצוגה",
 	"page": "עמוד",
 	"delete": "מחיקה",
-	"actions": "פעולות"
+	"actions": "פעולות",
+	"authentication": "אימות",
+	"signin": "כניסה",
+	"signup": "רישום",
+	"singout": "יציאה",
+	"auth_protected": "מוגן באימות"
 }
