@@ -10,7 +10,7 @@
 				{$session?.data?.user.name}
 			</p>
 			<button
-				on:click={async () => {
+				onclick={async () => {
 					await authClient.signOut();
 				}}
 			>
@@ -19,7 +19,7 @@
 		</div>
 	{:else}
 		<button
-			on:click={async () => {
+			onclick={async () => {
 				await authClient.signIn.social({
 					provider: 'google'
 				});

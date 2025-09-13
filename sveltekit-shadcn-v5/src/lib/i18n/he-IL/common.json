@@ -80,6 +80,6 @@
 	"authentication": "אימות",
 	"signin": "כניסה",
 	"signup": "רישום",
-	"singout": "יציאה",
+	"signout": "יציאה",
 	"auth_protected": "מוגן באימות"
 }

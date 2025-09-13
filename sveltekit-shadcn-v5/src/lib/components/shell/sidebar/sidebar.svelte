@@ -8,6 +8,7 @@
 	import { direction } from '$lib/stores';
 	import type { AvailableLocals } from '$lib/enums/available-locales';
 	import { onMount } from 'svelte';
+	import SidebarUser from './sidebar-user.svelte';
 
 	let currentPath = $derived(page.url.pathname);
 	let side = $state<'right' | 'left'>('left');
@@ -66,12 +67,11 @@
 			</Sidebar.Group>
 		{/each}
 	</Sidebar.Content>
+	<Sidebar.Separator />
 	<Sidebar.Footer>
 		<Sidebar.Menu>
 			<Sidebar.MenuItem>
-				<Sidebar.MenuButton>
-					{#snippet child({ props })}{/snippet}
-				</Sidebar.MenuButton>
+				<SidebarUser />
 			</Sidebar.MenuItem>
 		</Sidebar.Menu>
 	</Sidebar.Footer>

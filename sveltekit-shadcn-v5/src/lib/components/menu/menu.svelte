@@ -1,10 +1,11 @@
-<script lang="ts">
+<script lang="ts" generics="TMenuData">
 	import Ellipsis from '@lucide/svelte/icons/ellipsis';
 	import { Button } from '$lib/components/ui/button';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import type { MenuConfiguration } from '$lib/models/menu';
 	import { t } from '$lib/i18n';
 	import { useSidebar } from '../ui/sidebar';
+	import { direction } from '$lib/stores';
 
 	let {
 		rawData,
@@ -12,16 +13,18 @@
 		disabled,
 		event
 	}: {
-		rawData: unknown;
-		configuration: MenuConfiguration<unknown>;
+		rawData: TMenuData;
+		configuration: MenuConfiguration<TMenuData>;
 		disabled?: boolean;
-		event: (e: { type: string; data: unknown }) => void;
+		event: (e: { type: string; data: TMenuData }) => void;
 	} = $props();
+
+	const dir = $derived($direction === 'rl' ? 'rtl' : 'ltr');
 
 	const sidebar = useSidebar();
 </script>
 
-<DropdownMenu.Root>
+<DropdownMenu.Root {dir}>
 	<DropdownMenu.Trigger {disabled}>
 		{#snippet child({ props })}
 			<Button
@@ -53,7 +56,7 @@
 					<DropdownMenu.Item
 						class="group/item {item.class}"
 						disabled={item.disableIf && item.disableIf(rawData)}
-						onclick={() => event({ type: item.event, data: $state.snapshot(rawData) })}
+						onclick={() => event({ type: item.event, data: $state.snapshot(rawData) as TMenuData })}
 					>
 						<div class="flex flex-row items-center gap-2">
 							{#if item.icon}
