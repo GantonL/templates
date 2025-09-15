@@ -81,5 +81,15 @@
 	"signin": "Sign in",
 	"signup": "Sign up",
 	"signout": "Sign out",
-	"auth_protected": "Auth protected"
+	"auth_protected": "Auth protected",
+	"continue_with_google": "Continue with Google",
+	"or": "OR",
+	"already_signed_in": "You are already signed in!",
+	"as_x": "As {{user}}",
+	"signin_title": "Sign in to your account",
+	"signin_description": "Use a social provider or your own credentials",
+	"enter_email": "Enter your email",
+	"password": "Password",
+	"enter_password": "Enter your password",
+	"sign_in": "Sign in"
 }
