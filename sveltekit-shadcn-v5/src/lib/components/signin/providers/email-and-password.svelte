@@ -7,6 +7,7 @@
 	import { LoaderCircle } from '@lucide/svelte';
 	import { toast } from 'svelte-sonner';
 	const session = authClient.useSession();
+	let { redirect }: { redirect: string } = $props();
 	let email = $state('');
 	let password = $state('');
 	let isLoading = $derived($session?.isPending);
@@ -15,6 +16,7 @@
 		authClient.signIn.email({
 			email,
 			password,
+			callbackURL: redirect,
 			fetchOptions: {
 				onError: () => {
 					toast.error('Sign in failed');

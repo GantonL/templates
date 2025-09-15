@@ -5,11 +5,13 @@
 	import authClient from '$lib/client/auth/client';
 	import { t } from '$lib/i18n';
 	const session = authClient.useSession();
+	let { redirect }: { redirect: string } = $props();
 	let isLoading = $derived($session?.isPending);
 
 	async function signin() {
 		authClient.signIn.social({
 			provider: 'google',
+			callbackURL: redirect,
 			fetchOptions: {
 				onError: () => {
 					toast.error('Sign in failed');
