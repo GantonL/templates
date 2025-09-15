@@ -3,7 +3,7 @@
 	import { AppRoutes } from '$lib/client/configurations/routes';
 	import Link from '../link/link.svelte';
 	import Combobox from '../combobox/combobox.svelte';
-	import { SupportEmail } from '$lib/api/configurations/common';
+	import { Author, SupportEmail } from '$lib/api/configurations/common';
 	import { LanguageSelectorConfiguration } from './configurations/footer';
 
 	function handleLanguageChange(event: { type: string; data: string }) {
@@ -59,6 +59,7 @@
 					</div>
 				</div>
 			</div>
+			<p class="text-muted-foreground text-sm">{$t('common.built_by', { author: Author })}</p>
 		</div>
 	</div>
 </footer>

@@ -91,5 +91,6 @@
 	"enter_email": "Enter your email",
 	"password": "Password",
 	"enter_password": "Enter your password",
-	"sign_in": "Sign in"
+	"sign_in": "Sign in",
+	"built_by": "Built by {{author}}"
 }

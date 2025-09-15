@@ -91,5 +91,6 @@
 	"enter_email": "הזינו כתובת דוא״ל",
 	"password": "סיסמה",
 	"enter_password": "הזינו סיסמה",
-	"sign_in": "כניסה"
+	"sign_in": "כניסה",
+	"built_by": "נבנה ע״י {{author}}"
 }
