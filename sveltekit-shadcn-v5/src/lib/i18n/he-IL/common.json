@@ -92,5 +92,7 @@
 	"password": "סיסמה",
 	"enter_password": "הזינו סיסמה",
 	"sign_in": "כניסה",
-	"built_by": "נבנה ע״י {{author}}"
+	"built_by": "נבנה ע״י {{author}}",
+	"email_verified": "דוא״ל מאומת",
+	"last_updated": "עודכן לאחרונה"
 }

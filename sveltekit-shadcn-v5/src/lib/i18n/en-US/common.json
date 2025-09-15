@@ -92,5 +92,7 @@
 	"password": "Password",
 	"enter_password": "Enter your password",
 	"sign_in": "Sign in",
-	"built_by": "Built by {{author}}"
+	"built_by": "Built by {{author}}",
+	"email_verified": "Email verified",
+	"last_updated": "Last updated"
 }
