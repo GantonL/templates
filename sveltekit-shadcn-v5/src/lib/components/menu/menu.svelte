@@ -31,8 +31,8 @@
 				{disabled}
 				{...props}
 				variant={configuration.buttonVariant ?? 'ghost'}
-				size={configuration.label ? 'default' : 'icon'}
-				class="item-center relative flex flex-row gap-2"
+				size={configuration.label ? 'default' : (configuration.triggerSize ?? 'icon')}
+				class="item-center relative flex flex-row gap-2 {configuration.triggerParentClass}"
 			>
 				<span class="sr-only">Open menu</span>
 				{#if configuration.trigger}

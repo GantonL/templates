@@ -1,4 +1,4 @@
-import type { ButtonVariant } from '$lib/components/ui/button';
+import type { ButtonSize, ButtonVariant } from '$lib/components/ui/button';
 import type { Component } from 'svelte';
 
 export interface MenuActionItem<T = void> {
@@ -24,4 +24,6 @@ export interface MenuConfiguration<T = void> {
 	buttonVariant?: ButtonVariant;
 	trigger?: Component;
 	triggerClass?: string;
+	triggerSize?: ButtonSize;
+	triggerParentClass?: string;
 }

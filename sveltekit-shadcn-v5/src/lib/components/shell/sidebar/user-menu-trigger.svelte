@@ -11,7 +11,7 @@
 	const sidebar = useSidebar();
 </script>
 
-<div class="flex w-full items-center justify-start gap-2 px-1">
+<div class="flex w-full items-center justify-start gap-2 p-1">
 	<Avatar styleClass="w-6 h-6" id={user?.id} src={image} />
 	{#if sidebar.open}
 		<section class="flex flex-col items-start">

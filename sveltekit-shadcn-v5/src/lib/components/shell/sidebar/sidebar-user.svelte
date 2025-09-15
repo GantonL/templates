@@ -31,6 +31,8 @@
 	];
 	const configuration: MenuConfiguration<typeof user> = $derived({
 		trigger: UserMenuTrigger,
+		triggerSize: 'default',
+		triggerParentClass: 'w-full py-0 px-1 h-12',
 		groups: [
 			{
 				items: showIfUser(user) ? authUserItems : noAuthUserItems
