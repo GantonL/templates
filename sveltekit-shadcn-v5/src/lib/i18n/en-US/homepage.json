@@ -21,6 +21,10 @@
 			"title": "TypeScript",
 			"description": "Full type safety"
 		},
+		"betterAuth": {
+			"title": "better-auth",
+			"description": "Modern authentication with OAuth & email/password"
+		},
 		"postgresql": {
 			"title": "PostgreSQL",
 			"description": "Robust relational database with Drizzle ORM"
@@ -28,6 +32,10 @@
 	},
 	"features": {
 		"title": "Features",
+		"authentication": {
+			"title": "Authentication System",
+			"description": "Complete auth with better-auth, OAuth (Google), and secure email/password"
+		},
 		"appShell": {
 			"title": "Application Shell",
 			"description": "Responsive layout component with modern design patterns"

@@ -10,6 +10,7 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 - **shadcn-svelte** - Customizable UI components built on bits-ui
 - **Tailwind CSS v4** - Utility-first styling with Vite plugin
 - **TypeScript** - Full type safety throughout
+- **better-auth** - Modern authentication with OAuth & email/password support
 - **Drizzle ORM** - Type-safe SQL database toolkit
 - **PostgreSQL** - Production-ready relational database
 - **Vitest** - Fast unit testing with browser testing support
@@ -19,6 +20,7 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 ## Features
 
 ### Core Features
+- **Authentication System** - Complete auth with better-auth, OAuth (Google), and email/password
 - **Application Shell** - Responsive layout with header, footer, and sidebar navigation
 - **Theme System** - Dark/light mode with system preference detection and persistence
 - **Internationalization** - Multi-language support with RTL/LTR layouts, provided with English & Hebrew
@@ -28,6 +30,7 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 - **Configuration-Driven** - Centralized configurations for maintainable code architecture
 
 ### Database & Backend
+- **Authentication Layer** - better-auth integration with secure session management and OAuth
 - **Database Abstraction Layer** - Generic service pattern with CRUD operations
 - **Service Factory** - Singleton pattern for service management with caching
 - **Query Utilities** - URL and body parameter parsing for filtering, pagination, and sorting
@@ -43,6 +46,7 @@ Modern full-stack web application template built with SvelteKit v5, shadcn-svelt
 ## Pages & Routes
 
 - **Home (`/`)** - Landing page with feature overview and health status
+- **Authentication (`/signin`, `/signup`)** - Complete auth flow with OAuth and email/password
 - **Example (`/example`)** - Scrollable content demonstration
 - **Health (`/health`)** - System health dashboard with database status
 - **Error Pages** - Custom error boundaries and 404 handling
@@ -128,6 +132,77 @@ bun run create:md about-us.md
 
 # Create nested API controller
 bun run create:api-controller users/[user_id]/orders
+```
+
+## Authentication Architecture
+
+### better-auth Integration
+
+The template includes a complete authentication system using [better-auth](https://better-auth.com), a modern TypeScript-first authentication library with excellent SvelteKit integration.
+
+### Authentication Features
+
+- **Multiple Auth Methods** - Email/password and OAuth (Google preconfigured)
+- **Secure Session Management** - Database-backed sessions with automatic renewal
+- **Route Protection** - Middleware-based authentication for protected routes
+- **Type Safety** - Full TypeScript integration with reactive auth state
+- **Email Verification** - Built-in email verification for new accounts
+
+### Auth Configuration
+
+#### Environment Variables
+
+```bash
+BETTER_AUTH_SECRET=your-secret-key-here
+BETTER_AUTH_URL=http://localhost:5173
+
+# Required for OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Database (already configured)
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/postgres
+```
+
+#### Usage Examples
+
+```typescript
+import authClient from '$lib/client/auth/client';
+
+const session = authClient.useSession();
+```
+
+#### Server-Side Session Access
+
+```typescript
+// In load functions (+page.server.ts, +layout.server.ts)
+export async function load({ event }) {
+  const { session, user } = event.locals;
+
+  return {
+    user: user ? { name: user.name, email: user.email } : null
+  };
+}
+```
+
+### Auth Database Schema
+
+The system uses four core tables:
+- **user** - User profiles and account data
+- **session** - Active sessions with expiration
+- **account** - OAuth provider connections
+- **verification** - Email verification tokens
+
+### Route Protection
+
+Routes are automatically protected based on configuration in `src/lib/client/configurations/routes.ts`:
+
+```typescript
+// Protected by default
+{ path: '/dashboard' }
+
+// Public route
+{ path: '/about', authenticationRequired: false }
 ```
 
 ## Database Architecture
@@ -264,19 +339,29 @@ src/lib/server/database/services/tests/
 
 ```
 src/lib/
-├── server/database/
-│   ├── client.ts                # Database connection
-│   ├── schema.ts                # Drizzle schemas
-│   └── services/
-│       ├── abstract.ts          # Base service class
-│       ├── factory.ts           # Service factory
-│       ├── provider.ts          # Singleton provider
-│       ├── utils.ts             # Query utilities
-│       └── tests/               # Comprehensive test suite
+├── server/
+│   ├── database/
+│   │   ├── client.ts            # Database connection
+│   │   ├── schema.ts            # Drizzle schemas
+│   │   ├── schemas/auth.ts      # Authentication tables
+│   │   └── services/
+│   │       ├── abstract.ts      # Base service class
+│   │       ├── factory.ts       # Service factory
+│   │       ├── provider.ts      # Singleton provider
+│   │       ├── utils.ts         # Query utilities
+│   │       └── tests/           # Comprehensive test suite
+│   └── auth/
+│       ├── config.ts            # better-auth configuration
+│       └── handle.ts            # Auth middleware
+├── client/
+│   ├── auth/
+│   │   └── client.ts            # Auth client utilities
+│   └── configurations/          # Client-side configs
 ├── components/                  # UI components
 │   ├── ui/                      # shadcn-svelte components
+│   ├── signin/                  # Authentication components
+│   ├── signup/                  # Registration components
 │   └── [custom]/                # Application components
-├── client/configurations/       # Client-side configs
 ├── api/configurations/          # Server-side configs
 ├── i18n/                        # Translation files
 └── resources/markdown/          # Localized content
@@ -290,6 +375,17 @@ Create `.env.local` file for local development:
 # Database
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
 
+BETTER_AUTH_SECRET=your-secret-key-here
+BETTER_AUTH_URL=http://localhost:5173
+
+# Authentication - OAuth Providers
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+# Optional: Additional OAuth providers
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+
 # Optional: Custom database settings
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
@@ -299,6 +395,7 @@ POSTGRES_DB=postgres
 ## Roadmap
 
 ### ✅ Completed
+- **Authentication System** - Complete better-auth integration with OAuth and email/password
 - Database abstraction layer with comprehensive service pattern
 - Service factory with caching and memory management
 - Query utilities for URL/body parameter parsing
@@ -311,7 +408,7 @@ POSTGRES_DB=postgres
 - Data table components with server-side filtering
 
 ### 📅 Planned
-- **Authentication System** - JWT-based auth with role management
+- **Role-Based Access Control** - User roles and permissions system
 - **Advanced Query Builder** - Fluent interface for complex queries
 - **Database Migrations** - Automated schema management
 - **Accessibility Management** - Automated accessibility testing tools

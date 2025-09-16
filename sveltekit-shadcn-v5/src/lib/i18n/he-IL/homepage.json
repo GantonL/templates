@@ -21,6 +21,10 @@
 			"title": "TypeScript",
 			"description": "בטיחות סוגים מלאה"
 		},
+		"betterAuth": {
+			"title": "better-auth",
+			"description": "אימות מודרני עם OAuth וסיסמה/אימייל"
+		},
 		"postgresql": {
 			"title": "PostgreSQL",
 			"description": "מסד נתונים יחסי חזק עם Drizzle ORM"
@@ -28,6 +32,10 @@
 	},
 	"features": {
 		"title": "תכונות",
+		"authentication": {
+			"title": "מערכת אימות",
+			"description": "אימות מלא עם better-auth, OAuth (Google) ואימייל/סיסמה מאובטחים"
+		},
 		"appShell": {
 			"title": "מעטפת אפליקציה",
 			"description": "רכיב פריסה רספונסיבי עם דפוסי עיצוב מודרניים"

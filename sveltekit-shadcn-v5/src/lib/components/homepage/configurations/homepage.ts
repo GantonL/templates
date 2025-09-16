@@ -13,7 +13,8 @@ import {
 	Database,
 	Wrench,
 	Table,
-	PersonStanding
+	PersonStanding,
+	Shield
 } from '@lucide/svelte';
 
 export interface HomepageHeroConfig {
@@ -99,6 +100,11 @@ export const homepageConfig: HomepageConfig = {
 				icon: FileCode2
 			},
 			{
+				title: 'homepage.techStack.betterAuth.title',
+				description: 'homepage.techStack.betterAuth.description',
+				icon: Shield
+			},
+			{
 				title: 'homepage.techStack.postgresql.title',
 				description: 'homepage.techStack.postgresql.description',
 				icon: Database
@@ -108,6 +114,11 @@ export const homepageConfig: HomepageConfig = {
 	features: {
 		title: 'homepage.features.title',
 		items: [
+			{
+				title: 'homepage.features.authentication.title',
+				description: 'homepage.features.authentication.description',
+				icon: Shield
+			},
 			{
 				title: 'homepage.features.appShell.title',
 				description: 'homepage.features.appShell.description',
