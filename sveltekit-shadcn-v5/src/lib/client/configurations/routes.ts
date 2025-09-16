@@ -8,7 +8,10 @@ import {
 	AlertTriangle,
 	Settings,
 	Server,
-	DatabaseZap
+	DatabaseZap,
+	LogIn,
+	Signature,
+	Shield
 } from '@lucide/svelte';
 
 export interface GroupedRoutes {
@@ -38,12 +41,19 @@ export const AppRoutes: GroupedRoutes[] = [
 			{
 				label: 'common.manage_cookies',
 				path: '/manage-cookies',
-				icon: Cookie
+				icon: Cookie,
+				authenticationRequired: false
 			},
 			{
 				label: 'common.server_health',
 				path: '/health',
-				icon: Server
+				icon: Server,
+				authenticationRequired: false
+			},
+			{
+				label: 'common.auth_protected',
+				path: '/user',
+				icon: Shield
 			}
 		]
 	},
@@ -79,7 +89,26 @@ export const AppRoutes: GroupedRoutes[] = [
 			{
 				label: 'common.database_operations',
 				path: '/database-operations',
-				icon: DatabaseZap
+				icon: DatabaseZap,
+				authenticationRequired: false
+			}
+		]
+	},
+	{
+		title: 'common.authentication',
+		excludeFromMainMenu: true,
+		children: [
+			{
+				label: 'common.signin',
+				path: '/signin',
+				icon: LogIn,
+				authenticationRequired: false
+			},
+			{
+				label: 'common.signup',
+				path: '/signup',
+				icon: Signature,
+				authenticationRequired: false
 			}
 		]
 	}

@@ -5,6 +5,8 @@ import { AvailableLocals } from '$lib/enums/available-locales';
 interface Params {
 	year?: string;
 	number?: number;
+	user?: string;
+	author?: string;
 }
 
 /** @type {import('sveltekit-i18n').Config} */

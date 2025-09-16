@@ -4,7 +4,7 @@
 	import BasePage from '$lib/components/base-page/base-page.svelte';
 	import * as Alert from '$lib/components/ui/alert';
 	import { t } from '$lib/i18n';
-	import { type User } from '$lib/server/database/schema';
+	import { type User } from '$lib/server/database/schemas/demo_users';
 	import { CircleAlert, Info } from '@lucide/svelte';
 	import { Demo } from '../../../api';
 	import { columns, tableConfiguration } from './configurations';

@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { DbHealth, Demo } from '../../../api';
 import { GET } from '$lib/api/helpers/request';
-import type { User } from '$lib/server/database/schema';
+import type { User } from '$lib/server/database/schemas/demo_users';
 
 const usersUrl = `${Demo}/users`;
 const countUsersUrl = `${Demo}/count/users`;

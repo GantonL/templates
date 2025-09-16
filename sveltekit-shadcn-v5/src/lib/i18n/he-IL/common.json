@@ -76,5 +76,31 @@
 	"view": "תצוגה",
 	"page": "עמוד",
 	"delete": "מחיקה",
-	"actions": "פעולות"
+	"actions": "פעולות",
+	"authentication": "אימות",
+	"signin": "כניסה",
+	"signup": "רישום",
+	"signout": "יציאה",
+	"auth_protected": "מוגן באימות",
+	"continue_with_google": "המשיכו עם גוגל",
+	"or": "או",
+	"already_signed_in": "חשבונך כבר מאומת!",
+	"as_x": "בתור {{user}}",
+	"signin_title": "כנסו לחשבונכם",
+	"signin_description": "השתמשו בספק אימות או בפרטי הכניסה האישיים שלכם",
+	"enter_email": "הזינו כתובת דוא״ל",
+	"password": "סיסמה",
+	"enter_password": "הזינו סיסמה",
+	"sign_in": "כניסה",
+	"built_by": "נבנה ע״י {{author}}",
+	"email_verified": "דוא״ל מאומת",
+	"last_updated": "עודכן לאחרונה",
+	"signed_up_successfuly": "נרשמת בהצלחה",
+	"signup_title": "הירשמו ליצירת חשבון חדש",
+	"signup_description": "השתמשו בכתובת דוא״ל תקינה וסיסמה חזקה",
+	"enter_name": "הזינו שם",
+	"auth_errors": {
+		"PASSWORD_TOO_SHORT": "סיסמה איננה ארוכה מספיק",
+		"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "כבר קיים משתמש עם כתובת הדוא״ל הזאת"
+	}
 }

@@ -19,12 +19,13 @@
 		}>;
 		styleClass?: string;
 	} = $props();
-	let avatar =
+	const avatar = $derived(
 		src ??
-		createAvatar(collection ?? adventurer, {
-			size: size ?? 128,
-			seed: id ?? crypto.randomUUID()
-		}).toDataUri();
+			createAvatar(collection ?? adventurer, {
+				size: size ?? 128,
+				seed: id ?? crypto.randomUUID()
+			}).toDataUri()
+	);
 </script>
 
 <Avatar.Root class={styleClass} {id}>

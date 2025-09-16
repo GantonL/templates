@@ -1,5 +1,5 @@
 import type { RequestHandler } from './$types';
-import { UsersService as service, getUrlFilters } from '$lib/server/database/services/users';
+import { UsersService as service, getUrlFilters } from '$lib/server/database/services/demo-users';
 import { json } from '@sveltejs/kit';
 export const GET: RequestHandler = async ({ url }) => {
 	const filters = getUrlFilters(url);

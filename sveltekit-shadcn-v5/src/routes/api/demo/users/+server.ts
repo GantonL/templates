@@ -5,7 +5,7 @@ import {
 	buildCreateCandidates,
 	buildUpdateData,
 	getBodyFilters
-} from '$lib/server/database/services/users';
+} from '$lib/server/database/services/demo-users';
 import { json, type RequestHandler } from '@sveltejs/kit';
 
 export const GET: RequestHandler = async ({ url }) => {

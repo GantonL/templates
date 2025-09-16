@@ -76,5 +76,31 @@
 	"view": "View",
 	"page": "Page",
 	"delete": "Delete",
-	"actions": "Actions"
+	"actions": "Actions",
+	"authentication": "Athentication",
+	"signin": "Sign in",
+	"signup": "Sign up",
+	"signout": "Sign out",
+	"auth_protected": "Auth protected",
+	"continue_with_google": "Continue with Google",
+	"or": "OR",
+	"already_signed_in": "You are already signed in!",
+	"as_x": "As {{user}}",
+	"signin_title": "Sign in to your account",
+	"signin_description": "Use a social provider or your own credentials",
+	"enter_email": "Enter your email",
+	"password": "Password",
+	"enter_password": "Enter your password",
+	"sign_in": "Sign in",
+	"built_by": "Built by {{author}}",
+	"email_verified": "Email verified",
+	"last_updated": "Last updated",
+	"signed_up_successfuly": "Signed up successfuly",
+	"signup_title": "Sign up to create a new account",
+	"signup_description": "Use a valid email address and a strong password",
+	"enter_name": "Enter name",
+	"auth_errors": {
+		"PASSWORD_TOO_SHORT": "Password is not long enough",
+		"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User with this email already exists"
+	}
 }

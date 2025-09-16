@@ -1,5 +1,5 @@
 import type { Column } from 'drizzle-orm';
-import { Users, type UserInsert } from '../schema';
+import { Users, type UserInsert } from '../schemas/demo_users';
 import type { WhereCondition } from './abstract';
 import { provider } from './provider';
 import {
