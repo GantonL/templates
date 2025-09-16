@@ -94,5 +94,13 @@
 	"sign_in": "Sign in",
 	"built_by": "Built by {{author}}",
 	"email_verified": "Email verified",
-	"last_updated": "Last updated"
+	"last_updated": "Last updated",
+	"signed_up_successfuly": "Signed up successfuly",
+	"signup_title": "Sign up to create a new account",
+	"signup_description": "Use a valid email address and a strong password",
+	"enter_name": "Enter name",
+	"auth_errors": {
+		"PASSWORD_TOO_SHORT": "Password is not long enough",
+		"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User with this email already exists"
+	}
 }

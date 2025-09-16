@@ -52,7 +52,7 @@ export const AppRoutes: GroupedRoutes[] = [
 			},
 			{
 				label: 'common.auth_protected',
-				path: '/protected',
+				path: '/user',
 				icon: Shield
 			}
 		]

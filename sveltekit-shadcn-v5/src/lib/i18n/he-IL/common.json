@@ -94,5 +94,13 @@
 	"sign_in": "כניסה",
 	"built_by": "נבנה ע״י {{author}}",
 	"email_verified": "דוא״ל מאומת",
-	"last_updated": "עודכן לאחרונה"
+	"last_updated": "עודכן לאחרונה",
+	"signed_up_successfuly": "נרשמת בהצלחה",
+	"signup_title": "הירשמו ליצירת חשבון חדש",
+	"signup_description": "השתמשו בכתובת דוא״ל תקינה וסיסמה חזקה",
+	"enter_name": "הזינו שם",
+	"auth_errors": {
+		"PASSWORD_TOO_SHORT": "סיסמה איננה ארוכה מספיק",
+		"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "כבר קיים משתמש עם כתובת הדוא״ל הזאת"
+	}
 }

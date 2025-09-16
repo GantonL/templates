@@ -1,6 +1,6 @@
 <script lang="ts">
 	import authClient from '$lib/client/auth/client';
-	import { LogIn, LogOut, User } from '@lucide/svelte';
+	import { LogIn, LogOut, Signature, User } from '@lucide/svelte';
 	import { goto } from '$app/navigation';
 	import Menu from '$lib/components/menu/menu.svelte';
 	import type { MenuActionItem, MenuConfiguration } from '$lib/models/menu';
@@ -27,6 +27,11 @@
 			title: 'common.signin',
 			icon: LogIn,
 			event: 'signin'
+		},
+		{
+			title: 'common.signup',
+			icon: Signature,
+			event: 'signup'
 		}
 	];
 	const configuration: MenuConfiguration<typeof user> = $derived({
@@ -48,6 +53,10 @@
 			}
 			case 'signin': {
 				goto('/signin');
+				break;
+			}
+			case 'signup': {
+				goto('/signup');
 				break;
 			}
 			case 'user': {
