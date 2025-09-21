@@ -52,7 +52,7 @@
 	<Button
 		variant="outline"
 		size="icon"
-		class="fixed bottom-6 z-50 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl {$direction ===
+		class="fixed bottom-6 z-50 rounded-full shadow-lg backdrop-blur-xs transition-all duration-300 hover:shadow-xl {$direction ===
 		'lr'
 			? 'right-6'
 			: 'left-6'}"
