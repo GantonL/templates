@@ -102,5 +102,6 @@
 	"auth_errors": {
 		"PASSWORD_TOO_SHORT": "סיסמה איננה ארוכה מספיק",
 		"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "כבר קיים משתמש עם כתובת הדוא״ל הזאת"
-	}
+	},
+	"scroll_to_top": "חזרה למעלה"
 }
