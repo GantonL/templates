@@ -29,14 +29,8 @@
 
 			showButton = scrollTop > 200;
 		};
-
-		if (scrollContainer === document.documentElement) {
-			window.addEventListener('scroll', handleScroll);
-			return () => window.removeEventListener('scroll', handleScroll);
-		} else {
-			scrollContainer?.addEventListener('scroll', handleScroll);
-			return () => scrollContainer?.removeEventListener('scroll', handleScroll);
-		}
+		scrollContainer?.addEventListener('scroll', handleScroll);
+		return () => scrollContainer?.removeEventListener('scroll', handleScroll);
 	});
 
 	function scrollToTop() {
