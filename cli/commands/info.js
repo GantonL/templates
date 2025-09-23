@@ -19,7 +19,6 @@ export default async function infoCommand(templateName) {
 
     logger.title(`${icons.info} Template Information`);
 
-    // Basic info
     const infoBox = boxen(
       [
         `${pc.bold("Name:")} ${templateInfo.name}`,
@@ -38,7 +37,6 @@ export default async function infoCommand(templateName) {
 
     console.log(infoBox);
 
-    // Tags
     if (templateInfo.tags && templateInfo.tags.length > 0) {
       logger.step("Tags:");
       const tags = templateInfo.tags
@@ -48,7 +46,6 @@ export default async function infoCommand(templateName) {
       logger.newline();
     }
 
-    // Features
     if (templateInfo.features && templateInfo.features.length > 0) {
       logger.step("Features:");
       templateInfo.features.forEach((feature) => {
@@ -57,7 +54,6 @@ export default async function infoCommand(templateName) {
       logger.newline();
     }
 
-    // Post-install steps
     if (
       templateInfo.postInstallSteps &&
       templateInfo.postInstallSteps.length > 0
@@ -69,7 +65,6 @@ export default async function infoCommand(templateName) {
       logger.newline();
     }
 
-    // Usage example
     const usageBox = boxen(
       `${formatHighlight("Create project:")} templates create my-project -t ${templateName}\n${formatHighlight("With options:")} templates create my-project -t ${templateName} --force --skip-install`,
       {
