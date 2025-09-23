@@ -43,7 +43,7 @@ export const logger = {
     ora({
       text,
       color: "cyan",
-      spinner: "dots",
+      spinner: "bouncingBar",
     }),
 };
 
