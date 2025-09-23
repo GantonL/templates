@@ -115,24 +115,20 @@ export default async function createCommand(projectName, options) {
     logger.info(`Description: ${templateInfo.description}`);
     logger.newline();
 
-    const copySpinner = logger.spinner(
-      `${icons.gear} Copying template files...`,
-    );
+    const copySpinner = logger.spinner(`Copying template files...`);
     copySpinner.start();
 
     try {
       await copyTemplate(templateName, targetPath, { force: options.force });
       await processTemplateFiles(targetPath, targetDir, templateInfo);
-      copySpinner.succeed(`${icons.checkmark} Template files copied`);
+      copySpinner.succeed(`Template files copied`);
     } catch (error) {
-      copySpinner.fail(`${icons.cross} Failed to copy template`);
+      copySpinner.fail(`Failed to copy template`);
       throw error;
     }
 
     if (!options.skipGit) {
-      const gitSpinner = logger.spinner(
-        `${icons.gear} Initializing git repository...`,
-      );
+      const gitSpinner = logger.spinner(`Initializing git repository...`);
       gitSpinner.start();
 
       try {
@@ -142,9 +138,9 @@ export default async function createCommand(projectName, options) {
         execSync('git commit -m "Initial commit from template"', {
           stdio: "ignore",
         });
-        gitSpinner.succeed(`${icons.checkmark} Git repository initialized`);
+        gitSpinner.succeed(`Git repository initialized`);
       } catch (error) {
-        gitSpinner.warn(`${icons.warning} Git initialization skipped`);
+        gitSpinner.warn(`Git initialization skipped`);
       }
     }
 
