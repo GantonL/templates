@@ -4,7 +4,7 @@ import { fileURLToPath } from "url";
 import path from "path";
 import fs from "fs-extra";
 import updateNotifier from "update-notifier";
-import pc from "picocolors";
+import { typography, spacing } from "./utils/theme.js";
 import { loadCommands } from "./utils/command-loader.js";
 import { setupErrorHandling } from "./utils/error-handler.js";
 
@@ -19,7 +19,7 @@ const notifier = updateNotifier({ pkg: packageJson });
 if (notifier.update) {
   notifier.notify({
     defer: false,
-    message: `Update available ${pc.dim("{currentVersion}")} → ${pc.green("{latestVersion}")}\nRun ${pc.cyan("bun i -g {name}")} to update`,
+    message: `Update available ${typography.muted("{currentVersion}")} → ${typography.success("{latestVersion}")}\nRun ${typography.highlight("bun i -g {name}")} to update`,
   });
 }
 

@@ -1,5 +1,5 @@
-import pc from 'picocolors';
 import { logger, icons, formatHighlight } from '../utils/logger.js';
+import { tags, typography, spacing } from '../utils/theme.js';
 import { getTemplatesConfig } from '../utils/template-utils.js';
 import { handleError } from '../utils/error-handler.js';
 
@@ -18,25 +18,25 @@ export default async function listCommand() {
     logger.newline();
 
     for (const [key, template] of Object.entries(templates)) {
-      logger.log(`${formatHighlight('●')} ${pc.bold(template.name)} ${pc.dim(`(${key})`)}`);
-      logger.log(`  ${pc.dim(template.description)}`);
-      
+      logger.log(`${typography.highlight('●')} ${typography.bold(template.name)} ${typography.muted(`(${key})`)}`);
+      logger.log(`${spacing.indent}${typography.muted(template.description)}`);
+
       if (template.tags && template.tags.length > 0) {
-        const tags = template.tags.map(tag => pc.bgBlue(pc.white(` ${tag} `))).join(' ');
-        logger.log(`  ${tags}`);
+        const templateTags = template.tags.map(tag => tags.primary(tag)).join(' ');
+        logger.log(`${spacing.indent}${templateTags}`);
       }
-      
+
       if (template.features && template.features.length > 0) {
-        logger.log(`  ${pc.dim('Features:')}`);
+        logger.log(`${spacing.indent}${typography.muted('Features:')}`);
         template.features.slice(0, 3).forEach(feature => {
-          logger.bullet(pc.dim(feature));
+          logger.bullet(typography.muted(feature));
         });
-        
+
         if (template.features.length > 3) {
-          logger.bullet(pc.dim(`... and ${template.features.length - 3} more`));
+          logger.bullet(typography.muted(`... and ${template.features.length - 3} more`));
         }
       }
-      
+
       logger.newline();
     }
 

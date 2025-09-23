@@ -3,7 +3,6 @@ import path from "path";
 import fs from "fs-extra";
 import { execSync } from "child_process";
 import boxen from "boxen";
-import pc from "picocolors";
 import {
   logger,
   icons,
@@ -11,6 +10,7 @@ import {
   formatHighlight,
   formatSuccess,
 } from "../utils/logger.js";
+import { boxStyles, typography, spacing } from "../utils/theme.js";
 import { CLIError, handleError } from "../utils/error-handler.js";
 import {
   getAvailableTemplates,
@@ -177,17 +177,12 @@ export default async function createCommand(projectName, options) {
     ];
 
     const postInstallInfo = templateInfo.postInstallSteps
-      ? `\n\n${pc.dim("Additional setup steps:")}\n${templateInfo.postInstallSteps.map((step) => `  ${icons.bullet} ${step}`).join("\n")}`
+      ? `\n\n${typography.muted("Additional setup steps:")}\n${templateInfo.postInstallSteps.map((step) => `${spacing.indent}${icons.bullet} ${step}`).join("\n")}`
       : "";
 
     const successBox = boxen(
-      `${formatSuccess(`${icons.party} Ready to go!`)}\n\nNext steps:\n${nextSteps.map((step) => `  ${icons.arrow} ${step}`).join("\n")}${postInstallInfo}`,
-      {
-        padding: 1,
-        margin: 1,
-        borderStyle: "round",
-        borderColor: "green",
-      },
+      `${formatSuccess(`${icons.party} Ready to go!`)}\n\nNext steps:\n${nextSteps.map((step) => `${spacing.indent}${icons.arrow} ${step}`).join("\n")}${postInstallInfo}`,
+      boxStyles.success,
     );
 
     console.log(successBox);
