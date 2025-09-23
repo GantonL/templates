@@ -4,6 +4,6 @@
 	import UserProfileCard from '$lib/components/user-profile-card/user-profile-card.svelte';
 </script>
 
-<BasePage title="common.protected" description="seo.pages.example.description">
+<BasePage title="common.auth_protected" description="seo.pages.example.description">
 	<UserProfileCard user={page.data.user} />
 </BasePage>
