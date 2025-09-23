@@ -1,54 +1,46 @@
-import pc from "picocolors";
 import ora from "ora";
+import { icons, typography, spacing, spinnerConfig } from "./theme.js";
 
-export const icons = {
-  success: "✅",
-  error: "❌",
-  warning: "⚠️",
-  info: "ℹ️",
-  rocket: "🚀",
-  package: "📦",
-  sparkle: "✨",
-  gear: "⚙️",
-  folder: "📁",
-  file: "📄",
-  link: "🔗",
-  clock: "⏰",
-  checkmark: "✓",
-  cross: "✗",
-  arrow: "→",
-  bullet: "•",
-  party: "🎉",
-};
+export { icons } from "./theme.js";
 
 export const logger = {
-  success: (message) => console.log(`${icons.success} ${pc.green(message)}`),
-  error: (message) => console.log(`${icons.error} ${pc.red(message)}`),
-  warning: (message) => console.log(`${icons.warning} ${pc.yellow(message)}`),
-  info: (message) => console.log(`${icons.info} ${pc.blue(message)}`),
+  // Status messages
+  success: (message) => console.log(`${icons.success} ${typography.success(message)}`),
+  error: (message) => console.log(`${icons.error} ${typography.error(message)}`),
+  warning: (message) => console.log(`${icons.warning} ${typography.warning(message)}`),
+  info: (message) => console.log(`${icons.info} ${typography.highlight(message)}`),
   log: (message) => console.log(message),
-  party: (message) => console.log(`${icons.party} ${pc.green(message)}`),
-  step: (message) => console.log(`${pc.cyan(icons.arrow)} ${message}`),
-  bullet: (message) => console.log(`  ${pc.dim(icons.bullet)} ${message}`),
 
+  // Special messages
+  party: (message) => console.log(`${icons.party} ${typography.success(message)}`),
+  step: (message) => console.log(`${typography.highlight(icons.arrow)} ${message}`),
+  bullet: (message) => console.log(`${spacing.indent}${typography.muted(icons.bullet)} ${message}`),
+
+  // Typography
   title: (message) => {
-    console.log();
-    console.log(pc.bold(pc.magenta(message)));
-    console.log(pc.dim("─".repeat(message.length)));
+    spacing.newline();
+    console.log(typography.title(message));
+    console.log(spacing.separator(message.replace(/\p{Emoji}/gu, '').trim().length));
   },
 
-  newline: () => console.log(),
+  subtitle: (message) => {
+    console.log(typography.subtitle(message));
+  },
 
-  spinner: (text) =>
-    ora({
-      text,
-      color: "cyan",
-      spinner: "bouncingBar",
-    }),
+  // Layout
+  newline: spacing.newline,
+
+  // Loading states
+  spinner: (text) => ora({
+    text,
+    color: spinnerConfig.color,
+    spinner: spinnerConfig.spinner,
+  }),
 };
 
-export const formatCommand = (command) => pc.cyan(command);
-export const formatPath = (path) => pc.dim(path);
-export const formatHighlight = (text) => pc.yellow(text);
-export const formatSuccess = (text) => pc.green(text);
-export const formatError = (text) => pc.red(text);
+// Formatter functions using theme typography
+export const formatCommand = typography.command;
+export const formatPath = typography.path;
+export const formatHighlight = typography.highlight;
+export const formatSuccess = typography.success;
+export const formatError = typography.error;
