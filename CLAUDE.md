@@ -15,14 +15,6 @@ bun link                    # Link globally for testing
 templates --help            # Test global command
 ```
 
-### Template Development (sveltekit-shadcn-v5)
-```bash
-# Development
-bun run dev                     # Start dev server
-bun run build                   # Build for production
-bun run check                   # Type checking
-bun run lint && bun run format  # Code quality
-
 ## Architecture
 
 This is a **template scaffolding CLI tool** with two main components:

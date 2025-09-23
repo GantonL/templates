@@ -27,10 +27,8 @@ export default async function createCommand(projectName, options) {
     let targetDir = projectName;
     let templateName = options.template;
 
-    // Get available templates
     const availableTemplates = await getAvailableTemplates();
 
-    // Prompt for project name if not provided
     if (!targetDir) {
       const response = await prompts({
         type: "text",
@@ -57,7 +55,6 @@ export default async function createCommand(projectName, options) {
 
     validateProjectName(targetDir);
 
-    // Prompt for template if not provided
     if (!templateName) {
       const templateChoices = await Promise.all(
         availableTemplates.map(async (name) => {
@@ -86,7 +83,6 @@ export default async function createCommand(projectName, options) {
       templateName = response.template;
     }
 
-    // Validate template exists
     if (!availableTemplates.includes(templateName)) {
       throw new CLIError(
         `Template "${templateName}" not found. Available: ${availableTemplates.join(", ")}`,
@@ -96,7 +92,6 @@ export default async function createCommand(projectName, options) {
     const templateInfo = await getTemplateInfo(templateName);
     const targetPath = path.resolve(targetDir);
 
-    // Check if directory exists
     if (await fs.pathExists(targetPath)) {
       if (!options.force) {
         const response = await prompts({
@@ -115,13 +110,11 @@ export default async function createCommand(projectName, options) {
       await fs.remove(targetPath);
     }
 
-    // Show template info
     logger.newline();
     logger.info(`Template: ${formatHighlight(templateInfo.name)}`);
     logger.info(`Description: ${templateInfo.description}`);
     logger.newline();
 
-    // Copy template
     const copySpinner = logger.spinner(
       `${icons.gear} Copying template files...`,
     );
@@ -136,7 +129,6 @@ export default async function createCommand(projectName, options) {
       throw error;
     }
 
-    // Initialize git if not skipped
     if (!options.skipGit) {
       const gitSpinner = logger.spinner(
         `${icons.gear} Initializing git repository...`,
@@ -156,7 +148,6 @@ export default async function createCommand(projectName, options) {
       }
     }
 
-    // Install dependencies if not skipped
     if (!options.skipInstall) {
       const packageManager = templateInfo.packageManager || "npm";
       const installSpinner = logger.spinner(
@@ -176,7 +167,6 @@ export default async function createCommand(projectName, options) {
       }
     }
 
-    // Success message with next steps
     logger.newline();
     logger.success("Project created successfully!");
 

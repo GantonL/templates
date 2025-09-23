@@ -24,7 +24,8 @@
         "📊 Prebuilt components (Application Shell, data-table, utilities and more)",
         "🔐 Type-safe APIs",
         "📝 MDsveX support",
-        "⚖️ Pre-built legal and example pages"
+        "⚖️ Pre-built legal and example pages",
+        "🔑 Authentication layer built with better-auth"
       ],
       "packageManager": "bun",
       "exclude": [
