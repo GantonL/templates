@@ -11,7 +11,7 @@ const markdownsLocation = 'src/lib/resources/markdown';
 const locales = await getSubdirectories(markdownsLocation);
 const fileContent = getFileContent();
 for await (const locale of locales) {
-	const path = `${markdownsLocation}/${locale}/${inputPath}`;
+	const path = `${markdownsLocation}/${locale}/${inputPath}.md`;
 	await Bun.write(path, fileContent);
 }
 if (locales?.length > 0) {
