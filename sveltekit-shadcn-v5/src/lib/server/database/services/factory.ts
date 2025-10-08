@@ -14,7 +14,7 @@ export class ServiceFactory {
 	getService<TTable extends PgTable>(table: TTable): AbstractService<TTable> {
 		if (!table) throw Error('Invalid table');
 
-		const cacheKey = (table as never)[Symbol('drizzle:Name')] as string;
+		const cacheKey = (table as never)[Symbol.for('drizzle:Name')] as string;
 
 		if (!this.services.has(cacheKey)) {
 			this.services.set(cacheKey, new AbstractService<TTable>(this.db, table));
