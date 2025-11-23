@@ -3,6 +3,7 @@
 	import { t } from '$lib/i18n';
 	import { type EmptyResultsConfiguration } from '$lib/models/common';
 	import { CircleOff } from '@lucide/svelte';
+	import { untrack } from 'svelte';
 
 	const baseConfiguration: EmptyResultsConfiguration = {
 		label: 'common.no_results',
@@ -16,10 +17,12 @@
 		configuration?: EmptyResultsConfiguration;
 	} = $props();
 	$effect.pre(() => {
-		configuration = {
-			...baseConfiguration,
-			...configuration
-		};
+		untrack(() => {
+			configuration = {
+				...baseConfiguration,
+				...configuration
+			};
+		});
 	});
 </script>
 
