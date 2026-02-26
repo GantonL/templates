@@ -1,4 +1,4 @@
-import { fileURLToPath } from "url";
+import { fileURLToPath, pathToFileURL } from "url";
 import path from "path";
 import fs from "fs-extra";
 import { CLIError } from "./error-handler.js";
@@ -27,7 +27,7 @@ async function loadCommand(program, config) {
     throw new CLIError(`Command file not found: ${config.file}`);
   }
 
-  const commandModule = await import(commandPath);
+  const commandModule = await import(pathToFileURL(commandPath).href);
 
   if (!commandModule.default || typeof commandModule.default !== "function") {
     throw new CLIError(`Invalid command module: ${config.file}`);
