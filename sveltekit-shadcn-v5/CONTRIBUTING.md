@@ -53,7 +53,7 @@ bun run test:server
 
 ### Project Structure
 
-This template follows a configuration-driven architecture. Please review the [CLAUDE.md](./CLAUDE.md) file for detailed project structure and guidelines.
+This template follows a configuration-driven architecture. Please review the [README.md](./README.md) file for detailed project structure and guidelines.
 
 Key principles:
 - **Configuration-driven**: Keep components flexible through configuration objects
@@ -168,7 +168,7 @@ This is a **template repository** meant for starting new projects. Consider:
 ## Getting Help
 
 - Review existing issues and discussions
-- Check the [CLAUDE.md](./CLAUDE.md) for project guidance
+- Check the [README.md](./README.md) for project guidance
 - Ask questions in issues or discussions
 
 ## Code of Conduct
